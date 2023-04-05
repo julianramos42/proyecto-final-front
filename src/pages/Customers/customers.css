@@ -11,6 +11,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 .cont-title-customers{
     display: flex;
@@ -95,6 +96,7 @@
 }
 .allPerson{
     display: none;
+    background-color: rgb(245, 245, 245);
 }
 @media (min-width: 320px) and (max-width: 867px) {
     .cont-title-customers h2{
