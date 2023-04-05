@@ -1,0 +1,33 @@
+.Header_Home{
+    background-color: #F2F4F3;
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vh;
+    border-bottom: 1px solid #989998;
+}
+
+.logo{
+    width: 129px;
+    height: 38px;
+}
+
+.cont_headerHome{
+    width: 40vw;
+    height: 4.4vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 16px;
+    gap: 28px;
+}
+
+.cont_BtnSing{
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}

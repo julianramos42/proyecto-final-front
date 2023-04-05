@@ -1,0 +1,36 @@
+.Body_Home{
+    background-image: url('../../images/img-home.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:bottom;
+    height: 94vh;
+}
+
+.cont_infoHome{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.8vh 1.4vh;
+    gap: 20px;
+    width: 51vw;
+    height: 36vh;
+    padding-left: 15vh;
+    padding-top: 20vh;
+}
+
+.text1{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.text2{
+    width: 450px;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 61px;
+    display: flex;
+    align-items: center;
+}
