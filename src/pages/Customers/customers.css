@@ -31,41 +31,20 @@
 }
 .carta-names{
     width: 33%;
-    height: 70%;
+    height: 0%;
     display: flex;
     flex-direction: column;
     height: 80%;
 }
 .cont-textos{
     margin-top: 30px;
-    height: 30%;
+    height: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.img1{
-    border-radius: 15px;
-    height: 50%;
-    background-image: url("../../images/persona11.png");
-    background-size: cover;
-    background-position: center;
-}
-.img2{
-    border-radius: 15px;
-    height: 50%;
-    background-image: url("../../images/persona21.png");
-    background-size: cover;
-    background-position: center;
-}
-.img3{
-    border-radius: 15px;
-    height: 50%;
-    background-image: url("../../images/persona31.png");
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 5px;
-}
+
 .estrella{
     width: 40px;
     height: 40px;
@@ -80,7 +59,43 @@
     font-weight: 500;
     min-width: 90%;
 }
+.controls{
+    display: none;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    margin-top: 120px;
+}
+.prev-btn{
+    width: 25px;
+    height: 50px;
+    position: relative;
+    background-color: rgba(148, 148, 148, 0.397);
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+    color: black;
+}
+.next-btn{
+    width: 25px;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(148, 148, 148, 0.397);
+    color: black;
+}
 
+.img-persona{
+    width: 100%;
+    border-radius: 10px;
+}
+.allPerson{
+    display: none;
+}
 @media (min-width: 320px) and (max-width: 867px) {
     .cont-title-customers h2{
     font-size: 2.5rem;
@@ -117,24 +132,52 @@
         width: 20px;
         height: 20px;
     }
+    .controls{
+        display: flex;
+    }
+}
+@media (min-width: 320px) and (max-width: 398px) {
+    .prev-btn{
+        width: 25px;
+        height: 50px;
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.808);
+        font-size: 30px;
+        border: none;
+        border-radius: 10px;
+        color: black;
+    }
+    .next-btn{
+        width: 25px;
+        height: 50px;
+        position: absolute;
+        right: 0;
+        font-size: 30px;
+        border: none;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.808);
+        color: black;
+    }
 }
 @media (min-width: 868px) and (max-width: 1025px) {
+    .cont-title-customers {
+        height: 200px;
+    }
     .cont-title-customers h2{
-    font-size: 3.5rem;
+    font-size: 3rem;
     width: 100%;
     text-align: center;
     }
     .cont-names{
     flex-direction: column;
     width: 100%;
-    height: 130rem;
     align-items: center;
     gap: 0;
     padding: 10px;
     }
     .carta-names{
-    width: 500px;
-    height: 650px;
+    width: 400px;
+    height: 600px;
     }
     .name{
         font-size: 2rem;
@@ -154,11 +197,19 @@
         width: 30px;
         height: 30px;
     }
+    .controls{
+        display: flex;
+        max-width: 500px;
+        margin-top: 170px;
+    }
 }
 
-@media (min-width: 1026px) and (max-width: 1600px) {
+@media (min-width: 1026px) and (max-width: 4600px) {
+    .customers{
+        display: none;
+    }
     .cont-title-customers h2{
-    font-size: 3.5rem;
+    font-size: 4rem;
     width: 100%;
     text-align: center;
     }
@@ -167,12 +218,16 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 2%;
     padding: 10px;
     }
     .carta-names{
-    width: 30%;
+    max-width: 350px;
     height: 550px;
+    }
+    .img-persona{
+        height: 300px;
+        object-fit: cover;
     }
     .name{
         font-size: 2rem;
@@ -196,5 +251,18 @@
     }
     .img3{
         margin-bottom: 0;
+    }
+    .controls{
+        display: none;
+    }
+    .cont-title-customers{
+        background-color: transparent;
+        height: 300px
+    }
+    .allPerson{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-height: 100vh;
     }
 }      
