@@ -1,0 +1,58 @@
+.auth-modal .register-form .register-text .fieldset{
+    border-radius: 10px;
+    background-color: #EBEBEB;
+    display: flex;
+    width: 384px;
+    height: 48px;
+}
+
+.auth-modal .register-form .register-text .fieldset legend{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0 5px;
+    padding: 0 2px;
+    padding-bottom: 5px;
+    background: linear-gradient(180deg, #495464 0%, #000000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.auth-modal .register-form .register-text .fieldset .input-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 7px;
+}
+
+.auth-modal .register-form .register-text .fieldset .input-container input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(31, 31, 31, 0.6);
+    width: 90%;
+}
+
+.auth-modal .register-form .register-text .fieldset .input-container img{
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 400px){
+    .auth-modal .register-form .register-text .fieldset{
+        width: 300px;
+    }
+}
+
+@media (min-width:769px) and (max-height: 700px){
+    .auth-modal .register-form .register-text .fieldset .input-container{
+        height: 27px;
+    }
+    .auth-modal .register-form .register-text .fieldset .input-container input{
+        height: 70%;
+    }
+}
