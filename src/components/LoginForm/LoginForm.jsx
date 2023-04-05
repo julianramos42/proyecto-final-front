@@ -44,7 +44,7 @@ export default function LoginForm({setRenderModal}) {
                 res.data.user.is_seller ? (seller = true) : (seller = false)
                 localStorage.setItem('token',res.data.token)
                 localStorage.setItem('user',JSON.stringify({
-                    id: res.data.user._id,
+                    // id: res.data.user._id,
                     name: res.data.user.name,
                     mail: res.data.user.mail,
                     photo: res.data.user.photo,
