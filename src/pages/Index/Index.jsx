@@ -9,7 +9,7 @@ export default function Index() {
     // </div>
     <>
     <Home/>
-    <About/>
+    {/* <About/> */}
     </>
   )
 }

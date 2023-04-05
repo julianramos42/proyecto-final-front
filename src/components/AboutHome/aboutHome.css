@@ -82,13 +82,13 @@
         padding-bottom: 0;
     }
     .cont-text{
-        width: 50vw;
+        width: 70vw;
         height: 20vh; 
     }
     .text_about{
         font-weight: 600;
-        font-size: 20px;
-        line-height: 24px;
+        font-size: 25px;
+        line-height: 30px;
     }
     
 }

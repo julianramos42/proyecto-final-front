@@ -18,3 +18,12 @@
     color: #000; 
     text-decoration: underline;
   }
+
+@media (max-width:1023px){
+  
+  .btn_nav {
+    font-size: 18px;
+  }
+
+}
+
