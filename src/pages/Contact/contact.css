@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contenedor-contacto{
+    background-color: rgb(247, 247, 247);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.cont-contact{
+    width: 43%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cont-images{
+    width: 57%;
+    height: 100%;
+    background-color: #EBEDEC;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 18px;
+    padding: 15px 0 15px 0;
+}
+.cont-img1{
+    width: 97%;
+    display: flex;
+    gap: 18px;
+    height: 33%;
+    background-image: url("../../images/fotoContact1.png");
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.cont-img{
+    width: 97%;
+    display: flex;
+    gap: 18px;
+    height: 33%;
+}
+.cont-1{
+    background-image: url("../../images/joyeria1.png");
+    width: 30%;
+    background-size: cover;
+    border-radius: 10px;
+}
+.cont-2{
+    width: 70%;
+    background-image: url("../../images/ropa1.png");
+    background-size: cover;
+    border-radius: 10px;
+}
+.cont-3{
+    width: 65%;
+    background-image: url("../../images/zapatos1.png");
+    background-size: cover;
+    border-radius: 10px;
+}
+.cont-4{
+    width: 35%;
+    background-image: url("../../images/muebles1.png");
+    background-size: cover;
+    border-radius: 10px;
+}
+.cont-title-contact{
+    height: 35%;
+    width: 70%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.cont-title-contact h1{
+    font-size: 5.5rem;
+}
+.cont-info-contact{
+    display: flex;
+    flex-direction: column;
+    height: 65%;
+    width: 70%;
+    gap: 30px;
+}
+
+.details-contact{
+    height: 33%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title-info{
+    font-size: 2rem;
+    font-weight: 650;
+}
+
+.info{
+    font-size: 1.5rem;
+    font-weight: 500;
+    width: 250px;
+    color: black;
+    text-decoration: none;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .cont-images{
+        display: none;
+    }
+    .cont-title-contact h1{
+        font-size: 3.5rem;
+        margin-left: 10%;
+    }
+    .cont-contact{
+        background: linear-gradient(#ffffff, #f3f3f3f8,#fafafa00);
+        width: 100%;
+    }
+    .contenedor-contacto{
+        background-image: url("../../images/Frame57.png");
+        background-position: top;
+        background-size: cover;
+    }
+    .title-info{
+        font-size: 1.5rem;
+    }
+    .info{
+        font-size: 1.2rem;
+    }
+    .cont-title-contact{
+        width: 100%;
+    }
+    .details-contact{
+        height: 20%;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .cont-images{
+        width: 55;
+    }
+    .cont-title-contact h1{
+        font-size: 3.5rem;
+        margin-left: 10%;
+    }
+    .cont-contact{
+        width: 45%;
+    }
+    .title-info{
+        font-size: 1.5rem;
+    }
+    .info{
+        font-size: 1.2rem;
+    }
+    .cont-title-contact{
+        width: 100%;
+    }
+    .cont-img1{
+        gap: 0;
+        width: 100%;
+    }
+    .cont-img{
+        gap: 4px;
+        width: 100%;
+    }
+    .cont-images{
+        gap:4px;
+        padding: 5px;
+    }
+    .details-contact{
+        height: 25%;
+    }
+}
