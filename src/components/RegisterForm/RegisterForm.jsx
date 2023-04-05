@@ -68,7 +68,7 @@ export default function RegisterForm() {
                 <img src={register} alt='register-img' />
             </div>
             <div className='register-text'>
-                <h2>Sign Up</h2>
+                <h2>Register</h2>
                 <RegisterFieldsets />
                 <SignBtn text='Sign Up' />
                 {/* ACA PONER BOTON GOOGLE */}
