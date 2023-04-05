@@ -3,12 +3,18 @@ import "./storesview.css";
 import NavBarStores from "../../components/NavBarStores/NavBarStores";
 import CardStoreView from "../../components/CardStoreView/CardStoreView";
 import { Delete } from "../../components/Icons/Icons";
+import { useSelector } from 'react-redux'
+import Auth from '../../components/Auth/Auth'
 
 export default function StoresView() {
+  let modalState = useSelector(store => store.modalFormReducer.state)
+  
   return (
     <>
       <NavBarStores />
       <div className="containerContent">
+        {modalState === 'register' ? <Auth /> : <></>}
+        {modalState === 'login' ? <Auth /> : <></>}
         <div className="containerCategories">
           <select>
             <option value="Clothing and Accessories">

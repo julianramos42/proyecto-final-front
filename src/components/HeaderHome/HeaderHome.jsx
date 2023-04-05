@@ -128,8 +128,8 @@ export default function HeaderHome() {
         </div>
         <div className='cont_headerHome'>
           <AnchorsHome name='Home' class={activeButton === 'Home' ? 'btn_nav active' : 'btn_nav'} onClick={() => setActiveButton('Home')} />
+          <Anchor to='/shops' className={activeButton === 'Stores' ? 'btn_nav active' : 'btn_nav'} onClick={() => setActiveButton('Stores')} >Stores</Anchor>
           <Anchor className={activeButton === 'About Us' ? 'btn_nav active' : 'btn_nav'} onClick={handleAboutUs}>About Us</Anchor>
-          <AnchorsHome name='Stores' class={activeButton === 'Stores' ? 'btn_nav active' : 'btn_nav'} onClick={() => setActiveButton('Stores')} />
           <Anchor className={activeButton === 'Stories' ? 'btn_nav active' : 'btn_nav'} onClick={handleCustomer}>Stories</Anchor>
           <Anchor className={activeButton === 'Contact' ? 'btn_nav active' : 'btn_nav'} onClick={handleContact}>Contact</Anchor>
         </div>
@@ -168,7 +168,7 @@ export default function HeaderHome() {
               </Anchor>
             </div>
             <div className='nav-btn'>
-              <Anchor className='a-btn' >
+              <Anchor className='a-btn' to='/shops' >
                 <ShoppingBagRoundedIcon />
                 Stores
               </Anchor>

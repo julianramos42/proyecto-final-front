@@ -2,12 +2,18 @@ import React from "react";
 import NavBarStores from "../../components/NavBarStores/NavBarStores";
 import "./mystore.css";
 import { Delete, UpLoad } from "../../components/Icons/Icons";
+import { useSelector } from 'react-redux'
+import Auth from '../../components/Auth/Auth'
 
 export default function MyStore() {
+  let modalState = useSelector(store => store.modalFormReducer.state)
+
   return (
     <>
       <NavBarStores />
       <div className="containerContent">
+        {modalState === 'register' ? <Auth /> : <></>}
+        {modalState === 'login' ? <Auth /> : <></>}
         <div className="myStoreBanner">
           <span className="containerBannerMyStore">
             <img src="./Banner.jpg" alt="" />
@@ -24,7 +30,7 @@ export default function MyStore() {
           </span>
           <span className="buttonsContainer">
             <div className="buttonEditBanner">
-              <UpLoad/>
+              <UpLoad />
               Edit Banner
             </div>
             <div className="buttonDeleteAll">Delete All</div>
