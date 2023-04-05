@@ -52,6 +52,9 @@ export default function LoginForm({setRenderModal}) {
                     seller
                 }))
                 toast.success(res.data.message)
+                setTimeout( () => {
+                    dispatch(renderModal({state: ''}))
+                },1500)
             })
         } catch (error) {
             if (error.code === "ERR_NETWORK") {

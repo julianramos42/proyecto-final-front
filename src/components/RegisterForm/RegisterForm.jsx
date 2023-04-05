@@ -37,9 +37,14 @@ export default function RegisterForm() {
         }
 
         let url = 'http://localhost:8080/auth/signup'
-
+        
         try {
-            await axios.post(url, data).then(res => toast.success(res.data.message))
+            await axios.post(url, data).then(res => {
+                toast.success(res.data.message)
+                setTimeout( () => {
+                    dispatch(renderModal({state: 'login'}))
+                },1500)
+            })
         } catch (error) {
             if (error.code === "ERR_NETWORK") {
                 toast.error('Network Error')
