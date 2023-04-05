@@ -12,6 +12,10 @@
     color: #FFFFFF;
 }
 
+.btn_sign:hover{
+    cursor:pointer
+}
+
 @media(max-width:1023px){
     .btn_sign{
         font-size: 11px;

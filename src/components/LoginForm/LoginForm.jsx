@@ -39,7 +39,7 @@ export default function LoginForm({setRenderModal}) {
         let seller
         try {
             await axios.post(url, data).then(res => {
-                console.log(res)
+                
                 res.data.user.is_admin ? (admin = true) : (admin = false)
                 res.data.user.is_seller ? (seller = true) : (seller = false)
                 localStorage.setItem('token',res.data.token)

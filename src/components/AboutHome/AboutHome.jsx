@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './aboutHome.css'
 import Diseño from '../../images/Diseño.jpg'
 import BtnAnchor from '../BtnAnchor/BtnAnchor'
+import { useRef } from 'react'
+import { useDispatch } from 'react-redux'
+import refAboutActions from '../../store/RefAbout/actions'
+
+const {refAbout} = refAboutActions
 
 export default function AboutHome() {
+  let AboutRef = useRef()
+
+  const dispatch = useDispatch()
+
+  useEffect( () => {
+    dispatch(refAbout({reference: AboutRef}))
+  },[])
+
   return (
-    <div className='AboutHome'>
+    <div className='AboutHome' ref={AboutRef}>
 
         <div className='cont-title'>
-            <h2 className='title-about'>Meet me</h2>
+            <h2 className='title-about' id='about'>Meet me</h2>
             <img className='img-about' src={Diseño} alt="" />
         </div>
         <div className='cont-infoAbout'>
