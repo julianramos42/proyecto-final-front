@@ -1,13 +1,12 @@
 import React from 'react'
-import Contact from '../Contact/Contact'
-import Customers from '../Customers/Customers'
-
+import Contact from '../../components/Contact/Contact'
+import Customers from '../../components/Customers/Customers'
 
 export default function ContactCustoms() {
     return (
         <>
-            <Contact/>
             <Customers/>
+            <Contact/>
         </>
     )
 }
