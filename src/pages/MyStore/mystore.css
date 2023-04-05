@@ -1,0 +1,137 @@
+.myStoreBanner {
+  width: 95%;
+  height: 30%;
+}
+
+.containerBannerMyStore img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.profileImageMyStore {
+  width: 13rem;
+  height: 13rem;
+  position: relative;
+}
+
+.profileImageMyStore img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 100%;
+  border: 3px solid white;
+  position: absolute;
+  margin-left: 2rem;
+  transform: translateY(-70%);
+}
+
+.viewContentMyStore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 95%;
+  height: 70%;
+  border-radius: 12px;
+  background: #d9d9d9;
+}
+
+.infoMyStore {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  height: 5rem;
+  margin-top: 3rem;
+}
+
+.containerInfoMyStore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.storeName {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1.5rem;
+}
+
+.containerCardsMyStore {
+  width: 90%;
+}
+
+.buttonDeleteAll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  color: white;
+  background: #495464;
+  width: 10rem;
+  height: 2rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.buttonDeleteAll:hover {
+  background: #353f4d;
+}
+.buttonEditBanner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  color: white;
+  background: #495464;
+  width: 10rem;
+  height: 2rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.buttonEditBanner:hover {
+  background: #353f4d;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .storeName {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .buttonsContainer {
+    justify-content: flex-end;
+  }
+
+  .buttonEditBanner {
+    width: 100%;
+    font-size: 0.7rem;
+  }
+
+  .buttonDeleteAll {
+    width: 100%;
+    font-size: 0.7rem;
+  }
+
+  .profileImageMyStore img{
+    width: 70%;
+    height: 70%;
+  }
+}

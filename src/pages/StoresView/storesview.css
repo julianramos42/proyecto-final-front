@@ -1,0 +1,99 @@
+.containerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e4e4e4;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  border-radius: 12px 0px 0px 12px;
+  height: 90vh;
+  gap: 1rem;
+}
+
+.deleteIcon > svg {
+  color: white;
+  font-size: 3vh;
+}
+
+.containerCategories {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  height: 4rem;
+  background: #495464;
+  border-radius: 12px;
+  width: 90%;
+}
+
+select {
+  color: #ffffff;
+  background-color: #495464;
+  border: 1px solid #ffffff;
+  padding: 5px;
+  border-radius: 4px;
+  width: 15rem;
+  height: 2.5rem;
+  outline: none;
+  cursor: pointer;
+}
+
+select::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: #f5f5f5;
+}
+
+select::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 1px solid #f5f5f5;
+  background-color: #c4c4c4;
+}
+
+select::-webkit-scrollbar-thumb:hover {
+  background-color: #a0a0a0;
+}
+
+option {
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #495464;
+}
+
+.deleteIcon {
+  cursor: pointer;
+}
+.deleteIcon > svg:hover {
+  color: rgb(211, 211, 211);
+}
+
+.containerCardsStores {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #d7d7d7;
+  width: 90%;
+  min-height: 50%;
+  overflow: scroll;
+  overflow-x: hidden;
+  border-radius: 16px;
+}
+
+.alignCards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 80%;
+  height: 100%;
+}
+
+@media (min-width: 320px) and (max-width: 661px) {
+  select {
+    width: 70%;
+  }
+}
