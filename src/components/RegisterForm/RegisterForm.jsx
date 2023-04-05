@@ -8,8 +8,14 @@ import GoBackToHome from '../GoBackToHome/GoBackToHome'
 import { useRef } from 'react'
 import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
+import modalActions from '../../store/ModalForm/actions.js'
+import { useDispatch } from 'react-redux'
+
+const {renderModal} = modalActions
 
 export default function RegisterForm() {
+    const dispatch = useDispatch()
+
     let formData = useRef()
 
     async function handleSignUp(e) {
@@ -32,12 +38,12 @@ export default function RegisterForm() {
 
         let url = 'http://localhost:8080/auth/signup'
 
-        try{
+        try {
             await axios.post(url, data).then(res => toast.success(res.data.message))
-        }catch (error) {
-            if(error.code === "ERR_NETWORK"){
+        } catch (error) {
+            if (error.code === "ERR_NETWORK") {
                 toast.error('Network Error')
-            }else{
+            } else {
                 if (typeof error.response.data.message === 'string') {
                     toast.error(error.response.data.message)
                 } else {
@@ -45,6 +51,10 @@ export default function RegisterForm() {
                 }
             }
         }
+    }
+    
+    function handleRender(){
+        dispatch(renderModal({state: 'login'}))
     }
 
     return (
@@ -57,7 +67,7 @@ export default function RegisterForm() {
                 <RegisterFieldsets />
                 <SignBtn text='Sign Up' />
                 {/* ACA PONER BOTON GOOGLE */}
-                <p>Already have an account? <Anchor className='link'>Log in</Anchor></p>
+                <p>Already have an account? <Anchor className='link' onClick={handleRender}>Log in</Anchor></p>
                 <GoBackToHome />
             </div>
             <Toaster

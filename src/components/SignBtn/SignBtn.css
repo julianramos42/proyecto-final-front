@@ -1,4 +1,4 @@
-.auth-modal .register-form .register-text .sign-btn{
+.auth-modal .sign-btn{
     text-decoration: none;
     color: #FFF;
     background: linear-gradient(153.39deg, #BBBFCA -13.9%, #495464 58.69%);
@@ -10,16 +10,17 @@
     justify-content: center;
     align-items: center;
     border: 1px solid black;
+    cursor: pointer;
 }
 
 @media (max-width: 400px){
-    .auth-modal .register-form .register-text .sign-btn{
+    .auth-modal .sign-btn{
         width: 300px;
     }
 }
 
 @media (min-width:769px) and (max-height: 675px){
-    .auth-modal .register-form .register-text .sign-btn{
+    .auth-modal .sign-btn{
         height: 48px;
     }
 }
