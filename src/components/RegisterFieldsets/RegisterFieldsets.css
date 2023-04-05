@@ -41,3 +41,18 @@
     width: 16px;
     height: 16px;
 }
+
+@media (max-width: 400px){
+    .auth-modal .register-form .register-text .fieldset{
+        width: 300px;
+    }
+}
+
+@media (min-width:769px) and (max-height: 700px){
+    .auth-modal .register-form .register-text .fieldset .input-container{
+        height: 27px;
+    }
+    .auth-modal .register-form .register-text .fieldset .input-container input{
+        height: 70%;
+    }
+}
