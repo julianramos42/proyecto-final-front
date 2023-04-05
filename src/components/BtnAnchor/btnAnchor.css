@@ -1,22 +1,23 @@
 .cont_btnAnchor{
-    width: 22vw;
-    height: 7vh;
-    padding-left: 15vh;
-    padding-top: 30vh;
+    height: 7vh; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .btnAnchor{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    width: 22vw;
+    width: 50%;
     height: 6vh;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     font-size: 24px;
     line-height: 29px;
+    text-align: center;
 }
 
 .color_1{
@@ -27,4 +28,10 @@
 .color_2{
     background: #ffffff;
     color: #495464
+}
+
+@media (max-width:424px){
+    .btnAnchor{
+        width: 80%;
+    }
 }
