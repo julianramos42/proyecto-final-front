@@ -1,0 +1,26 @@
+.auth-modal .sign-btn{
+    text-decoration: none;
+    color: #FFF;
+    background: linear-gradient(153.39deg, #BBBFCA -13.9%, #495464 58.69%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    width: 384px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 400px){
+    .auth-modal .sign-btn{
+        width: 300px;
+    }
+}
+
+@media (min-width:769px) and (max-height: 675px){
+    .auth-modal .sign-btn{
+        height: 48px;
+    }
+}

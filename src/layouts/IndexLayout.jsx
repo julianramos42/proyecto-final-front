@@ -4,9 +4,7 @@ import { Outlet } from 'react-router-dom'
 export default function IndexLayout() {
   return (
     <>
-      {/* HEADER */}
       <Outlet/>
-      {/* FOOTER */}
     </>
   )
 }
