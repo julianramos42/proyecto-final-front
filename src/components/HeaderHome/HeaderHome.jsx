@@ -8,6 +8,14 @@ import AnchorsHome from '../AnchorsHome/AnchorsHome';
 import BtnSign from '../BtnSign/BtnSign';
 import BtnLogo from '../../images/Menu.png'
 import BtnClose from '../../images/Union.png'
+import UserImage from '../../images/Diseño.jpg'
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import ShoppingBagRoundedIcon from '@mui/icons-material/ShoppingBagRounded';
+import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
+import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
+import LiveHelpRoundedIcon from '@mui/icons-material/LiveHelpRounded';
+import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
+import PeopleAltRoundedIcon from '@mui/icons-material/PeopleAltRounded';
 
 export default function HeaderHome() {
   const [activeButton, setActiveButton] = useState('Home');
@@ -88,30 +96,66 @@ export default function HeaderHome() {
 
             <div className={`nav ${isOpen && "open"}`}>
                 <div className="nav-top">
-                    <div className='nav-user'>
-                        {/* <img src={photo ? photo : UserImage} alt="userimage" /> */}
-                        <div className='user-info'>
-                            {/* <p className='username'>{name ? name : 'Username'}</p>
-                            <p className='email'>{mail ? mail : 'User Mail'}</p> */}
-                            <p className='username'>{'Username'}</p>
-                            <p className='email'>{'User Mail'}</p>
-                        </div>
-                    </div>
-
                     <div className='nav-close-btn'>
                         <button onClick={() => setIsOpen(!isOpen)}><img src={BtnClose} alt="logo" className="logo" /></button>
                     </div>
+                    <div className='nav-user'>
+                        {/* <img src={photo ? photo : UserImage} alt="userimage" /> */}
+                        <img src={UserImage} alt="userimage" />
+                    </div>
+                    <div className='user-info'>
+                            {/* <p className='username'>{name ? name : 'Username'}</p>
+                            <p className='email'>{mail ? mail : 'User Mail'}</p> */}
+                            <p className='username'>{'Username'}</p>
+                            <div className='cont_foll'>
+                              <p className='foll'>{'280 Followers'}</p>
+                              <PeopleAltRoundedIcon/>
+                            </div>
+                    </div> 
                 </div>
-        
-                <Anchor className='nav-btn' >Home</Anchor>
-                 <Anchor className='nav-btn' >Stores</Anchor> 
-                 <Anchor className='nav-btn' >Sign in</Anchor>
-                : <Anchor className='nav-btn' >Log in</Anchor>
-                {/* {token ? <Anchor className='nav-btn' onClick={handleSignOut}>Logout</Anchor> : ''} */}
+                <div className='cont_route'>
+                  <div className='nav-btn'>
+                    <Anchor className='a-btn' >
+                      <HomeRoundedIcon />
+                      Home
+                    </Anchor>
+                  </div>
+                  <div className='nav-btn'>
+                    <Anchor className='a-btn' >
+                      <ShoppingBagRoundedIcon />
+                      Stores
+                    </Anchor>
+                  </div>
+                  <div className='nav-btn'>
+                    <Anchor className='a-btn' >
+                      <PersonAddAltRoundedIcon />
+                      Sign in
+                    </Anchor>
+                  </div>
+                  <div className='nav-btn'>
+                    <Anchor className='a-btn' >
+                      <PersonRoundedIcon />
+                      Log in
+                    </Anchor>
+                  </div>       
+                </div>
+                <div className='cont_footNav'>
+                <div className='nav-btn'>
+                    <Anchor className='a-btn' >
+                      <LiveHelpRoundedIcon />
+                      Help
+                    </Anchor>
+                  </div>   
+                  <div className='nav-btn'>
+                    <Anchor className='a-btn' >
+                      <ExitToAppRoundedIcon />
+                      Logout
+                    </Anchor>
+                  </div>   
+                    {/* {token ? <Anchor className='nav-btn' onClick={handleSignOut}>Logout</Anchor> : ''} */}
+                </div>
             </div>
 
-            {/* <img src={Logo} alt="logo" className="logo-1" />
-            <img src={LogoMin} alt="logo" className="logo-min" /> */}
         </div>
     </>
   );
