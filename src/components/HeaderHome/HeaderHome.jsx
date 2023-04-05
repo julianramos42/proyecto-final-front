@@ -8,7 +8,7 @@ import AnchorsHome from '../AnchorsHome/AnchorsHome';
 import BtnSign from '../BtnSign/BtnSign';
 import BtnLogo from '../../images/Menu.png'
 import BtnClose from '../../images/Union.png'
-import UserImage from '../../images/Diseño.jpg'
+import UserImage from '../../images/user.jpg'
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import ShoppingBagRoundedIcon from '@mui/icons-material/ShoppingBagRounded';
 import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
@@ -28,49 +28,53 @@ export default function HeaderHome() {
   }
 
   // Navbar
-  const dispatch = useDispatch()
+    const dispatch = useDispatch()
     let navigate = useNavigate()
     
     const [isOpen, setIsOpen] = useState(true)
-    // let url = apiUrl + 'auth/token'
-    // let token = localStorage.getItem('token')
-    // let headers = { headers: { 'Authorization': `Bearer ${token}` } }
+    let url = 'http://localhost:8080/auth/signout'
+    let token = localStorage.getItem('token')
+    let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
-    // async function handleSignOut() {
-    //     try {
-    //         await axios.post(url, null, headers).then(res =>
-    //             localStorage.setItem('token', ''));
-    //         localStorage.setItem('user', JSON.stringify({
-    //             name: '',
-    //             mail: '',
-    //             photo: ''
-    //         }))
-    //         setIsOpen(!isOpen)
-    //         toast.success('The session was closed successfully!')
-    //         setTimeout(()=>{
-    //             navigate('/')
-    //         },500)
-    //     } catch (error) {
-    //         toast.error("You're already signed out or not signed in")
-    //     }
-    // }
+    async function handleSignOut() {
+        try {
+            await axios.post(url, null, headers).then(res =>
+                localStorage.setItem('token', ''));
+                localStorage.setItem('user', JSON.stringify({
+                  // id:'',
+                  admin:'',
+                  name:'',
+                  photo:'',
+                  seller:''
+                }))
+            setIsOpen(!isOpen)
+            toast.success('The session was closed successfully!')
+            setTimeout(()=>{
+                navigate('/')
+            },500)
+        } catch (error) {
+            toast.error("You're already signed out or not signed in")
+        }
+    }
 
 
 
-    // if (!token) {
-    //     localStorage.setItem('user', JSON.stringify({
-    //         name: '',
-    //         mail: '',
-    //         photo: ''
-    //     }))
-    // }
+    if (!token) {
+        localStorage.setItem('user', JSON.stringify({
+            // id:'',
+            admin:'',
+            name:'',
+            photo:'',
+            seller:''
+        }))
+    }
 
-    // let user = JSON.parse(localStorage.getItem('user'));
-    // let name = user.name
-    // let mail = user.mail
-    // let photo = user.photo
+    let user = JSON.parse(localStorage.getItem('user'));
+    let name = user.name
+    let photo = user.photo
 
     
+
   return (
     <>
     <div className='Header_Home'>
@@ -100,13 +104,10 @@ export default function HeaderHome() {
                         <button onClick={() => setIsOpen(!isOpen)}><img src={BtnClose} alt="logo" className="logo" /></button>
                     </div>
                     <div className='nav-user'>
-                        {/* <img src={photo ? photo : UserImage} alt="userimage" /> */}
-                        <img src={UserImage} alt="userimage" />
+                        <img src={photo ? photo : UserImage} alt="userimage" />
                     </div>
                     <div className='user-info'>
-                            {/* <p className='username'>{name ? name : 'Username'}</p>
-                            <p className='email'>{mail ? mail : 'User Mail'}</p> */}
-                            <p className='username'>{'Username'}</p>
+                            <p className='username'>{name ? name : 'Username'}</p>
                             <div className='cont_foll'>
                               <p className='foll'>{'280 Followers'}</p>
                               <PeopleAltRoundedIcon/>
@@ -147,12 +148,11 @@ export default function HeaderHome() {
                     </Anchor>
                   </div>   
                   <div className='nav-btn'>
-                    <Anchor className='a-btn' >
+                    <Anchor className='a-btn'  onClick={handleSignOut}>
                       <ExitToAppRoundedIcon />
                       Logout
                     </Anchor>
-                  </div>   
-                    {/* {token ? <Anchor className='nav-btn' onClick={handleSignOut}>Logout</Anchor> : ''} */}
+                  </div>  
                 </div>
             </div>
 
