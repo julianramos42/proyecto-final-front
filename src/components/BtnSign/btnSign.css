@@ -1,0 +1,19 @@
+.btn_sign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1vh 1.5vh;
+    gap: 10px;
+    background: #495464;
+    border-radius: 50px;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+@media(max-width:1023px){
+    .btn_sign{
+        font-size: 11px;
+    }
+}
