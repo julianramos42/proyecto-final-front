@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 const {renderModal} = modalActions
 
+
 export default function Index() {
   let modalState = useSelector(store => store.modalFormReducer.state)
   
