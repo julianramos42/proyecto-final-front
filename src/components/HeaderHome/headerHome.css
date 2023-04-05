@@ -219,7 +219,11 @@
   background: #495464;
 }
 
-
+@media (min-width:769px){
+  .nav-toggler{
+    display: none;
+  }
+}
 
 @media (max-width: 767px) {
     .header-container {
