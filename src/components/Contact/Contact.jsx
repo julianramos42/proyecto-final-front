@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import "./contact.css"
+import { useDispatch } from 'react-redux'
+import refContactActions from '../../store/RefContact/actions'
+
+const {refContact} = refContactActions
 
 export default function Contact() {
+    let contactRef = useRef()
+
+    const dispatch = useDispatch()
+
+    useEffect( () => {
+        dispatch(refContact({reference: contactRef}))
+    },[])
+
   return (
     <div className='contenedor-contacto'>
         <div className='cont-contact'>
@@ -29,7 +41,7 @@ export default function Contact() {
                      <div>
                         <p className='title-info'>Phone</p>
                     </div>
-                    <div>
+                    <div ref={contactRef}>
                         <a className='info' href="tel: +543584834589">+5435849215482</a>
                     </div>
                 </div>

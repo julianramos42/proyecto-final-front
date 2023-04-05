@@ -3,7 +3,7 @@ import './aboutHome.css'
 import Diseño from '../../images/Diseño.jpg'
 import BtnAnchor from '../BtnAnchor/BtnAnchor'
 import { useRef } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import refAboutActions from '../../store/RefAbout/actions'
 
 const {refAbout} = refAboutActions
@@ -17,6 +17,11 @@ export default function AboutHome() {
     dispatch(refAbout({reference: AboutRef}))
   },[])
 
+  let ContactRef = useSelector(store => store.refContactReducer.reference)
+  function handleContact(){
+    ContactRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <div className='AboutHome' ref={AboutRef}>
 
@@ -28,7 +33,7 @@ export default function AboutHome() {
             <div className='cont-text'>
                 <h2 className='text_about'>Editing everything online gives you a sense of control that you haven't felt with any other tool.</h2>
             </div>
-            <BtnAnchor name='Contact us now' class='color_2'/>
+            <BtnAnchor handleContact={handleContact} name='Contact us now' class='color_2'/>
         </div>
         
     </div>
