@@ -4,6 +4,6 @@ import './anchorsHome.css'
 
 export default function AnchorsHome(props) {
   return (
-    <Anchor className={props.class} onClick={props.onClick}>{props.name}</Anchor>
+    <Anchor to={props.to} className={props.class} onClick={props.onClick}>{props.name}</Anchor>
   )
 }

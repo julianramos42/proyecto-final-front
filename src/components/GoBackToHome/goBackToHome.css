@@ -1,0 +1,13 @@
+.form>p{
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.05em;
+}
+
+.form>p .link{
+    text-decoration: none;
+    color: rgb(245, 118, 184);
+    font-weight: bold;
+}
