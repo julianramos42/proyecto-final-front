@@ -44,7 +44,7 @@ export default function Customers() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(refCustomers({ reference: customersRef }))
+    dispatch(refCustomers({ reference: customersRef.current }))
   }, [])
 
   return (
@@ -91,8 +91,8 @@ export default function Customers() {
           <h2>Satisfied customers</h2>
         </div>
         <div className="cont-names">
-          {customers.map((customer) => (
-            <div className="carta-names" key={customer.id}>
+          {customers.map((customer,i) => (
+            <div className="carta-names" key={i}>
               <div className="img">
                 <img className="img-persona" src={customer.image} alt="" />
               </div>

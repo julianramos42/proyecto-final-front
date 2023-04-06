@@ -4,7 +4,6 @@ import { Link as Anchor, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
 import { useDispatch, useSelector } from 'react-redux'
 import './headerHome.css';
-import AnchorsHome from '../AnchorsHome/AnchorsHome';
 import BtnSign from '../BtnSign/BtnSign';
 import BtnLogo from '../../images/Menu.png'
 import BtnClose from '../../images/Union.png'
@@ -102,32 +101,38 @@ export default function HeaderHome() {
   let name = user.name
   let photo = user.photo
 
+  let HomeRef = useSelector(store => store.refHomeReducer.reference)
+  function handleHomeUs() {
+    setActiveButton('Home')
+    HomeRef.scrollIntoView({ behavior: 'smooth' })
+  }
+
   let AboutRef = useSelector(store => store.refAboutReducer.reference)
   function handleAboutUs() {
     setActiveButton('About Us')
-    AboutRef.current.scrollIntoView({ behavior: 'smooth' })
+    AboutRef.scrollIntoView({ behavior: 'smooth' })
   }
 
   let CustomerRef = useSelector(store => store.refCustomersReducer.reference)
   function handleCustomer() {
-    CustomerRef.current.scrollIntoView({ behavior: 'smooth' })
+    CustomerRef.scrollIntoView({ behavior: 'smooth' })
     setActiveButton('Stories')
   }
 
   let ContactRef = useSelector(store => store.refContactReducer.reference)
   function handleContact() {
-    ContactRef.current.scrollIntoView({ behavior: 'smooth' })
+    ContactRef.scrollIntoView({ behavior: 'smooth' })
     setActiveButton('Contact')
   }
 
   return (
     <>
       <div className='Header_Home'>
-        <div>
+        <Anchor to='/'>
           <img className='logo' src="https://i.imgur.com/iSp1sxK.png" alt="logo" />
-        </div>
+        </Anchor>
         <div className='cont_headerHome'>
-          <AnchorsHome name='Home' class={activeButton === 'Home' ? 'btn_nav active' : 'btn_nav'} onClick={() => setActiveButton('Home')} />
+          <Anchor className={activeButton === 'Home' ? 'btn_nav active' : 'btn_nav'} onClick={handleHomeUs}>Home</Anchor>
           <Anchor to='/shops' className={activeButton === 'Stores' ? 'btn_nav active' : 'btn_nav'} onClick={() => setActiveButton('Stores')} >Stores</Anchor>
           <Anchor className={activeButton === 'About Us' ? 'btn_nav active' : 'btn_nav'} onClick={handleAboutUs}>About Us</Anchor>
           <Anchor className={activeButton === 'Stories' ? 'btn_nav active' : 'btn_nav'} onClick={handleCustomer}>Stories</Anchor>

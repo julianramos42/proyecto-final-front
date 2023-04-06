@@ -29,6 +29,14 @@
     gap: 25px;
     background-color: #EBEBEB;
     border-radius: 10px 0 0 10px;
+    position: relative;
+}
+
+.auth-modal .login-form .login-text .login-x{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
 }
 
 .auth-modal .login-form .login-text h2{
