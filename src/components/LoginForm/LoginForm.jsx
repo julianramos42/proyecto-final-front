@@ -10,10 +10,11 @@ import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
 import modalActions from '../../store/ModalForm/actions.js'
 import { useDispatch } from 'react-redux'
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
-const {renderModal} = modalActions
+const { renderModal } = modalActions
 
-export default function LoginForm({setRenderModal}) {
+export default function LoginForm({ setRenderModal }) {
     const dispatch = useDispatch()
 
     let formData = useRef()
@@ -39,11 +40,11 @@ export default function LoginForm({setRenderModal}) {
         let seller
         try {
             await axios.post(url, data).then(res => {
-                
+
                 res.data.user.is_admin ? (admin = true) : (admin = false)
                 res.data.user.is_seller ? (seller = true) : (seller = false)
-                localStorage.setItem('token',res.data.token)
-                localStorage.setItem('user',JSON.stringify({
+                localStorage.setItem('token', res.data.token)
+                localStorage.setItem('user', JSON.stringify({
                     // id: res.data.user._id,
                     name: res.data.user.name,
                     mail: res.data.user.mail,
@@ -52,9 +53,9 @@ export default function LoginForm({setRenderModal}) {
                     seller
                 }))
                 toast.success(res.data.message)
-                setTimeout( () => {
-                    dispatch(renderModal({state: ''}))
-                },1500)
+                setTimeout(() => {
+                    dispatch(renderModal({ state: '' }))
+                }, 1500)
             })
         } catch (error) {
             if (error.code === "ERR_NETWORK") {
@@ -69,13 +70,18 @@ export default function LoginForm({setRenderModal}) {
         }
     }
 
-    function handleRender(){
-        dispatch(renderModal({state: 'register'}))
+    function handleRender() {
+        dispatch(renderModal({ state: 'register' }))
+    }
+
+    function closeModal() {
+        dispatch(renderModal({ state: '' }))
     }
 
     return (
         <form ref={formData} onSubmit={handleSignIn} className='login-form'>
             <div className='login-text'>
+                <CloseRoundedIcon className='login-x' onClick={closeModal} />
                 <h2>Log In</h2>
                 <LoginFieldsets />
                 <SignBtn text='Sign In' />

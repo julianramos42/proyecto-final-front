@@ -15,7 +15,7 @@ import Header from "../Header/Header";
 import { useDispatch } from "react-redux";
 import modalActions from '../../store/ModalForm/actions.js'
 import axios from "axios";
-import toast,{ Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 const { renderModal } = modalActions
 
@@ -74,7 +74,7 @@ export default function NavBarStores() {
       </div>
 
       <div
-        className={`containerNavStore  ${!isNavOpen && "containerNavStoreClosed"
+        className={`containerNavStore  ${isNavOpen && "containerNavStoreClosed"
           } `}
       >
         <div className="arrowContainer" onClick={toggleNav}>
@@ -141,6 +141,9 @@ export default function NavBarStores() {
           </div>
         </div>
       </div>
+      <Toaster
+        position="top-right"
+      />
     </>
   );
 }

@@ -29,6 +29,14 @@
     gap: 25px;
     background-color: #EBEBEB;
     border-radius: 0 10px 10px 0;
+    position: relative;
+}
+
+.auth-modal .register-form .register-text .register-x{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
 }
 
 .auth-modal .register-form .register-text h2{

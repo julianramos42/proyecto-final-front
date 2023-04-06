@@ -107,6 +107,9 @@
 
 .arrowContainer > svg {
   font-size: 4vh;
+  background-color: #989998;
+  color: #f4f4f2;
+  border-radius: 10px 0 0 10px;
 }
 
 .arrowContainer {
@@ -134,6 +137,9 @@
 
 .arrowContainerLeft > svg {
   font-size: 3.5vh;
+  background-color: #989998;
+  color: #f4f4f2;
+  border-radius: 0 10px 10px 0;
 }
 
 .arrowContainer.active {

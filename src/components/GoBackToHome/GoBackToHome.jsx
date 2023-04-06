@@ -14,6 +14,6 @@ export default function GoBackToHome() {
     }
 
   return (
-    <p>Go back to <Anchor className='link' onClick={closeModal}>home page</Anchor></p>
+    <p>Go back to <Anchor to='/' className='link' onClick={closeModal}>home page</Anchor></p>
   )
 }
