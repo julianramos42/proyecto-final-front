@@ -25,23 +25,6 @@
   transform: translateX(-105%) !important;
 }
 
-.buttonAnchor:focus {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background: #495464;
-  border-radius: 12px;
-  color: rgb(255, 255, 255);
-  height: 2.2rem;
-  padding: 1rem;
-  text-decoration: none;
-  color: #989998;
-  font-weight: 550;
-  font-size: 1rem;
-  gap: 1rem;
-  width: 100%;
-}
-
 .buttonEffectActive a {
   color: white;
 }
@@ -50,16 +33,12 @@
   width: 100%;
 }
 
-.buttonEffect a {
-  font-size: 100%;
-}
-
 .buttonEffect:hover {
   background: #495464;
   border-radius: 12px;
 }
 
-a {
+.buttonAnchor{
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -69,22 +48,6 @@ a {
   text-decoration: none;
   color: #989998;
   font-weight: 550;
-  font-size: 1.2rem;
-  gap: 1rem;
-  width: 100%;
-}
-
-a:hover {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border-radius: 12px;
-  height: 2.2rem;
-  padding: 1rem;
-  text-decoration: none;
-  color: #989998;
-  font-weight: 550;
-  font-size: 1rem;
   gap: 1rem;
   width: 100%;
 }
@@ -110,6 +73,7 @@ a:hover {
   justify-content: flex-start;
   align-items: center;
   border-radius: 12px;
+  background: #495464;
   height: 2.2rem;
   padding: 1rem;
   text-decoration: none;

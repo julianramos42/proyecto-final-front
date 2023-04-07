@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     border-radius: 10px;
+    z-index: 1;
 }
 
 .auth-modal .register-form .register-img{
