@@ -1,0 +1,164 @@
+.backgroundProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  background: #495464;
+  height: 90%;
+  width: 95%;
+  border-radius: 12px;
+  position: relative;
+}
+
+.iconInfo p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  color: #495464;
+  background: white;
+  font-size: 1.2rem;
+  border-radius: 100%;
+  font-weight: 500;
+}
+
+.profileImageRounded {
+  border-radius: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.bottomProfile {
+  position: absolute;
+  bottom: 0;
+  height:3.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-weight: 550;
+  color: #495464;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #bbbfca;
+  border-radius: 0px 0px 12px 12px;
+}
+
+.upLoadIcon > svg {
+  color: #495464;
+  background: white;
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  position: absolute;
+  top: 75%;
+  right: 0;
+}
+
+.upLoadIcon > svg:hover {
+  background: rgb(207, 207, 207);
+}
+
+.containerImageRounded {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  border: 3px solid white;
+  position: relative;
+}
+
+.topProfile {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  position: absolute;
+  top: 0;
+  border-bottom: 1px solid rgba(145, 145, 145, 0.582);
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.containerInputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 20rem;
+  gap: 1rem;
+}
+
+.inputContainerProfile {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  gap: 5px;
+}
+
+.inputContainerProfile input {
+  background: #ffffff;
+  outline: none;
+  color: #495464;
+  border: 1px solid rgb(206, 206, 206);
+  border-radius: 6px;
+  width: 100%;
+  height: 2.5rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem;
+}
+
+.inputContainerProfile label {
+  color: white;
+}
+
+.containerButtonsProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.buttonProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  width: 100%;
+  height: 2rem;
+  border-radius: 6px;
+  color: #495464;
+  cursor: pointer;
+}
+
+.buttonProfile:hover {
+  background: #eeeeee;
+}
+
+@media (min-width: 320px) and (max-width: 425px) {
+  .containerInputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 15rem;
+    gap: 1rem;
+  }
+
+  .bottomProfile {
+    display: none;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .bottomProfile {
+    display: none;
+  }
+}

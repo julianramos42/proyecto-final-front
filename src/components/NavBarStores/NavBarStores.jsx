@@ -94,13 +94,13 @@ export default function NavBarStores() {
             </Anchor>
           </span>
           <span className="buttonEffect">
-            <Anchor className="buttonAnchor">
+            <Anchor to='/profile' className="buttonAnchor">
               <Profile />
               Profile
             </Anchor>
           </span>
           <span className="buttonEffect">
-            <Anchor className="buttonAnchor">
+            <Anchor className="buttonAnchor" to="/favourites">
               <Favourite />
               Favourites
             </Anchor>

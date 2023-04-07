@@ -3,6 +3,7 @@ import modalFormReducer from './ModalForm/reducer'
 import refAboutReducer from './RefAbout/reducer'
 import refCustomersReducer from './RefCustomers/reducer'
 import refContactReducer from './RefContact/reducer'
+import shopsReducer from './Shops/reducer'
 import refHomeReducer from './RefHome/reducer'
 
 export const store = configureStore({
@@ -11,6 +12,7 @@ export const store = configureStore({
         refAboutReducer: refAboutReducer,
         refCustomersReducer: refCustomersReducer,
         refContactReducer: refContactReducer,
+        shopsReducer: shopsReducer,
         refHomeReducer: refHomeReducer,
     }
 })
