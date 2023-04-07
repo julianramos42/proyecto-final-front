@@ -4,6 +4,7 @@ import refAboutReducer from './RefAbout/reducer'
 import refCustomersReducer from './RefCustomers/reducer'
 import refContactReducer from './RefContact/reducer'
 import shopsReducer from './Shops/reducer'
+import refHomeReducer from './RefHome/reducer'
 
 export const store = configureStore({
     reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
         refCustomersReducer: refCustomersReducer,
         refContactReducer: refContactReducer,
         shopsReducer: shopsReducer,
+        refHomeReducer: refHomeReducer,
     }
 })

@@ -14,12 +14,12 @@ export default function AboutHome() {
   const dispatch = useDispatch()
 
   useEffect( () => {
-    dispatch(refAbout({reference: AboutRef}))
+    dispatch(refAbout({reference: AboutRef.current}))
   },[])
 
   let ContactRef = useSelector(store => store.refContactReducer.reference)
   function handleContact(){
-    ContactRef.current.scrollIntoView({ behavior: 'smooth' })
+    ContactRef.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (

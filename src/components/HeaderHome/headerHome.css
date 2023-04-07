@@ -222,6 +222,35 @@
   background: #495464;
 }
 
+.btn_nav {
+  color: rgba(0, 0, 0, 0.51);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.btn_nav:hover {
+  color: #000; 
+}
+
+.btn_nav:focus {
+  color: #000; 
+  text-decoration: underline;
+}
+
+.btn_nav.active {
+  color: #000; 
+  text-decoration: underline;
+}
+
+@media (max-width:1023px){
+
+.btn_nav {
+  font-size: 17px;
+}
+
+}
+
 @media (min-width:769px){
   .nav-toggler{
     display: none;

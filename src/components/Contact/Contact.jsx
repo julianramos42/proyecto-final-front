@@ -11,7 +11,7 @@ export default function Contact() {
     const dispatch = useDispatch()
 
     useEffect( () => {
-        dispatch(refContact({reference: contactRef}))
+        dispatch(refContact({reference: contactRef.current}))
     },[])
 
   return (

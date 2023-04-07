@@ -5,7 +5,7 @@ import { Link as Anchor } from 'react-router-dom'
 export default function BtnAnchor(props) {
   return (
     <div className='cont_btnAnchor'>
-        <Anchor onClick={props.handleContact} className={`btnAnchor ${props.class}`} >{props.name}</Anchor>
+        <Anchor to={props.to} onClick={props.handleContact} className={`btnAnchor ${props.class}`} >{props.name}</Anchor>
     </div>
   )
 }

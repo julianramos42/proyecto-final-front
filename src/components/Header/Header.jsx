@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <div className="header">
       <div className="containerLogoInput">
-        <span className="containerLogo">
+        <span to='/' className="containerLogo">
           <img src={Logo} alt="" />
         </span>
         {hideSearch ? null : (
