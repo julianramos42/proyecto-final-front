@@ -10,7 +10,7 @@ import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
 import modalActions from '../../store/ModalForm/actions.js'
 import { useDispatch } from 'react-redux'
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+// import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 const { renderModal } = modalActions
 
@@ -73,7 +73,7 @@ export default function RegisterForm() {
                 <img src={register} alt='register-img' />
             </div>
             <div className='register-text'>
-                <CloseRoundedIcon className='register-x' onClick={closeModal} />
+                {/* <CloseRoundedIcon className='register-x' onClick={closeModal} /> */}
                 <h2>Register</h2>
                 <RegisterFieldsets />
                 <SignBtn text='Sign Up' />

@@ -4,7 +4,7 @@ import storelogo from "../../images/logostore.jpg";
 
 export default function CardStoreView(props) {
   const [isFavourite, setIsFavourite] = useState();
-  const { shop } = props;
+  const {shop} = props
 
   function handleFavouriteClick() {
     setIsFavourite(!isFavourite);

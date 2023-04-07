@@ -10,7 +10,7 @@ import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
 import modalActions from '../../store/ModalForm/actions.js'
 import { useDispatch } from 'react-redux'
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+// import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 const { renderModal } = modalActions
 
@@ -81,7 +81,7 @@ export default function LoginForm({ setRenderModal }) {
     return (
         <form ref={formData} onSubmit={handleSignIn} className='login-form'>
             <div className='login-text'>
-                <CloseRoundedIcon className='login-x' onClick={closeModal} />
+                {/* <CloseRoundedIcon className='login-x' onClick={closeModal} /> */}
                 <h2>Log In</h2>
                 <LoginFieldsets />
                 <SignBtn text='Sign In' />

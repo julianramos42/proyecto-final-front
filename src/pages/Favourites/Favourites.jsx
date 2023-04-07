@@ -64,8 +64,6 @@ export default function StoresView() {
             CLEAR ALL FAVOURITES
           </div>
           <div className="alignCards">
-            <CardStoreView />
-            <CardStoreView />
           </div>
         </div>
       </div>
