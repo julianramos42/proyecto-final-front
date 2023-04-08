@@ -1,0 +1,47 @@
+.topShop{
+    width: 100%;
+    height: 22vh;
+    display: flex;
+    align-items: center;
+    background-blend-mode: darken;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.topShop .navShop{
+    height: 75px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.topShop .navShop .logoShop{
+    width: 75px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.topShop .navShop .anchorsShop{
+    width: 350px;
+    display: flex;
+    gap: 68px;
+}
+
+.topShop .navShop .anchorsShop a{
+    color: #FFF;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.topShop .navShop .anchorsShop .active{
+    font-weight: bold;
+}
+
+.topShop .navShop .bagShop{
+    width: 23px;
+    height: 25px;
+    cursor: pointer;
+}
