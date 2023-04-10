@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import "./LoginForm.css";
 import login from "../../images/login.png";
@@ -10,6 +11,20 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import modalActions from "../../store/ModalForm/actions.js";
 import { useDispatch } from "react-redux";
+=======
+import React from 'react'
+import './LoginForm.css'
+import login from '../../images/login.png'
+import LoginFieldsets from '../LoginFieldsets/LoginFieldsets'
+import SignBtn from '../SignBtn/SignBtn'
+import { Link as Anchor } from 'react-router-dom'
+import GoBackToHome from '../GoBackToHome/GoBackToHome'
+import { useRef } from 'react'
+import axios from 'axios'
+import toast, { Toaster } from 'react-hot-toast'
+import modalActions from '../../store/ModalForm/actions.js'
+import { useDispatch } from 'react-redux'
+>>>>>>> 8bf6eabe759b2ebb2f9d6b6c04033b15178fe009
 // import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 const { renderModal } = modalActions;
@@ -82,26 +97,23 @@ export default function LoginForm({ setRenderModal }) {
     dispatch(renderModal({ state: "" }));
   }
 
-  return (
-    <form ref={formData} onSubmit={handleSignIn} className="login-form">
-      <div className="login-text">
-        {/* <CloseRoundedIcon className='login-x' onClick={closeModal} /> */}
-        <h2>Log In</h2>
-        <LoginFieldsets />
-        <SignBtn text="Sign In" />
-        {/* ACA PONER BOTON GOOGLE */}
-        <p>
-          You don´t have an account yet?{" "}
-          <Anchor className="link" onClick={handleRender}>
-            Sign Up
-          </Anchor>
-        </p>
-        <GoBackToHome />
-      </div>
-      <div className="login-img">
-        <img src={login} alt="login-img" />
-      </div>
-      <Toaster position="top-right" />
-    </form>
-  );
+    return (
+        <form ref={formData} onSubmit={handleSignIn} className='login-form'>
+            <div className='login-text'>
+                {/* <CloseRoundedIcon className='login-x' onClick={closeModal} /> */}
+                <h2>Log In</h2>
+                <LoginFieldsets />
+                <SignBtn text='Sign In' />
+                {/* ACA PONER BOTON GOOGLE */}
+                <p>You don´t have an account yet? <Anchor className='link' onClick={handleRender}>Sign Up</Anchor></p>
+                <GoBackToHome />
+            </div>
+            <div className='login-img'>
+                <img src={login} alt='login-img' />
+            </div>
+            <Toaster
+                position="top-right"
+            />
+        </form>
+    )
 }
