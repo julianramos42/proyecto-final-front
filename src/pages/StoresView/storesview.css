@@ -78,8 +78,6 @@ option {
   background: #d7d7d7;
   width: 90%;
   min-height: 90%;
-  overflow: scroll;
-  overflow-x: hidden;
   border-radius: 16px;
 }
 
@@ -101,12 +99,13 @@ option {
 
 .alignCards {
   display: flex;
-  justify-content:ce;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 2rem;
   padding: 1rem;
-  width: 90%;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 

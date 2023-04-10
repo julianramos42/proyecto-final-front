@@ -18,10 +18,6 @@ export default function StoresView() {
     dispatch(actions.captureShop());
   }, [dispatch]);
 
-<<<<<<< HEAD
-=======
-  console.log(shop);
->>>>>>> 8bf6eabe759b2ebb2f9d6b6c04033b15178fe009
   return (
     <>
       <NavBarStores />
@@ -29,11 +25,7 @@ export default function StoresView() {
         {modalState === "register" ? <Auth /> : <></>}
         {modalState === "login" ? <Auth /> : <></>}
         <div className="containerCategories">
-<<<<<<< HEAD
-          <CategoriesSelect />
-=======
           <CategoriesSelect/>
->>>>>>> 8bf6eabe759b2ebb2f9d6b6c04033b15178fe009
           <span className="deleteIcon">
             <Delete />
           </span>
@@ -43,10 +35,7 @@ export default function StoresView() {
             {shop?.map((shop) => (
               <CardStoreView key={shop.id} shop={shop} />
             ))}
-<<<<<<< HEAD
-=======
             
->>>>>>> 8bf6eabe759b2ebb2f9d6b6c04033b15178fe009
           </div>
         </div>
       </div>

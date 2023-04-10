@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import "./LoginForm.css";
-import login from "../../images/login.png";
-import LoginFieldsets from "../LoginFieldsets/LoginFieldsets";
-import SignBtn from "../SignBtn/SignBtn";
-import { Link as Anchor } from "react-router-dom";
-import GoBackToHome from "../GoBackToHome/GoBackToHome";
-import { useRef } from "react";
-import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
-import modalActions from "../../store/ModalForm/actions.js";
-import { useDispatch } from "react-redux";
-=======
 import React from 'react'
 import './LoginForm.css'
 import login from '../../images/login.png'
@@ -24,7 +10,6 @@ import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
 import modalActions from '../../store/ModalForm/actions.js'
 import { useDispatch } from 'react-redux'
->>>>>>> 8bf6eabe759b2ebb2f9d6b6c04033b15178fe009
 // import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 const { renderModal } = modalActions;

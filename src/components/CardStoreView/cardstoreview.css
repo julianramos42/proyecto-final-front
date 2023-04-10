@@ -4,11 +4,7 @@
   align-items: center;
   position: relative;
   flex-direction: column;
-<<<<<<< HEAD
   width: 28rem;
-=======
-  width: 35rem;
->>>>>>> 8bf6eabe759b2ebb2f9d6b6c04033b15178fe009
   height: 15rem;
   border-radius: 12px;
   background: #ffffff;
@@ -61,10 +57,7 @@
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
-<<<<<<< HEAD
   margin-bottom: 7px;
-=======
->>>>>>> 8bf6eabe759b2ebb2f9d6b6c04033b15178fe009
 }
 
 .viewButton {
@@ -114,11 +107,7 @@
     justify-content: center;
     align-items: center;
     width: 4rem;
-<<<<<<< HEAD
-    font-size: 0.82rem;
-=======
     font-size: .82rem;
->>>>>>> 8bf6eabe759b2ebb2f9d6b6c04033b15178fe009
     border-radius: 4px;
     height: 1.5rem;
     background: #495464;
@@ -133,13 +122,10 @@
   .viewBottom span {
     margin-bottom: 10px;
   }
-<<<<<<< HEAD
 }
 
 @media (min-width: 1659px) and (max-width: 1864px) {
   .containerCard {
     width: 26rem;
   }
-=======
->>>>>>> 8bf6eabe759b2ebb2f9d6b6c04033b15178fe009
 }
