@@ -4,7 +4,7 @@
   align-items: center;
   position: relative;
   flex-direction: column;
-  width: 35rem;
+  width: 28rem;
   height: 15rem;
   border-radius: 12px;
   background: #ffffff;
@@ -57,6 +57,7 @@
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 7px;
 }
 
 .viewButton {
@@ -106,7 +107,7 @@
     justify-content: center;
     align-items: center;
     width: 4rem;
-    font-size: .82rem;
+    font-size: 0.82rem;
     border-radius: 4px;
     height: 1.5rem;
     background: #495464;
@@ -120,5 +121,11 @@
 
   .viewBottom span {
     margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 1659px) and (max-width: 1864px) {
+  .containerCard {
+    width: 26rem;
   }
 }

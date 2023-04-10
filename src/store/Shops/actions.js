@@ -17,7 +17,6 @@ let captureShop = createAsyncThunk("captureShop", async () => {
 });
 
 const actions = { captureShop };
-
 export default actions;
 
 

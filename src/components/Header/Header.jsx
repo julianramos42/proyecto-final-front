@@ -8,10 +8,18 @@ export default function Header() {
   const location = useLocation();
   const hideSearch = location.pathname === "/profile";
 
+  const user = JSON.parse(localStorage.getItem("user"));
+  const token = localStorage.getItem("token");
+
+  const name = user ? user.name : "";
+  const mail = user ? user.mail : "";
+  const photo = user ? user.photo : "";
+  const lastname = user ? user.lastname : ""
+
   return (
     <div className="header">
       <div className="containerLogoInput">
-        <span to='/' className="containerLogo">
+        <span to="/" className="containerLogo">
           <img src={Logo} alt="" />
         </span>
         {hideSearch ? null : (
@@ -21,10 +29,14 @@ export default function Header() {
           </div>
         )}
 
-        <div className="profileContainer">
-          <span className="nameProfile">George Brush</span>
-          <img className="profileImage" src="./profile.jpg" alt="" />
-        </div>
+        {token ? (
+          <div className="profileContainer">
+            <span className="nameProfile">{name} {lastname}</span>
+            <img className="profileImage" src={photo} alt="" />
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
