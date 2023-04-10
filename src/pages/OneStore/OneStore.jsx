@@ -7,14 +7,16 @@ import { useParams } from 'react-router-dom'
 import { Link as Anchor } from 'react-router-dom'
 import HeaderShop from '../../components/HeaderShop/HeaderShop'
 import { ArrowLeft } from '../../components/Icons/Icons'
+import { useRef } from 'react'
 
 export default function OneStore() {
     let [products, setProducts] = useState([])
     let [shop, setShop] = useState({})
     let shopId = useParams().shopId
+    let search = useRef()
 
-    let productsUrl = `http://localhost:8080/shop/${shopId}/products`
     async function getProducts() {
+        let productsUrl = `http://localhost:8080/shop/${shopId}/products?name=${search.current.value}`
         try {
             await axios.get(productsUrl).then(res => setProducts(res.data.products))
         } catch (err) {
@@ -32,8 +34,8 @@ export default function OneStore() {
     }
 
     useEffect(() => {
-        getProducts()
         getShop()
+        getProducts()
     }, [shopId])
 
     return (
@@ -42,8 +44,8 @@ export default function OneStore() {
             <div className='productsContainer'>
                 <div className='firtsFilterContainer'>
                     <Anchor to='/shops' className='backToShops'>
-                            <ArrowLeft />
-                            <p>Back to Shops</p>
+                        <ArrowLeft />
+                        <p>Back to Shops</p>
                     </Anchor>
                     <div className='sortContainer'>
                         <p>Sort</p>
@@ -57,7 +59,7 @@ export default function OneStore() {
                         <div className='searchFilter'>
                             <div className='containerInput'>
                                 <label htmlFor='search'><img src={loupe} alt='loupe' /></label>
-                                <input type='text' id='search' placeholder='Find your product' />
+                                <input ref={search} onChange={getProducts} type='text' id='search' placeholder='Find your product' />
                             </div>
                         </div>
                         <hr />

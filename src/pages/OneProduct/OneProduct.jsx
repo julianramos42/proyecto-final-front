@@ -54,7 +54,8 @@ export default function OneProduct() {
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
         let data = {
-          ...product
+          ...product,
+          maxStock: maxStock
         }
         data.stock = stock
         axios.post(url, data, headers).then(res => {

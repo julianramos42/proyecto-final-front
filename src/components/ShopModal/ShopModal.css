@@ -172,3 +172,61 @@ color: #566270;
     background: #38703c57;
     font-weight: 500;
 }
+
+@media (min-width: 700px) and  (max-width: 850px){
+    .shopModal .shopModalContainer .modalContent .modalCard .descriptionProduct{
+        width: 200px;
+    }
+}
+
+@media (max-width: 699px){
+    .shopModal .shopModalContainer{
+        width: 100%;
+    }
+
+    .shopModal .shopModalContainer .modalContent .modalCard{
+        min-height: 198px;
+        padding-left: 10px;
+    }
+
+    .shopModal .shopModalContainer .modalContent .modalCard>img{
+        display: none;
+    }
+
+    .shopModal .shopModalContainer .modalContent .modalCard .descriptionProduct{
+        width: 200px;
+    }
+}
+
+@media (max-width: 520px){
+    .shopModal .shopModalContainer .modalContent .modalCard{
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .shopModal .shopModalContainer .modalContent .modalCard .descriptionProduct{
+        height: 100%;
+        width: auto;
+    }
+
+    .shopModal .shopModalContainer .modalContent .modalCard .descriptionProduct>div{
+        height: 100%;
+        padding-top: 36px;
+    }
+
+    .shopModal .shopModalContainer .modalContent .modalCard .descriptionProduct h3{
+        display: none;
+    }
+
+    .shopModal .shopModalContainer .modalContent .modalCard .descriptionProduct p{
+        display: none;
+    }
+
+    .shopModal .shopModalContainer .modalBtns .buyCart{
+        width: 100%;
+    }
+
+    .shopModal .shopModalContainer .modalBtns .deleteCart{
+        width: 100%;
+    }
+}

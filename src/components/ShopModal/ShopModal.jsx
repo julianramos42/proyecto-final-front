@@ -13,18 +13,44 @@ const { renderModal } = ShopModalActions
 export default function ShopModal() {
     let shopId = useParams().shopId
     const dispatch = useDispatch()
-    let [stock, setStock] = useState(0)
+    let [reload, setReload] = useState(false)
     let [products, setProducts] = useState([])
+    let token = localStorage.getItem('token')
+    let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
-    function handleLessStock() {
-        if (stock !== 1) {
-            setStock(stock - 1)
+    async function handleLessStock(e) {
+        try {
+            let product = products.find(product => product._id == e.target.id)
+            if(product.stock === 1){
+                let url = `http://localhost:8080/shop/cart/deleteone/${product._id}`
+                await axios.delete(url, headers).then(res => toast.success(res.data.message))
+                setReload(!reload)
+            }else{
+                let data = {
+                    stock: product.stock -= 1
+                }
+                let url = `http://localhost:8080/shop/cart/update/${product._id}`
+                await axios.put(url, data, headers).then(res => console.log(res.data))
+                setReload(!reload)
+            }
+        } catch (err) {
+            console.log(err)
         }
     }
 
-    function handleMoreStock() {
-        if (stock !== 3) {
-            setStock(stock + 1)
+    async function handleMoreStock(e) {
+        try {
+            let product = products.find(product => product._id == e.target.id)
+            if(product.stock !== product.maxStock){
+                let data = {
+                    stock: product.stock += 1
+                }
+                let url = `http://localhost:8080/shop/cart/update/${product._id}`
+                await axios.put(url, data, headers).then(res => console.log(res.data))
+                setReload(!reload)
+            }
+        } catch (err) {
+            console.log(err)
         }
     }
 
@@ -32,13 +58,9 @@ export default function ShopModal() {
         dispatch(renderModal({ state: false }))
     }
 
-    let token = localStorage.getItem('token')
-    let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-
     async function getProducts() {
         try {
             let url = `http://localhost:8080/shop/${shopId}/cart`
-
             await axios.get(url, headers).then(res => setProducts(res.data.products))
         } catch (err) {
             console.log(err)
@@ -47,13 +69,15 @@ export default function ShopModal() {
 
     useEffect(() => {
         getProducts()
-    })
+        handleMaxStock()
+    },[reload])
 
-    async function deleteOne(e) {
+    async function deleteOne(e, id) {
         try {
             let productId = e.target.id
             let url = `http://localhost:8080/shop/cart/deleteone/${productId}`
             await axios.delete(url, headers).then(res => toast.success(res.data.message))
+            setReload(!reload)
         } catch (error) {
             if (error.code === "ERR_NETWORK") {
                 toast.error('Network Error')
@@ -71,6 +95,7 @@ export default function ShopModal() {
         try {
             let url = `http://localhost:8080/shop/${shopId}/cart/deleteall`
             await axios.delete(url, headers).then(res => toast.success(res.data.message))
+            setReload(!reload)
         } catch (error) {
             if (error.code === "ERR_NETWORK") {
                 toast.error('Network Error')
@@ -83,6 +108,26 @@ export default function ShopModal() {
             }
         }
     }
+
+    function handleMaxStock(){
+        try{
+            products.forEach( product => {
+                if(product.stock > product.maxStock){
+                    let data = {
+                        stock: product.maxStock
+                    }
+                    let url = `http://localhost:8080/shop/cart/update/${product._id}`
+                    axios.put(url, data, headers).then(res => toast.success('Some items stock has been modified because they exceed the limit'))
+                }
+            })
+        }catch(err){
+            console.log(err)
+        }
+    }
+
+    useEffect(() => {
+        handleMaxStock()
+    },[products])
 
     return (
         <div className='shopModal'>
@@ -103,9 +148,9 @@ export default function ShopModal() {
                                         <h2>{product.name}</h2>
                                         <p>${product.price}</p>
                                         <div className='btnStock'>
-                                            <button onClick={handleLessStock}>-</button>
+                                            <button id={product._id} onClick={handleLessStock}>-</button>
                                             <p>{product.stock}</p>
-                                            <button onClick={handleMoreStock}>+</button>
+                                            <button id={product._id} onClick={handleMoreStock}>+</button>
                                         </div>
                                     </section>
                                     <section className='descriptionProduct'>
@@ -118,9 +163,9 @@ export default function ShopModal() {
                                 </section>
                                 return card
                             })
-                            : 
-                            <div style={{height:'100%', display: 'flex', 'justifyContent': 'center', 'alignItems': 'center'}}>
-                                <h2 style={{'text-align': 'center'}}>No products in cart</h2>
+                            :
+                            <div style={{ height: '100%', display: 'flex', 'justifyContent': 'center', 'alignItems': 'center' }}>
+                                <h2 style={{ textAlign: 'center' }}>No products in cart</h2>
                             </div>
                     }
                 </div>

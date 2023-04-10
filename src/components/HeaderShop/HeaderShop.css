@@ -46,3 +46,30 @@
     height: 25px;
     cursor: pointer;
 }
+
+@media (max-width: 599px){
+    .topShop{
+        height: 30vh;
+    }
+
+    .topShop .navShop{
+        flex-wrap: wrap;
+        height: 120px;
+        gap: 11px;
+    }
+
+    .topShop .navShop .logoShop{
+        width: 60px;
+        height: 60px;
+    }
+
+    .topShop .navShop .anchorsShop{
+        justify-content: center;
+        width: 100%;
+        gap: 50px;
+    }
+
+    .topShop .navShop .bagShop{
+        display: block;
+    }
+}
