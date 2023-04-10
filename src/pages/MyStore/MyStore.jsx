@@ -21,8 +21,8 @@ export default function MyStore() {
   const [selectedBanner, setSelectedBanner] = useState(null);
 
   const s3 = new AWS.S3({
-    accessKeyId: "AKIAQTTFIUBXACB3GRNQ",
-    secretAccessKey: "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",
+    accessKeyId: "AKIAQTTFIUBXFEE37TPN",
+    secretAccessKey: "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",
     region: "sa-east-1",
   });
 
