@@ -142,6 +142,7 @@
     height: 768px;
     overflow-y: scroll;
     justify-content: center;
+    padding: 15px;
 }
 
 .productsContainer .secondFilterContainer .displayedProducts a{

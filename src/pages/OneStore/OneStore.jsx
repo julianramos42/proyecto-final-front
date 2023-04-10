@@ -6,8 +6,6 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { Link as Anchor } from 'react-router-dom'
 import HeaderShop from '../../components/HeaderShop/HeaderShop'
-import ShopModal from '../../components/ShopModal/ShopModal'
-import { useSelector } from 'react-redux'
 import { ArrowLeft } from '../../components/Icons/Icons'
 
 export default function OneStore() {
@@ -38,11 +36,8 @@ export default function OneStore() {
         getShop()
     }, [shopId])
 
-    let modalState = useSelector(store => store.modalShopReducer.state)
-
     return (
         <>
-            {modalState ? <ShopModal /> : <></>}
             <HeaderShop />
             <div className='productsContainer'>
                 <div className='firtsFilterContainer'>

@@ -4,9 +4,9 @@
     display: flex;
     align-items: center;
     background-blend-mode: darken;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
 }
 
 .topShop .navShop{
@@ -18,10 +18,11 @@
 }
 
 .topShop .navShop .logoShop{
-    width: 75px;
-    height: 50px;
+    width: 100px;
+    height: 85px;
     object-fit: cover;
     object-position: center;
+    border-radius: 25px;
 }
 
 .topShop .navShop .anchorsShop{

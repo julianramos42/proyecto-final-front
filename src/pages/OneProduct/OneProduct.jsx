@@ -6,10 +6,12 @@ import { useEffect, useState } from 'react'
 import HeaderShop from '../../components/HeaderShop/HeaderShop'
 import { Link as Anchor } from 'react-router-dom'
 import { ArrowLeft } from '@mui/icons-material'
+import toast, { Toaster } from 'react-hot-toast'
 
 export default function OneProduct() {
   let [product, setProduct] = useState({})
-  let [stock, setStock] = useState(1)
+  let [stock, setStock] = useState(0)
+  let [maxStock, setMaxStock] = useState(1)
 
   let shopId = useParams().shopId
   let productId = useParams().productId
@@ -24,18 +26,55 @@ export default function OneProduct() {
   }
 
   useEffect(() => {
+    setMaxStock(product.stock)
+  }, [product])
+
+  useEffect(() => {
     getProduct()
   }, [productId])
 
   function handleLessStock() {
-    if (stock !== 1) {
+    if (stock !== 0) {
       setStock(stock - 1)
+      product.stock++
     }
   }
 
   function handleMoreStock() {
-    if (stock !== product.stock) {
+    if (stock !== maxStock) {
       setStock(stock + 1)
+      product.stock--
+    }
+  }
+
+  async function handleCart() {
+    try {
+      if (stock !== 0) {
+        let url = `http://localhost:8080/shop/${shopId}/createcartproduct`
+        let token = localStorage.getItem('token')
+        let headers = { headers: { 'Authorization': `Bearer ${token}` } }
+        let data = {
+          ...product
+        }
+        data.stock = stock
+        axios.post(url, data, headers).then(res => {
+          toast.success(res.data.message)
+          setStock(0)
+          setMaxStock(product.stock)
+        })
+      }else{
+        toast.error('The stock cannot be 0')
+      }
+    } catch (error) {
+      if (error.code === "ERR_NETWORK") {
+        toast.error('Network Error')
+      } else {
+        if (typeof error.response.data.message === 'string') {
+          toast.error(error.response.data.message)
+        } else {
+          error.response.data.message.forEach(err => toast.error(err))
+        }
+      }
     }
   }
 
@@ -48,7 +87,7 @@ export default function OneProduct() {
             <ArrowLeft />
             <p>Back to Products</p>
           </Anchor>
-          <img src={product.photo} />
+          <img src={product.photo} alt={product?.name} />
         </div>
         <div className='product-Info'>
           <section className='product-Important'>
@@ -66,10 +105,13 @@ export default function OneProduct() {
             <p className='stockText'>Only {product.stock} items in stock</p>
             <p className='description-title'>Description</p>
             <p className='description-text'>{product.description}</p>
-            <a className='addToCart'>ADD TO CART</a>
+            <button className='addToCart' onClick={handleCart}>ADD TO CART</button>
           </div>
         </div>
       </div>
+      <Toaster
+        position="top-right"
+      />
     </>
   )
 }

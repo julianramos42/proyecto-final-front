@@ -5,7 +5,9 @@ import { useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import ShopModalActions from '../../store/ShopModal/actions'
+import ShopModal from '../../components/ShopModal/ShopModal'
 import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 const {renderModal} = ShopModalActions
 
@@ -36,9 +38,11 @@ export default function HeaderShop() {
         dispatch(renderModal({state: true}))
     }
 
+    let modalState = useSelector(store => store.modalShopReducer.state)
 
     return (
         <div className='topShop' style={banner}>
+            {modalState ? <ShopModal /> : <></>}
             <nav className='navShop'>
                 <img className='logoShop' src={shop.photo} alt='logo' />
                 <div className='anchorsShop'>

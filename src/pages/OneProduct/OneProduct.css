@@ -114,4 +114,10 @@
     color: #FFF;
     border-radius: 20px;
     cursor: pointer;
+    transition: .3s;
+    border: none;
+}
+
+.product-Container .product-Info .product-Description .addToCart:hover{
+    background: #428545;
 }
