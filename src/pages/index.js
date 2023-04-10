@@ -17,6 +17,7 @@ export const router = createBrowserRouter([
       { path: "/myshop", element: <MyStore /> },
       { path: "/profile", element: <Profile /> },
       { path: "/favourites", element: <Favourites /> },
+      
     ],
   },
 ]);

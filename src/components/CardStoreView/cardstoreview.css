@@ -4,11 +4,7 @@
   align-items: center;
   position: relative;
   flex-direction: column;
-<<<<<<< HEAD
   width: 28rem;
-=======
-  width: 35rem;
->>>>>>> 8bf6eabe759b2ebb2f9d6b6c04033b15178fe009
   height: 15rem;
   border-radius: 12px;
   background: #ffffff;
@@ -61,13 +57,11 @@
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
-<<<<<<< HEAD
   margin-bottom: 7px;
-=======
->>>>>>> 8bf6eabe759b2ebb2f9d6b6c04033b15178fe009
 }
 
 .viewButton {
+  text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,11 +108,7 @@
     justify-content: center;
     align-items: center;
     width: 4rem;
-<<<<<<< HEAD
     font-size: 0.82rem;
-=======
-    font-size: .82rem;
->>>>>>> 8bf6eabe759b2ebb2f9d6b6c04033b15178fe009
     border-radius: 4px;
     height: 1.5rem;
     background: #495464;
@@ -130,16 +120,38 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
+  .viewProfile {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    transform: translateY(-3%);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
   .viewBottom span {
     margin-bottom: 10px;
   }
-<<<<<<< HEAD
+  .containerCard {
+    width: 90%;
+  }
+
+  .viewBottom span {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
 }
 
 @media (min-width: 1659px) and (max-width: 1864px) {
   .containerCard {
     width: 26rem;
   }
-=======
->>>>>>> 8bf6eabe759b2ebb2f9d6b6c04033b15178fe009
+}
+
+@media (min-width: 805px) and (max-width: 1119px) {
+  .containerCard {
+    width: 35rem;
+  }
 }
