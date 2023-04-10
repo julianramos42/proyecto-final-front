@@ -10,7 +10,7 @@ import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
 import modalActions from '../../store/ModalForm/actions.js'
 import { useDispatch } from 'react-redux'
-// import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import close from '../../images/Union.png'
 
 const { renderModal } = modalActions;
 
@@ -28,7 +28,7 @@ export default function LoginForm({ setRenderModal }) {
       if (e.name) {
         formInputs.push(e.value);
       }
-    });
+    })
 
     let data = {
       email: formInputs[0],
@@ -85,7 +85,7 @@ export default function LoginForm({ setRenderModal }) {
     return (
         <form ref={formData} onSubmit={handleSignIn} className='login-form'>
             <div className='login-text'>
-                {/* <CloseRoundedIcon className='login-x' onClick={closeModal} /> */}
+                <img src={close} className='login-x' onClick={closeModal}/>
                 <h2>Log In</h2>
                 <LoginFieldsets />
                 <SignBtn text='Sign In' />

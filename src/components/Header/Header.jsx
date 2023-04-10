@@ -3,6 +3,7 @@ import "./header.css";
 import { Search } from "../Icons/Icons.js";
 import Logo from "../../images/logo.png";
 import { useLocation } from "react-router-dom";
+import { Link as Anchor } from "react-router-dom";
 
 export default function Header() {
   const location = useLocation();
@@ -19,9 +20,9 @@ export default function Header() {
   return (
     <div className="header">
       <div className="containerLogoInput">
-        <span to="/" className="containerLogo">
+        <Anchor to="/" className="containerLogo">
           <img src={Logo} alt="" />
-        </span>
+        </Anchor>
         {hideSearch ? null : (
           <div className="inputContainer">
             <Search />
