@@ -9,7 +9,9 @@ import KeyboardArrowRightRoundedIcon from "@mui/icons-material/KeyboardArrowRigh
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import RefreshRoundedIcon from "@mui/icons-material/RefreshRounded";
 import PublishRoundedIcon from "@mui/icons-material/PublishRounded";
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 
+export const Home = () => <HomeRoundedIcon/>
 export const Store = () => <StoreRoundedIcon />;
 export const Stores = () => <LocalConvenienceStoreRoundedIcon />;
 export const Profile = () => <PersonRoundedIcon />;

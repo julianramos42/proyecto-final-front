@@ -1,0 +1,193 @@
+/* .topShop .searchShop{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.topShop .searchShop h2{
+    color: #FFF;
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 100px;
+} */
+
+/* .topShop .searchShop .containerInput{
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    gap: 15px;
+    width: 40%;
+    height: 40px;
+}
+
+.topShop .searchShop .containerInput img{
+    width: 28px;
+    height: 28px;
+}
+
+.topShop .searchShop .containerInput input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 90%;
+    height: 100%;
+    overflow: hidden;
+} */
+
+.productsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 22px 32px;
+    gap: 20px;
+}
+
+.productsContainer .firtsFilterContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.backToShops{
+    display: flex;
+    align-items: center;
+    padding: 5px 9px;
+    width: 200px;
+    color: #FFF;
+    background: #495464;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.backToShops:hover{
+    background: #373f4b;
+}
+
+.productsContainer .searchFilter .containerInput{
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    width: 200px;
+    height: 30px;
+    border: 1px solid black;
+}
+
+.productsContainer .searchFilter .containerInput img{
+    width: 28px;
+    height: 28px;
+}
+
+.productsContainer .searchFilter .containerInput input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 90%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.productsContainer .firtsFilterContainer .sortContainer{
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.productsContainer .firtsFilterContainer .sortContainer img{
+    width: 18px;
+    height: 18px;
+}
+
+.productsContainer .secondFilterContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.productsContainer .secondFilterContainer .categoriesFilter{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 200px;
+}
+
+.productsContainer .secondFilterContainer .categoriesFilter h3{
+    text-align: center;
+    font-weight: 600;
+}
+
+.productsContainer .secondFilterContainer .categoriesFilter h4{
+    font-weight: 500;
+}
+
+.productsContainer .secondFilterContainer .categoriesFilter h4:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.productsContainer .secondFilterContainer .categoriesFilter .active{
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.productsContainer .secondFilterContainer .displayedProducts{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px 25px;
+    width: 75%;
+    height: 768px;
+    overflow-y: scroll;
+    justify-content: center;
+    padding: 18px 15px;
+}
+
+.productsContainer .secondFilterContainer .displayedProducts a{
+    text-decoration: none;
+    color: black;
+}
+
+.productsContainer .secondFilterContainer .displayedProducts .productCard{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: .5rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.productsContainer .secondFilterContainer .displayedProducts .productCard:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.productsContainer .secondFilterContainer .displayedProducts .productCard img{
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.productsContainer .secondFilterContainer .displayedProducts .productCard h3{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+}
+
+.productsContainer .secondFilterContainer .displayedProducts .productCard p{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+}
+
+@media (max-width: 768px){
+    .productsContainer .firtsFilterContainer{
+        position: relative;
+        justify-content: flex-end;
+        height: 34px;
+    }
+}

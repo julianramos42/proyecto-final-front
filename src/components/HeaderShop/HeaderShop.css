@@ -1,0 +1,75 @@
+.topShop{
+    width: 100%;
+    height: 22vh;
+    display: flex;
+    align-items: center;
+    background-blend-mode: darken;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
+
+.topShop .navShop{
+    height: 75px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.topShop .navShop .logoShop{
+    width: 100px;
+    height: 85px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 25px;
+}
+
+.topShop .navShop .anchorsShop{
+    width: 350px;
+    display: flex;
+    gap: 68px;
+}
+
+.topShop .navShop .anchorsShop a{
+    color: #FFF;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.topShop .navShop .anchorsShop .active{
+    font-weight: bold;
+}
+
+.topShop .navShop .bagShop{
+    width: 23px;
+    height: 25px;
+    cursor: pointer;
+}
+
+@media (max-width: 599px){
+    .topShop{
+        height: 30vh;
+    }
+
+    .topShop .navShop{
+        flex-wrap: wrap;
+        height: 120px;
+        gap: 11px;
+    }
+
+    .topShop .navShop .logoShop{
+        width: 60px;
+        height: 60px;
+    }
+
+    .topShop .navShop .anchorsShop{
+        justify-content: center;
+        width: 100%;
+        gap: 50px;
+    }
+
+    .topShop .navShop .bagShop{
+        display: block;
+    }
+}
