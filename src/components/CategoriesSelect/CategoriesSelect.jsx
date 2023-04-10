@@ -3,7 +3,7 @@ import React from "react";
 export default function CategoriesSelect({ style }) {
   return (
     <>
-      <select className={style}>
+      <select className={style} name="category">
         <option value="Clothing and Accessories">
           Clothing and Accessories
         </option>
