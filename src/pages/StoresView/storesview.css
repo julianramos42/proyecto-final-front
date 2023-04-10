@@ -74,10 +74,13 @@ option {
 .containerCardsStores {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background: #d7d7d7;
+  padding-top: 1rem;
   width: 90%;
+  height: 100%;
   min-height: 90%;
+  overflow-y: scroll;
   border-radius: 16px;
 }
 
@@ -104,10 +107,7 @@ option {
   flex-wrap: wrap;
   gap: 2rem;
   padding: 1rem;
-  height: 100%;
-  overflow-y: scroll;
 }
-
 
 @media (min-width: 320px) and (max-width: 661px) {
   select {

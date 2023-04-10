@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./cardstoreview.css";
-import storelogo from "../../images/logostore.jpg";
+import { Link as Anchor } from "react-router-dom";
 
 export default function CardStoreView(props) {
   const [isFavourite, setIsFavourite] = useState();
-  const {shop} = props
+  const { shop } = props;
+  console.log(shop);
 
   function handleFavouriteClick() {
     setIsFavourite(!isFavourite);
@@ -40,7 +41,9 @@ export default function CardStoreView(props) {
           <h3>{shop.name}</h3>
           <p>{shop.category}</p>
         </span>
-        <div className="viewButton">Visit store</div>
+        <Anchor to={`/shop/${shop._id}`} className="viewButton">
+          Visit store
+        </Anchor>
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ export default function StoresView() {
         {modalState === "register" ? <Auth /> : <></>}
         {modalState === "login" ? <Auth /> : <></>}
         <div className="containerCategories">
-          <CategoriesSelect/>
+          <CategoriesSelect />
           <span className="deleteIcon">
             <Delete />
           </span>
@@ -35,7 +35,6 @@ export default function StoresView() {
             {shop?.map((shop) => (
               <CardStoreView key={shop.id} shop={shop} />
             ))}
-            
           </div>
         </div>
       </div>
