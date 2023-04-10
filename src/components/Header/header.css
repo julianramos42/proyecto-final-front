@@ -31,11 +31,14 @@
   align-items: center;
   width: 15%;
   cursor: pointer;
+  position: relative;
 }
 
 .containerLogo img {
   object-fit: cover;
-  width: 8rem;
+  width: 10rem;
+  position: absolute;
+  left: 0;
 }
 
 .containerLogoInput {

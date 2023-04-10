@@ -8,12 +8,12 @@ import BtnSign from '../BtnSign/BtnSign';
 import BtnLogo from '../../images/Menu.png'
 import BtnClose from '../../images/Union.png'
 import UserImage from '../../images/user.jpg'
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+// import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import ShoppingBagRoundedIcon from '@mui/icons-material/ShoppingBagRounded';
 import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import LiveHelpRoundedIcon from '@mui/icons-material/LiveHelpRounded';
-import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
+// import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
 import PeopleAltRoundedIcon from '@mui/icons-material/PeopleAltRounded';
 import modalActions from '../../store/ModalForm/actions.js'
 
@@ -168,7 +168,7 @@ export default function HeaderHome() {
           <div className='cont_route'>
             <div className='nav-btn'>
               <Anchor className='a-btn' >
-                <HomeRoundedIcon />
+                {/* <HomeRoundedIcon /> */}
                 Home
               </Anchor>
             </div>
@@ -200,7 +200,7 @@ export default function HeaderHome() {
             </div>
             {token ? <div className='nav-btn'>
               <Anchor className='a-btn' onClick={handleSignOutModal}>
-                <ExitToAppRoundedIcon />
+                {/* <ExitToAppRoundedIcon /> */}
                 Logout
               </Anchor>
             </div> : <></>}

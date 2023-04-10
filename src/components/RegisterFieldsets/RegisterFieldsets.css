@@ -4,6 +4,7 @@
     display: flex;
     width: 384px;
     height: 48px;
+    border: 1px solid gray;
 }
 
 .auth-modal .register-form .register-text .fieldset legend{
