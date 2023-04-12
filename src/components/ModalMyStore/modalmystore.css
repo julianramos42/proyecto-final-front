@@ -19,6 +19,7 @@
   left: 0;
   right: 0;
   padding: 16px;
+  z-index: 10;
 }
 
 .contentModal {
@@ -27,7 +28,7 @@
   align-items: center;
   flex-direction: column;
   width: 35rem;
-  height: 65%;
+  height: 68%;
   background: rgb(211, 211, 211);
   border-radius: 6px;
   position: relative;
