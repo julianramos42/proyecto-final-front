@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import HeaderShop from '../../components/HeaderShop/HeaderShop'
 import { Link as Anchor } from 'react-router-dom'
-import { ArrowLeft } from '@mui/icons-material'
+// import { ArrowLeft } from '@mui/icons-material'
 import toast, { Toaster } from 'react-hot-toast'
 
 export default function OneProduct() {
@@ -85,7 +85,7 @@ export default function OneProduct() {
       <div className='product-Container'>
         <div className='product-Img'>
           <Anchor to={`/shop/${shopId}`} className='backToShops'>
-            <ArrowLeft />
+            {/* <ArrowLeft /> */}
             <p>Back to Products</p>
           </Anchor>
           <img src={product.photo} alt={product?.name} />

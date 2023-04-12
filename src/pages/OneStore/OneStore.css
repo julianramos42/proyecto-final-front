@@ -146,6 +146,7 @@
 }
 
 .productsContainer .secondFilterContainer .displayedProducts a{
+    height: 320px;
     text-decoration: none;
     color: black;
 }

@@ -1,14 +1,16 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import NavBarStores from "../../components/NavBarStores/NavBarStores";
 import "./mystore.css";
 import { UpLoad } from "../../components/Icons/Icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Auth from "../../components/Auth/Auth";
 import CategoriesSelect from "../../components/CategoriesSelect/CategoriesSelect";
 import loginbg from "../../images/login-bg.png";
 import axios from "axios";
 import AWS from "aws-sdk";
 import toast, { Toaster } from "react-hot-toast";
+import Modal from "../../components/ModalMyStore/ModalMyStore";
+import ModalSettings from "../../components/ModalSettings/ModalSettings";
 
 export default function MyStore() {
   let modalState = useSelector((store) => store.modalFormReducer.state);
@@ -19,12 +21,54 @@ export default function MyStore() {
   const headers = { headers: { Authorization: `Bearer ${token}` } };
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedBanner, setSelectedBanner] = useState(null);
+  const [reload, setReload] = useState();
+  const [shop, setShop] = useState({});
+  const [isOpen, setIsOpen] = useState(!true);
+  const [isClosed, setIsClosed] = useState(false);
+  const dispatch = useDispatch();
 
   const s3 = new AWS.S3({
-    accessKeyId: "AKIAQTTFIUBXACB3GRNQ",
-    secretAccessKey: "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",
+    accessKeyId: "AKIAQTTFIUBXLQVAFUVA",
+    secretAccessKey: "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",
     region: "sa-east-1",
   });
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function openSettings() {
+    setIsOpen(true);
+  }
+
+  useEffect(() => {
+    getMyShop();
+  }, []);
+
+  useEffect(() => {
+    if (isClosed) {
+      getMyShop();
+    }
+    setIsClosed(false);
+  }, [isClosed]);
+
+  function closeModal() {
+    setIsOpen(false);
+    setIsClosed(true);
+  }
+
+  async function getMyShop() {
+    const token = localStorage.getItem("token");
+    const headers = { headers: { Authorization: `Bearer ${token}` } };
+    try {
+      const url = "http://localhost:8080/shop/me";
+      const response = await axios.get(url, headers);
+      setShop(response.data.shop);
+      setReload(true);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   async function handleNewShop(e) {
     e.preventDefault();
@@ -64,6 +108,7 @@ export default function MyStore() {
       const res = await axios.post(url, data, headers);
       localStorage.setItem("user", JSON.stringify({ ...user, seller: true }));
       toast.success(res.data.message);
+      setReload(true);
     } catch (error) {
       if (error.code === "ERR_NETWORK") {
         toast.error("Network Error");
@@ -94,24 +139,24 @@ export default function MyStore() {
           <>
             <div className="myStoreBanner">
               <span className="containerBannerMyStore">
-                <img src="./Banner.jpg" alt="" />
+                <img src={shop.banner} alt="" />
               </span>
 
               <div className="profileImageMyStore">
-                <img src="./profile.jpg" alt="" />
+                <img src={shop.photo} alt="" />
               </div>
             </div>
             <div className="infoMyStore">
-              <span className="containerInfoMyStore">
-                <h3 className="storeName">Georgi Brushelas Store</h3>
-                <p>Shoes</p>
-              </span>
               <span className="buttonsContainer">
-                <div className="buttonEditBanner">
-                  <UpLoad />
-                  Edit Banner
+                <div className="buttonEditStore" onClick={openModal}>
+                  Edit Store
                 </div>
-                <div className="buttonDeleteAll">Delete All</div>
+                {isOpen && <Modal key={isClosed} onClose={closeModal} />}
+
+                <div className="buttonEditStore" onClick={openSettings}>
+                  Settings
+                </div>
+                {/* {isOpen && <ModalSettings key={isClosed} onClose={closeModal} />} */}
               </span>
             </div>
             <div className="viewContentMyStore">

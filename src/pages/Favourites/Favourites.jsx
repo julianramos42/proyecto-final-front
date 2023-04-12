@@ -24,7 +24,9 @@ export default function StoresView() {
         </div>
         <div className="containerCardsStoresFavourites">
           <div className="buttonClearAll">CLEAR ALL FAVOURITES</div>
-          <div className="alignCards"></div>
+          <div className="alignCards">
+            
+          </div>
         </div>
       </div>
     </>

@@ -5,6 +5,7 @@ import { UpLoad } from "../../components/Icons/Icons";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import AWS from "aws-sdk";
+import RandomText from "../../components/TextAlerts/TextAlerts";
 
 export default function Profile() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -24,8 +25,8 @@ export default function Profile() {
   });
 
   const s3 = new AWS.S3({
-    accessKeyId: "AKIAQTTFIUBXACB3GRNQ",
-    secretAccessKey: "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",
+    accessKeyId: "AKIAQTTFIUBXLQVAFUVA",
+    secretAccessKey: "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",
     region: "sa-east-1",
   });
 
@@ -95,10 +96,7 @@ export default function Profile() {
               <p>i</p>
             </span>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Suscipit, incidunt deserunt sapiente, veritatis voluptas
-              dignissimos repudiandae odio illum laborum cupiditate iusto
-              laboriosam.
+              <RandomText/>
             </p>
           </div>
           <span className="containerImageRounded">

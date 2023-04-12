@@ -12,11 +12,10 @@ export default function StoresView() {
   let modalState = useSelector((store) => store.modalFormReducer.state);
 
   const dispatch = useDispatch();
-  const shop = useSelector((store) => store.shopsReducer.shop);
 
   useEffect(() => {
     dispatch(actions.captureShop());
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
@@ -32,9 +31,7 @@ export default function StoresView() {
         </div>
         <div className="containerCardsStores">
           <div className="alignCards">
-            {shop?.map((shop) => (
-              <CardStoreView key={shop.id} shop={shop} />
-            ))}
+            <CardStoreView/>
           </div>
         </div>
       </div>
