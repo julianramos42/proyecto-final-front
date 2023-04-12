@@ -4,7 +4,6 @@ import axios from "axios";
 let captureShop = createAsyncThunk("captureShop", async () => {
   try {
     let response = await axios.get(`http://localhost:8080/shop/`);
-
     return {
       shop: response.data.shops,
     };

@@ -15,7 +15,7 @@ export default function Header() {
   const name = user ? user.name : "";
   const mail = user ? user.mail : "";
   const photo = user ? user.photo : "";
-  const lastname = user ? user.lastname : ""
+  const lastname = user ? user.lastname : "";
 
   return (
     <div className="header">
@@ -31,10 +31,14 @@ export default function Header() {
         )}
 
         {token ? (
-          <div className="profileContainer">
-            <span className="nameProfile">{name} {lastname}</span>
-            <img className="profileImage" src={photo} alt="" />
-          </div>
+          <Anchor to="/profile" className="profileAnchor">
+            <div className="profileContainer">
+              <span className="nameProfile">
+                {name} {lastname}
+              </span>
+              <img className="profileImage" src={photo} alt="" />
+            </div>
+          </Anchor>
         ) : (
           ""
         )}

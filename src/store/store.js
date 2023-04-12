@@ -6,6 +6,7 @@ import refContactReducer from './RefContact/reducer'
 import shopsReducer from './Shops/reducer'
 import refHomeReducer from './RefHome/reducer'
 import modalShopReducer from './ShopModal/reducer'
+import favouritesReducer from './CaptureFavourites/reducer'
 
 export const store = configureStore({
     reducer: {
@@ -16,5 +17,6 @@ export const store = configureStore({
         refContactReducer: refContactReducer,
         shopsReducer: shopsReducer,
         refHomeReducer: refHomeReducer,
+        favouritesReducer: favouritesReducer,
     }
 })

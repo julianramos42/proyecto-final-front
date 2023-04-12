@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./navbarstores.css";
 import { Link as Anchor } from "react-router-dom";
 import {
-  Home,
   Store,
   Stores,
   Profile,
@@ -84,7 +83,7 @@ export default function NavBarStores() {
         <div className="anchorsContainer">
         <span className="buttonEffect">
             <Anchor to='/' className="buttonAnchor">
-              <Home />
+              {/* <Home /> */}
               Home
             </Anchor>
           </span>
