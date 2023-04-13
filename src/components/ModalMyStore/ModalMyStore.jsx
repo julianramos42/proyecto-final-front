@@ -2,8 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./modalmystore.css";
 import axios from "axios";
 import AWS from "aws-sdk";
-
-import toast, { Toaster } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 export default function Modal({ onClose }) {
   const [shop, setShop] = useState({});
@@ -14,6 +13,7 @@ export default function Modal({ onClose }) {
   const token = localStorage.getItem("token");
   const user = JSON.parse(localStorage.getItem("user"));
   const headers = { headers: { Authorization: `Bearer ${token}` } };
+  const [confirmationToast, setConfirmationToast] = useState(null);
 
   const s3 = new AWS.S3({
     accessKeyId: "AKIAQTTFIUBXP2EXKXKF",
@@ -95,6 +95,67 @@ export default function Modal({ onClose }) {
   function handleFileBanner(event) {
     setSelectedBanner(event.target.files[0]);
   }
+
+  async function handleDeleteShopAlert(e) {
+    e.preventDefault();
+    const promise = new Promise(async (resolve, reject) => {
+      const toastId = toast(
+        <div>
+          Are you sure you want to delete your shop?
+          <div>
+            <button className="my-button" onClick={() => reject()}>Cancel</button>
+            <button className="my-button-delete" onClick={() => resolve()}>Delete</button>
+          </div>
+        </div>,
+        {
+          position: 'top-center',
+          icon: '🗑️',
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+            height: "100px",
+          },
+        }
+      );
+      setConfirmationToast(toastId);
+    });
+  
+    toast.promise(promise, {
+      pending: 'Deleting shop...',
+      error: 'Error deleting shop...',
+      position: 'top-center',
+      icon: '🗑️',
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+        height: "100px",
+      },
+    }).then(() => {
+      handleDeleteShop();
+      toast.dismiss(confirmationToast);
+    }).catch(() => {
+      toast.dismiss(confirmationToast);
+      setConfirmationToast(null);
+    });
+  }
+  async function handleDeleteShop() {
+    try {
+      const response = await axios.delete("http://localhost:8080/shop/delete", headers);
+      toast.success(response.data.message, { duration: null });
+      toast.dismiss(confirmationToast); // Cerrar el alerta
+      setConfirmationToast(null); // Limpiar la variable de estado
+      onClose(true);
+      setReload(true);
+      const user = JSON.parse(localStorage.getItem("user"));
+      user.seller = false;
+      localStorage.setItem("user", JSON.stringify(user));
+    } catch (error) {
+      toast.error(error.data.message);
+    }
+  }
+
   return (
     <div className="modalContainer">
       <div className="contentModal">
@@ -141,6 +202,9 @@ export default function Modal({ onClose }) {
             <div className="buttonsContainerModal">
               <button onClick={onClose}>Cancel</button>
               <button onClick={handleUpdateShop}>Save Changes</button>
+            </div>
+            <div className="buttonsContainerModal">
+              <button type="submit" id="deletebtn" onClick={handleDeleteShopAlert}>Delete shop</button>
             </div>
           </form>
         </div>
