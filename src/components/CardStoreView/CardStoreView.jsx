@@ -23,7 +23,6 @@ export default function CardStoreView(props) {
   }
 
   async function deleteFavourite(e) {
-    const favouriteId = e.target.id;
     const url = `http://localhost:8080/favourites/${e.target.id}`;
     try {
       await axios.delete(url, headers);
@@ -81,7 +80,7 @@ export default function CardStoreView(props) {
                   id={shop._id}
                   className={shopFavourites
                     .map((favourite) => {
-                      return favourite.store_id._id === shop._id
+                      return favourite.store_id?._id === shop._id
                         ? "favourite-svg favourite"
                         : "favourite-svg";
                     })

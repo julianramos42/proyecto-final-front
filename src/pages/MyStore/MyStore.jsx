@@ -105,6 +105,7 @@ export default function MyStore() {
       category: formInfo.current?.category?.value || "",
       country: formInfo.current?.country?.value || "",
       city: formInfo.current?.city?.value || "",
+      token: formInfo.current?.token?.value || "",
       photo: "",
       banner: "",
       description: formInfo.current?.description?.value || "",
@@ -237,6 +238,10 @@ export default function MyStore() {
                 <span>
                   <label>City</label>
                   <input type="text" name="city" required />
+                </span>
+                <span>
+                  <label>Token</label>
+                  <input type="text" name="token" required />
                 </span>
                 <span>
                   <label>Upload Logo</label>

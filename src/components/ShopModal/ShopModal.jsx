@@ -145,11 +145,9 @@ export default function ShopModal() {
     }, [shopId])
 
     function handlePay() {
-        //     token: 'APP_USR-907378389317449-020620-f99e7887338674fd0d9455a7d90167ff-680171535'
-        //     // token: 'APP_USR-755316554500045-032313-ac7188e22f56ae9be72d7b3334ef222c-153622198'
         let data = {
             products,
-            token: 'APP_USR-1193824153748985-032315-e3829060f8168bda55e275daff733be7-1337234795',
+            token: shop.token,
             shopId: shop._id
         }
         axios.post("http://localhost:8080/payment", data, headers)
@@ -205,8 +203,8 @@ export default function ShopModal() {
                     }
                 </div>
                 <div className='modalBtns'>
-                    <p className='buyCart' onClick={handlePay}>BUY CART (${fullPrice})</p>
-                    <p className='deleteCart' onClick={deleteAll}>CLEAR CART</p>
+                    { products.length ? <p className='buyCart' onClick={handlePay}>BUY CART (${fullPrice})</p> : <></> }
+                    { products.length ? <p className='deleteCart' onClick={deleteAll}>CLEAR CART</p> : <></> }
                 </div>
             </div>
             <Toaster position='top-right' />
