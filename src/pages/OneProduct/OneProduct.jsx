@@ -5,12 +5,12 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import HeaderShop from '../../components/HeaderShop/HeaderShop'
 import { Link as Anchor } from 'react-router-dom'
-// import { ArrowLeft } from '@mui/icons-material'
+import { ArrowLeft } from '../../components/Icons/Icons'
 import toast, { Toaster } from 'react-hot-toast'
 
 export default function OneProduct() {
   let [product, setProduct] = useState({})
-  let [stock, setStock] = useState(0)
+  let [quantity, setQuantity] = useState(0)
   let [maxStock, setMaxStock] = useState(1)
 
   let shopId = useParams().shopId
@@ -34,36 +34,41 @@ export default function OneProduct() {
   }, [productId])
 
   function handleLessStock() {
-    if (stock !== 0) {
-      setStock(stock - 1)
+    if (quantity !== 0) {
+      setQuantity(quantity - 1)
       product.stock++
     }
   }
 
   function handleMoreStock() {
-    if (stock !== maxStock) {
-      setStock(stock + 1)
+    if (quantity !== maxStock) {
+      setQuantity(quantity + 1)
       product.stock--
     }
   }
 
   async function handleCart() {
     try {
-      if (stock !== 0) {
+      if (quantity !== 0) {
         let url = `http://localhost:8080/shop/${shopId}/createcartproduct`
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
         let data = {
-          ...product,
-          maxStock: maxStock
+          title: product.name,
+          unit_price: product.price,
+          photo: product.photo,
+          quantity: product.stock,
+          maxStock: maxStock,
+          category: product.category,
+          description: product.description,
         }
-        data.stock = stock
+        data.quantity = quantity
         axios.post(url, data, headers).then(res => {
           toast.success(res.data.message)
-          setStock(0)
+          setQuantity(0)
           setMaxStock(product.stock)
         })
-      }else{
+      } else {
         toast.error('The stock cannot be 0')
       }
     } catch (error) {
@@ -85,7 +90,7 @@ export default function OneProduct() {
       <div className='product-Container'>
         <div className='product-Img'>
           <Anchor to={`/shop/${shopId}`} className='backToShops'>
-            {/* <ArrowLeft /> */}
+            <ArrowLeft />
             <p>Back to Products</p>
           </Anchor>
           <img src={product.photo} alt={product?.name} />
@@ -98,15 +103,17 @@ export default function OneProduct() {
           </section>
           <hr />
           <div className='product-Description'>
-            <div className='btnStock'>
-              <button onClick={handleLessStock}>-</button>
-              <p>{stock}</p>
-              <button onClick={handleMoreStock}>+</button>
-            </div>
-            <p className='stockText'>Only {product.stock} items in stock</p>
+            {
+              maxStock ? <div className='btnStock'>
+                <button onClick={handleLessStock}>-</button>
+                <p>{quantity}</p>
+                <button onClick={handleMoreStock}>+</button>
+              </div> : <></>
+            }
+            {maxStock ? <p className='stockText'>Only {product.stock} items in stock</p> : <p className='noStockText'>No Stock</p>}
             <p className='description-title'>Description</p>
             <p className='description-text'>{product.description}</p>
-            <button className='addToCart' onClick={handleCart}>ADD TO CART</button>
+            { maxStock ? <button className='addToCart' onClick={handleCart}>ADD TO CART</button> : <></> }
           </div>
         </div>
       </div>
