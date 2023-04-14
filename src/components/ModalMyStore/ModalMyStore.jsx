@@ -16,8 +16,8 @@ export default function Modal({ onClose }) {
   const headers = { headers: { Authorization: `Bearer ${token}` } };
 
   const s3 = new AWS.S3({
-    accessKeyId: "AKIAQTTFIUBXLQVAFUVA",
-    secretAccessKey: "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",
+    accessKeyId: "AKIAQTTFIUBXP2EXKXKF",
+    secretAccessKey: "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",
     region: "sa-east-1",
   });
 
@@ -75,7 +75,6 @@ export default function Modal({ onClose }) {
       toast.success(res.data.message);
       onClose(true);
       setReload(true);
-
     } catch (error) {
       if (error.code === "ERR_NETWORK") {
         toast.error("Network Error");

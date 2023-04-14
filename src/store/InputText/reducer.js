@@ -1,17 +1,16 @@
 import { createReducer } from "@reduxjs/toolkit";
 import actions from "./actions";
-
-const { captureShop } = actions;
+const { captureText } = actions;
 
 const initialState = {
-  shop: [],
+  text: "",
 };
 
 const reducer = createReducer(initialState, (builder) =>
-  builder.addCase(captureShop.fulfilled, (state, action) => {
-    const newState = {
+  builder.addCase(captureText, (state, action) => {
+    let newState = {
       ...state,
-      shop: action.payload.shop,
+      text: action.payload.text.trim(),
     };
     return newState;
   })

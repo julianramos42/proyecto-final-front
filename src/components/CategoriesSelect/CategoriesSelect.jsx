@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function CategoriesSelect({ style }) {
   return (
     <>
       <select className={style} name="category">
+        <option value="AllCategories">All Categories</option>
+
         <option value="Clothing and Accessories">
           Clothing and Accessories
         </option>
