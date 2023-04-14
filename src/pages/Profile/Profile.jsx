@@ -25,8 +25,8 @@ export default function Profile() {
   });
 
   const s3 = new AWS.S3({
-    accessKeyId: "AKIAQTTFIUBXP2EXKXKF",
-    secretAccessKey: "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",
+    accessKeyId: "AKIAQTTFIUBXPWRHED55",
+    secretAccessKey: "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",
     region: "sa-east-1",
   });
 

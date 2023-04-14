@@ -82,12 +82,6 @@ export default function NavBarStores() {
           <ArrowLeft />
         </div>
         <div className="anchorsContainer">
-        <span className="buttonEffect">
-            <Anchor to='/' className="buttonAnchor">
-              <Home />
-              Home
-            </Anchor>
-          </span>
           <span className="buttonEffect">
             <Anchor to='/' className="buttonAnchor">
               <Home />
@@ -102,21 +96,21 @@ export default function NavBarStores() {
           </span>
           {
             token ? <span className="buttonEffect">
-            <Anchor to='/myshop' className="buttonAnchor">
-              <Stores />
-              My Shop
-            </Anchor>
-          </span>
-          : <></>
+              <Anchor to='/myshop' className="buttonAnchor">
+                <Stores />
+                My Shop
+              </Anchor>
+            </span>
+              : <></>
           }
           {
             token ? <span className="buttonEffect">
-            <Anchor to='/profile' className="buttonAnchor">
-              <Profile />
-              Profile
-            </Anchor>
-          </span>
-          : <></>
+              <Anchor to='/profile' className="buttonAnchor">
+                <Profile />
+                Profile
+              </Anchor>
+            </span>
+              : <></>
           }
           {
             token ? <span className="buttonEffect">

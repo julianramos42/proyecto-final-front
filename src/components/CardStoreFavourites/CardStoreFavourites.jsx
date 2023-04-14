@@ -61,7 +61,7 @@ export default function CardStoreFavourites({ card }) {
             <h3>{card.name}</h3>
             <p>{card.category}</p>
           </span>
-          <Anchor to={`/shop`} className="viewButton">
+          <Anchor to={`/shop/`+card._id} className="viewButton">
             Visit store
           </Anchor>
         </div>
