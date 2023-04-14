@@ -17,6 +17,7 @@ export default function OneStore() {
     let [products, setProducts] = useState([])
     let [cartProducts, setCartProducts] = useState([])
     let [cartPrice, setCartPrice] = useState(0)
+    let [categories, setCategories] = useState([])
     let [shop, setShop] = useState({})
     let shopId = useParams().shopId
     let search = useRef()
@@ -160,6 +161,23 @@ export default function OneStore() {
         setCategory(e.target.value)
     }
 
+    function handleCategoryChange(e){
+        setCategory(e.target.textContent)
+    }
+
+    async function getCategories(){
+        let url = `http://localhost:8080/categories/${shopId}`
+        try{
+            await axios.get(url).then(res => setCategories(res.data.categories))
+        }catch(err){
+            console.log(err)
+        }
+    }
+
+    useEffect( () => {
+        getCategories()
+    },[])
+
     return (
         <>
             <HeaderShop />
@@ -188,18 +206,20 @@ export default function OneStore() {
                         <h3>Categories</h3>
                         <select onChange={handleOptionChange}>
                             <option value="">All</option>
-                            <option value='trepadora'>Trepadoras</option>
-                            <option value='cactus'>Cactus</option>
-                            <option value='arbol'>Arbol</option>
-                            <option value='acuatica'>Acuatica</option>
-                            <option value='carnivora'>Carnivora</option>
+                            {
+                                categories.map( (category,i) =>{
+                                    let card = <option key={i} value={category.category_name}>{category.category_name}</option>
+                                    return card
+                                })
+                            }
                         </select>
-                        <h4 className='active'>Suculentas</h4>
-                        <h4>Trepadoras</h4>
-                        <h4>Cactus</h4>
-                        <h4>Arbol</h4>
-                        <h4>Acuatica</h4>
-                        <h4>Carnivora</h4>
+                        <h4 onClick={() => {setCategory('')}}>All Categories</h4>
+                        {
+                            categories.map( (category,i) => {
+                                let card = <h4 key={i} onClick={handleCategoryChange}>{category.category_name}</h4>
+                                return card
+                            })
+                        }
                         <hr />
                     </div>
                     <div className='displayedProducts'>

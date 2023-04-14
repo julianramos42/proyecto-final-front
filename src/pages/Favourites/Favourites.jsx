@@ -26,7 +26,7 @@ export default function StoresView() {
 
   useEffect(() => {
     dispatch(actions.captureFavourites());
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     const filtered = handleFilter();

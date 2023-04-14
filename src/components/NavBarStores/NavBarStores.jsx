@@ -82,6 +82,12 @@ export default function NavBarStores() {
           <ArrowLeft />
         </div>
         <div className="anchorsContainer">
+        <span className="buttonEffect">
+            <Anchor to='/' className="buttonAnchor">
+              <Home />
+              Home
+            </Anchor>
+          </span>
           <span className="buttonEffect">
             <Anchor to='/' className="buttonAnchor">
               <Home />
