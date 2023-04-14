@@ -11,13 +11,10 @@ import categoriesActions from "../../store/CaptureCategories/actions";
 import axios from "axios";
 
 const { captureShop } = actions;
-const { captureCategories } = categoriesActions;
-const { captureText } = inputActions;
 
 export default function StoresView() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredShopsData, setFilteredShopsData] = useState([]);
   const [shopFavourites, setShopFavourites] = useState([]);
   const token = localStorage.getItem("token");
   const headers = { headers: { Authorization: `Bearer ${token}` } };
@@ -48,13 +45,10 @@ export default function StoresView() {
     }
   }
 
-  console.log("favourite");
-
   async function addFavourite(id) {
     const url = `http://localhost:8080/favourites/${id}`;
     try {
       const response = await axios.post(url, "", headers);
-      console.log(response);
       getFavourites();
     } catch (error) {
       console.log(error);
@@ -68,6 +62,7 @@ export default function StoresView() {
       const newFilter = shopFavourites.filter(
         (favourite) => favourite.store_id._id !== id
       );
+
       setShopFavourites(newFilter);
     } catch (error) {
       console.log(error);

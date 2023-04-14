@@ -30,7 +30,7 @@
   width: 90%;
 }
 
-select {
+.containerCategories select {
   color: #ffffff;
   background-color: #495464;
   border: 1px solid #ffffff;
@@ -58,7 +58,7 @@ select::-webkit-scrollbar-thumb:hover {
   background-color: #a0a0a0;
 }
 
-option {
+.containerCategories option {
   font-size: 16px;
   color: #ffffff;
   background-color: #495464;

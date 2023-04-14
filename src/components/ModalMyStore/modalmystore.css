@@ -19,6 +19,7 @@
   left: 0;
   right: 0;
   padding: 16px;
+  z-index: 10;
 }
 
 .contentModal {
@@ -27,7 +28,7 @@
   align-items: center;
   flex-direction: column;
   width: 35rem;
-  height: 65%;
+  height: 68%;
   background: rgb(211, 211, 211);
   border-radius: 6px;
   position: relative;
@@ -51,9 +52,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-direction: column;
-  height: 70%;
+  height: 80%;
   width: 20rem;
 }
 
@@ -129,6 +130,14 @@
   width: 100%;
   height: 5rem;
   gap: 1rem;
+}
+#deletebtn{
+  background-color: #495464;
+  color: white;
+}
+#deletebtn:hover{
+  background-color: #303742;
+  cursor: pointer;
 }
 
 .buttonsContainerModal button {
