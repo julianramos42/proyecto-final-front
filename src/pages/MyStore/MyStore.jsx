@@ -28,6 +28,8 @@ export default function MyStore() {
   const [open, setOpen] = useState(!true);
   const [isClosed, setIsClosed] = useState(false);
   const [product, setProduct] = useState([]);
+  const [categories, setCategories] = useState([])
+  const inputCategory = useRef()
 
   const s3 = new AWS.S3({
     accessKeyId: "AKIAQTTFIUBXP2EXKXKF",
@@ -97,6 +99,20 @@ export default function MyStore() {
     }
   }
   
+  async function createCategory(){
+    const url = "http://localhost:8080/categories/create"
+    const data = {
+      category_name: inputCategory.current?.value
+    }
+    try{
+      const response = await axios.post( url, data, headers)
+      setCategories(response.data)
+      toast.success(response.data.message)
+    }
+    catch(error){
+      toast.error(error.data.message)
+    }
+  }
   async function handleNewShop(e) {
     e.preventDefault();
     const url = "http://localhost:8080/shop/create";
@@ -194,6 +210,10 @@ export default function MyStore() {
                 <div className="title-cate">
                     <p className="title-shop">{shop.name}</p>
                     <p className="cate-shop">{shop.category}</p>
+                </div>
+                <div className="create-category">
+                  <input ref={inputCategory} type="text" placeholder="Create category for your products!"/>
+                  <button onClick={createCategory}>Create</button>
                 </div>
               </div>
               <div className="cont-cards-products">

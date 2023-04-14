@@ -56,6 +56,36 @@
   border-radius: 10px 10px 0px 0px;
   justify-content: center;
   display: flex;
+  position: relative;
+}
+.create-category{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  gap: 5px;
+  padding: 10px;
+  height: 100%;
+}
+.create-category input{
+  outline: none;
+  border-radius: 5px;
+  height: 25px;
+  width: 232px;
+}
+.create-category button{
+ border: none;
+ border-radius: 3px;
+ height: 22px;
+ cursor: pointer;
+ background-color: #f3f3f3;
+ color: #5c677c;
+ padding: 2px;
+}
+
+.create-category button:hover{
+ background-color: #dfdfdf;
 }
 .title-cate{
   height: 100%;
