@@ -1,10 +1,10 @@
 import React from 'react'
+import './AdminProducts.css'
 import loupe from '../../images/loupe.png'
 import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
 import { Link as Anchor } from 'react-router-dom'
 import { useRef, useState, useEffect } from 'react'
-import arrowDown from '../../images/arrowdown.png'
 
 export default function AdminProducts() {
   let search = useRef()
@@ -99,24 +99,28 @@ export default function AdminProducts() {
           </div>
         </div>
         <div className='adminItem-container'>
-          <p className='admin-propTitle'>NAME</p>
-          <p className='admin-propTitle'>STOCK</p>
-          <p className='admin-propTitle'>SHOP</p>
+          <div className='container-title'>
+            <p className='admin-propTitle'>NAME</p>
+            <p className='admin-propTitle stock'>STOCK</p>
+            <p className='admin-propTitle shop'>SHOP</p>
+          </div>
         </div>
         <div className='items-container'>
           {
             products.length ?
               products.map((product, i) => {
                 let card = <div className='adminItem-container' key={i}>
-                  <p className='admin-prop'>{product.name}</p>
-                  <p className='admin-prop'>{product.stock}</p>
-                  {
-                    shops.map((shop, i) => {
-                      if (shop._id == product.store_id) {
-                        return <Anchor to={'/shop/' + shop._id} className='admin-propName' key={i}>{shop.name}</Anchor>
-                      }
-                    })
-                  }
+                  <div className='container-title'>
+                    <p className='admin-prop'>{product.name}</p>
+                    <p className='admin-prop stock'>{product.stock}</p>
+                    {
+                      shops.map((shop, i) => {
+                        if (shop._id == product.store_id) {
+                          return <Anchor to={'/shop/' + shop._id} className='admin-propName shop' key={i}>{shop.name}</Anchor>
+                        }
+                      })
+                    }
+                  </div>
                   <div className='admin-btns'>
                     <p className='admin-delete' id={product._id} onClick={handleDeleteProductAlert}>Delete</p>
                   </div>

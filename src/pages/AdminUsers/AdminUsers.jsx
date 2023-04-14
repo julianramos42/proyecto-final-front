@@ -107,15 +107,17 @@ export default function AdminUsers() {
                     <div className='admin-search'>
                         <label htmlFor='search'><img src={loupe} alt='loupe' /></label>
                         <input type='text' ref={search} id='search' placeholder='Search users by name...' onChange={getUsers} />
-                    </div>  
+                    </div>
                 </div>
                 <div className='adminItem-container'>
-                    <p className='admin-propTitle'>NAME</p>
-                    <div className='sort' onClick={handleSeller}>
-                        <p>IS SELLER</p>
-                        <img src={arrowDown} />
+                    <div className='container-title'>
+                        <p className='admin-propTitle '>NAME</p>
+                        <div className='sort seller' onClick={handleSeller}>
+                            <p>IS SELLER</p>
+                            <img src={arrowDown} />
+                        </div>
+                        <p className='admin-propTitle shop users'>SHOP</p>
                     </div>
-                    <p className='admin-propTitle'>SHOP</p>
                 </div>
                 <div className='items-container'>
                     {
@@ -123,17 +125,19 @@ export default function AdminUsers() {
                             users.map((user, i) => {
                                 let userShop = false
                                 let card = <div className='adminItem-container' key={i}>
-                                    <p className='admin-prop'>{user.name + " " + user.last_name}</p>
-                                    {user.is_seller ? <p className='admin-prop'>Yes</p> : <p className='admin-prop'>No</p>}
-                                    {
-                                        shops.map((shop,i) => {
-                                            if(shop.user_id == user._id){
-                                                userShop = true
-                                                return <Anchor to={'/shop/'+shop._id} className='admin-propName' key={i}>{shop.name}</Anchor>
-                                            }
-                                        })
-                                    }
-                                    { userShop ? <></> : <p className='admin-prop'>-</p> }
+                                    <div className='container-title'>
+                                        <p className='admin-prop'>{user.name + " " + user.last_name}</p>
+                                        {user.is_seller ? <p className='admin-prop seller'>Yes</p> : <p className='admin-prop seller'>No</p>}
+                                        {
+                                            shops.map((shop, i) => {
+                                                if (shop.user_id == user._id) {
+                                                    userShop = true
+                                                    return <Anchor to={'/shop/' + shop._id} className='admin-propName shop' key={i}>{shop.name}</Anchor>
+                                                }
+                                            })
+                                        }
+                                        {userShop ? <></> : <p className='admin-prop shop'>-</p>}
+                                    </div>
                                     <div className='admin-btns'>
                                         <p className='admin-delete' id={user._id} onClick={handleDeleteUserAlert}>Delete</p>
                                     </div>

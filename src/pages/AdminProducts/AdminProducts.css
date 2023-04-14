@@ -1,0 +1,9 @@
+@media (max-width: 767px){
+    .admin-view .admin-content .adminItem-container .stock{
+        display: none;
+    }
+
+    .admin-view .admin-content .items-container .adminItem-container .stock{
+        display: none;
+    }
+}

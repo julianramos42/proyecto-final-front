@@ -9,11 +9,22 @@ export default function AdminStores() {
     let search = useRef()
     let [shops, setShops] = useState([])
     let [cantShops, setCantShops] = useState(0)
+    let [users, setUsers] = useState([])
     let [reload, setReload] = useState(false)
     const [confirmationToast, setConfirmationToast] = useState(null);
     let [selectedCategorie, setSelectedCategorie] = useState('')
     const token = localStorage.getItem('token');
     const headers = { headers: { Authorization: `Bearer ${token}` } };
+
+    async function getUsers() {
+        let url = `http://localhost:8080/admin/users/`
+        await axios.get(url, headers).then(res => {
+            setUsers(res.data.users)
+        })
+    }
+    useEffect(() => {
+        getUsers()
+    }, [])
 
     async function getShops() {
         let url = `http://localhost:8080/admin/shops/?name=${search.current.value}&category=${selectedCategorie}`
@@ -74,7 +85,10 @@ export default function AdminStores() {
 
     async function deleteOne(e) {
         let shopId = e.target.id
-        let url = `http://localhost:8080/admin/shops/delete/${shopId}`
+        let shop = shops.find(shop => shop._id == shopId)
+        let user = users.find(user => user._id == shop.user_id)
+        let userId = user._id
+        let url = `http://localhost:8080/admin/shops/delete/${shopId}/${userId}`
         await axios.delete(url, headers).then(res => toast.success(res.data.message))
         setReload(!reload)
     }
@@ -99,7 +113,7 @@ export default function AdminStores() {
                         <label htmlFor='search'><img src={loupe} alt='loupe' /></label>
                         <input type='text' ref={search} id='search' placeholder='Search shops by name...' onChange={getShops} />
                     </div>
-                    <select onChange={handleCategories} name="category">
+                    <select onChange={handleCategories} className='category' name="category">
                         <option value=''>
                             All Categories
                         </option>
@@ -139,18 +153,22 @@ export default function AdminStores() {
                     </select>
                 </div>
                 <div className='adminItem-container'>
-                    <p className='admin-propTitle'>NAME</p>
-                    <p className='admin-propTitle'>CATEGORY</p>
-                    <p className='admin-propTitle'>COUNTRY</p>
+                    <div className='container-title'>
+                        <p className='admin-propTitle'>NAME</p>
+                        <p className='admin-propTitle category'>CATEGORY</p>
+                        <p className='admin-propTitle country'>COUNTRY</p>
+                    </div>
                 </div>
                 <div className='items-container'>
                     {
                         shops.length ?
                             shops.map((shop, i) => {
                                 let card = <div className='adminItem-container' key={i}>
-                                    <Anchor to={`/shop/`+shop._id} className='admin-propName'>{shop.name}</Anchor>
-                                    <p className='admin-prop'>{shop.category}</p>
-                                    <p className='admin-prop'>{shop.country}</p>
+                                    <div className='container-title'>
+                                        <Anchor to={`/shop/`+shop._id} className='admin-propName'>{shop.name}</Anchor>
+                                        <p className='admin-prop category'>{shop.category}</p>
+                                        <p className='admin-prop country'>{shop.country}</p>
+                                    </div>
                                     <div className='admin-btns'>
                                         {shop.active ? <p className='admin-desactivate' id={shop._id} onClick={desactivateOne}>Desactivate</p> : <p className='admin-desactivate' id={shop._id} onClick={desactivateOne}>Activate</p>}
                                         <p className='admin-delete' id={shop._id} onClick={handleDeleteShopAlert}>Delete</p>
