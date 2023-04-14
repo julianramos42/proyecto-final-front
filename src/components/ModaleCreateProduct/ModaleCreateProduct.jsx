@@ -8,12 +8,31 @@ export default function Modal({ onClose }) {
   const formInfo = useRef();
   const [reload, setReload] = useState();
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [shop, setShop] = useState({});
+  const [categories, setCategories] = useState([])
 
   const s3 = new AWS.S3({
     accessKeyId: "AKIAQTTFIUBXP2EXKXKF",
     secretAccessKey: "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",
     region: "sa-east-1",
   });
+
+  useEffect(() => {
+    getMyShop();
+  }, []);
+
+  async function getMyShop() {
+    const token = localStorage.getItem("token");
+    const headers = { headers: { Authorization: `Bearer ${token}` } };
+    try {
+      const url = "http://localhost:8080/shop/me";
+      const response = await axios.get(url, headers);
+      setShop(response.data.shop);
+      setReload(true);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   
   async function createProduct(e) {
     const token = localStorage.getItem("token");
@@ -53,6 +72,21 @@ export default function Modal({ onClose }) {
   function handlePhotoSelect(event) {
     setSelectedPhoto(event.target.files[0]);
   }
+
+  async function getCategories(){
+    let url = `http://localhost:8080/categories/${shop._id}`
+    try{
+        await axios.get(url)
+        .then(res => setCategories(res.data.categories))
+    }catch(err){
+        console.log(err)
+    }
+  }
+
+  useEffect( () => {
+    getCategories()
+  },[])
+ 
     return (
       <div className="modalContainer2">
         <div className="contentModal2">
@@ -65,9 +99,13 @@ export default function Modal({ onClose }) {
               </span>
               <span>
                 <label>Category</label>
-                <input
-                  type="text"
-                />
+                <select name="" id="">
+                  {categories.map( (category,i) =>{
+                   let card = <option key={i} value={category.category_name}>{category.category_name}</option>
+                     return card
+                     })
+                  }
+                </select>
               </span>
               <span>
                 <label>Price</label>
