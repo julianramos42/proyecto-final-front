@@ -12,25 +12,27 @@ const { renderModal } = ShopModalActions
 
 export default function ShopModal() {
     let shopId = useParams().shopId
+    let [shop,setShop] = useState({})
     const dispatch = useDispatch()
     let [reload, setReload] = useState(false)
     let [products, setProducts] = useState([])
+    let [fullPrice, setFullPrice] = useState(0)
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
     async function handleLessStock(e) {
         try {
             let product = products.find(product => product._id == e.target.id)
-            if(product.stock === 1){
+            if(product.quantity === 1){
                 let url = `http://localhost:8080/shop/cart/deleteone/${product._id}`
                 await axios.delete(url, headers).then(res => toast.success(res.data.message))
                 setReload(!reload)
             }else{
                 let data = {
-                    stock: product.stock -= 1
+                    quantity: product.quantity -= 1
                 }
                 let url = `http://localhost:8080/shop/cart/update/${product._id}`
-                await axios.put(url, data, headers).then(res => console.log(res.data))
+                await axios.put(url, data, headers).then(res => {})
                 setReload(!reload)
             }
         } catch (err) {
@@ -41,12 +43,12 @@ export default function ShopModal() {
     async function handleMoreStock(e) {
         try {
             let product = products.find(product => product._id == e.target.id)
-            if(product.stock !== product.maxStock){
+            if(product.quantity !== product.maxStock){
                 let data = {
-                    stock: product.stock += 1
+                    quantity: product.quantity += 1
                 }
                 let url = `http://localhost:8080/shop/cart/update/${product._id}`
-                await axios.put(url, data, headers).then(res => console.log(res.data))
+                await axios.put(url, data, headers).then(res => {})
                 setReload(!reload)
             }
         } catch (err) {
@@ -112,9 +114,9 @@ export default function ShopModal() {
     function handleMaxStock(){
         try{
             products.forEach( product => {
-                if(product.stock > product.maxStock){
+                if(product.quantity > product.maxStock){
                     let data = {
-                        stock: product.maxStock
+                        quantity: product.maxStock
                     }
                     let url = `http://localhost:8080/shop/cart/update/${product._id}`
                     axios.put(url, data, headers).then(res => toast.success('Some items stock has been modified because they exceed the limit'))
@@ -129,6 +131,37 @@ export default function ShopModal() {
         handleMaxStock()
     },[products])
 
+    let shopUrl = `http://localhost:8080/shop/${shopId}`
+    async function getShop() {
+        try {
+            await axios.get(shopUrl).then(res => setShop(res.data.shop))
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    useEffect(() => {
+        getShop()
+    }, [shopId])
+
+    function handlePay() {
+        let data = {
+            products,
+            token: shop.token,
+            shopId: shop._id
+        }
+        axios.post("http://localhost:8080/payment", data, headers)
+            .then( res => window.location.href = res.data.response.body.init_point ); // te redirige al link de pago
+    }
+
+    useEffect( () => {
+        let template = 0
+        products.map(product => {
+            template += product.unit_price*product.quantity
+        })
+        setFullPrice(template)
+    },[products])
+    
     return (
         <div className='shopModal'>
             <div className='shopModalContainer'>
@@ -142,14 +175,14 @@ export default function ShopModal() {
                         products.length ?
                             products?.map((product, i) => {
                                 let card = <section className='modalCard' key={i}>
-                                    <img className='imgProduct' src={product.photo} alt={product?.name} />
+                                    <img className='imgProduct' src={product.photo} alt={product?.title} />
                                     <section className='detailsProduct'>
                                         <h3>{product.category}</h3>
-                                        <h2>{product.name}</h2>
-                                        <p>${product.price}</p>
+                                        <h2>{product.title}</h2>
+                                        <p>${product.unit_price}</p>
                                         <div className='btnStock'>
                                             <button id={product._id} onClick={handleLessStock}>-</button>
-                                            <p>{product.stock}</p>
+                                            <p>{product.quantity}</p>
                                             <button id={product._id} onClick={handleMoreStock}>+</button>
                                         </div>
                                     </section>
@@ -170,8 +203,8 @@ export default function ShopModal() {
                     }
                 </div>
                 <div className='modalBtns'>
-                    <p className='buyCart'>BUY CART</p>
-                    <p className='deleteCart' onClick={deleteAll}>CLEAR CART</p>
+                    { products.length ? <p className='buyCart' onClick={handlePay}>BUY CART (${fullPrice})</p> : <></> }
+                    { products.length ? <p className='deleteCart' onClick={deleteAll}>CLEAR CART</p> : <></> }
                 </div>
             </div>
             <Toaster position='top-right' />

@@ -24,13 +24,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  height: 5rem;
+  height: 4rem;
   background: #495464;
   border-radius: 12px;
   width: 90%;
 }
 
-select {
+.containerCategories select {
   color: #ffffff;
   background-color: #495464;
   border: 1px solid #ffffff;
@@ -58,7 +58,7 @@ select::-webkit-scrollbar-thumb:hover {
   background-color: #a0a0a0;
 }
 
-option {
+.containerCategories option {
   font-size: 16px;
   color: #ffffff;
   background-color: #495464;
@@ -74,10 +74,13 @@ option {
 .containerCardsStores {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background: #d7d7d7;
+  padding-top: 1rem;
   width: 90%;
+  height: 100%;
   min-height: 90%;
+  overflow-y: scroll;
   border-radius: 16px;
 }
 
@@ -104,10 +107,7 @@ option {
   flex-wrap: wrap;
   gap: 2rem;
   padding: 1rem;
-  height: 100%;
-  overflow-y: scroll;
 }
-
 
 @media (min-width: 320px) and (max-width: 661px) {
   select {

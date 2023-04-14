@@ -1,0 +1,55 @@
+.admin-view .admin-content .adminItem-container .sort{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+    width: 26%;
+    font-weight: 600;
+}
+
+.admin-view .admin-content .adminItem-container .sort:hover{
+    transform: scale(1.01);
+}
+
+.admin-view .admin-content .adminItem-container .sort img{
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 1023px){
+    .admin-view .admin-content .adminItem-container .users{
+        width: 30%;
+    }
+}
+
+@media (max-width: 767px){
+    .admin-view .admin-content .adminItem-container .users{
+        width: 42%;
+    }
+
+    .admin-view .admin-content .adminItem-container .seller{
+        display: none;
+    }
+
+    .admin-view .admin-content .items-container .adminItem-container .seller{
+        display: none;
+    }
+}
+
+@media (max-width: 499px){
+    .admin-view .admin-content .adminItem-container .users{
+        display: none;
+    }
+
+    .admin-view .admin-content .items-container .adminItem-container .admin-prop{
+        width: 100%;
+    }
+
+    .admin-view .admin-content .adminItem-container .shop{
+        display: none;
+    }
+
+    .admin-view .admin-content .items-container .adminItem-container .shop{
+        display: none;
+    }
+}

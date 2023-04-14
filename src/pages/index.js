@@ -7,6 +7,11 @@ import Favourites from "./Favourites/Favourites"
 import OneStore from './OneStore/OneStore'
 import OneProduct from './OneProduct/OneProduct'
 
+import AdminLayout from '../layouts/AdminLayout'
+import AdminStores from "./AdminStores/AdminStores";
+import AdminUsers from "./AdminUsers/AdminUsers";
+import AdminProducts from './AdminProducts/AdminProducts'
+
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -23,4 +28,14 @@ export const router = createBrowserRouter([
             { path: '/shop/:shopId/product/:productId', element: <OneProduct/> },
         ]
     },
+    {
+        path: '/',
+        element: <AdminLayout/>,
+        children: [
+            // { path: '/admin', element: <Dashboard/> }, 
+            { path: '/admin/shops', element: <AdminStores/> },
+            { path: '/admin/users', element: <AdminUsers/> },
+            { path: '/admin/products', element: <AdminProducts/> },
+        ]
+    }
 ])

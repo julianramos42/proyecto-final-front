@@ -89,29 +89,44 @@ export default function NavBarStores() {
             </Anchor>
           </span>
           <span className="buttonEffect">
+            <Anchor to='/' className="buttonAnchor">
+              <Home />
+              Home
+            </Anchor>
+          </span>
+          <span className="buttonEffect">
             <Anchor to='/shops' className="buttonAnchor">
               <Store />
               Shops
             </Anchor>
           </span>
-          <span className="buttonEffect">
+          {
+            token ? <span className="buttonEffect">
             <Anchor to='/myshop' className="buttonAnchor">
               <Stores />
               My Shop
             </Anchor>
           </span>
-          <span className="buttonEffect">
+          : <></>
+          }
+          {
+            token ? <span className="buttonEffect">
             <Anchor to='/profile' className="buttonAnchor">
               <Profile />
               Profile
             </Anchor>
           </span>
-          <span className="buttonEffect">
-            <Anchor className="buttonAnchor" to="/favourites">
-              <Favourite />
-              Favourites
-            </Anchor>
-          </span>
+          : <></>
+          }
+          {
+            token ? <span className="buttonEffect">
+              <Anchor className="buttonAnchor" to="/favourites">
+                <Favourite />
+                Favourites
+              </Anchor>
+            </span>
+              : <></>
+          }
           {
             token ? <></> :
               <span className="buttonEffect">

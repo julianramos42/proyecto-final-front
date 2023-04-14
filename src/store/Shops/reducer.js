@@ -3,13 +3,13 @@ import actions from "./actions";
 
 const { captureShop } = actions;
 
-const initialstate = {
+const initialState = {
   shop: [],
 };
 
-const reducer = createReducer(initialstate, (builder) =>
+const reducer = createReducer(initialState, (builder) =>
   builder.addCase(captureShop.fulfilled, (state, action) => {
-    let newState = {
+    const newState = {
       ...state,
       shop: action.payload.shop,
     };
@@ -17,4 +17,4 @@ const reducer = createReducer(initialstate, (builder) =>
   })
 );
 
-export default reducer
+export default reducer;

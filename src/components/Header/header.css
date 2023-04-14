@@ -97,6 +97,9 @@ input[type="search"]::-webkit-search-results-decoration {
 .profileImage:hover {
   filter: brightness(70%);
 }
+.profileAnchor {
+  text-decoration: none;
+}
 
 /* ========= || Header Styles || ========= */
 
@@ -108,7 +111,6 @@ input[type="search"]::-webkit-search-results-decoration {
   .inputContainer input {
     width: 50%;
   }
-
 
   .containerLogo {
     width: 100%;
