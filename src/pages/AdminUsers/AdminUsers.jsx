@@ -115,7 +115,7 @@ export default function AdminUsers() {
                         <p>IS SELLER</p>
                         <img src={arrowDown} />
                     </div>
-                    <p className='admin-propTitle'>Shop</p>
+                    <p className='admin-propTitle'>SHOP</p>
                 </div>
                 <div className='items-container'>
                     {
@@ -129,7 +129,7 @@ export default function AdminUsers() {
                                         shops.map((shop,i) => {
                                             if(shop.user_id == user._id){
                                                 userShop = true
-                                                return <Anchor to={'/shop/'+shop._id} className='admin-propName'>{shop.name}</Anchor>
+                                                return <Anchor to={'/shop/'+shop._id} className='admin-propName' key={i}>{shop.name}</Anchor>
                                             }
                                         })
                                     }

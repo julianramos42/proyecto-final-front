@@ -8,12 +8,12 @@ import BtnSign from '../BtnSign/BtnSign';
 import BtnLogo from '../../images/Menu.png'
 import BtnClose from '../../images/Union.png'
 import UserImage from '../../images/user.jpg'
-// import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import ShoppingBagRoundedIcon from '@mui/icons-material/ShoppingBagRounded';
 import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import LiveHelpRoundedIcon from '@mui/icons-material/LiveHelpRounded';
-// import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
+import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
 import PeopleAltRoundedIcon from '@mui/icons-material/PeopleAltRounded';
 import modalActions from '../../store/ModalForm/actions.js'
 
@@ -137,6 +137,7 @@ export default function HeaderHome() {
           <Anchor className={activeButton === 'About Us' ? 'btn_nav active' : 'btn_nav'} onClick={handleAboutUs}>About Us</Anchor>
           <Anchor className={activeButton === 'Stories' ? 'btn_nav active' : 'btn_nav'} onClick={handleCustomer}>Stories</Anchor>
           <Anchor className={activeButton === 'Contact' ? 'btn_nav active' : 'btn_nav'} onClick={handleContact}>Contact</Anchor>
+          <Anchor className='btn_nav' to='/admin/shops'>Admin</Anchor>
         </div>
         <div className='cont_BtnSing'>
           {token ? <></> : <BtnSign name='Login' onClick={handleSignIn} />}
@@ -168,7 +169,7 @@ export default function HeaderHome() {
           <div className='cont_route'>
             <div className='nav-btn'>
               <Anchor className='a-btn' >
-                {/* <HomeRoundedIcon /> */}
+                <HomeRoundedIcon />
                 Home
               </Anchor>
             </div>
@@ -177,6 +178,10 @@ export default function HeaderHome() {
                 <ShoppingBagRoundedIcon />
                 Stores
               </Anchor>
+            </div>
+            <div className='nav-btn'>
+              {/* ICON */}
+              <Anchor className='a-btn' to='/admin/shops'>Admin</Anchor>
             </div>
             {token ? <></> : <div className='nav-btn'>
               <Anchor className='a-btn' onClick={handleSignUpModal}>
@@ -200,7 +205,7 @@ export default function HeaderHome() {
             </div>
             {token ? <div className='nav-btn'>
               <Anchor className='a-btn' onClick={handleSignOutModal}>
-                {/* <ExitToAppRoundedIcon /> */}
+                <ExitToAppRoundedIcon />
                 Logout
               </Anchor>
             </div> : <></>}

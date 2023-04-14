@@ -39,6 +39,7 @@ export default function AdminStores() {
                 </div>,
                 {
                     position: 'top-center',
+                    duration: 2000,
                     icon: '🗑️',
                     style: {
                         borderRadius: '10px',

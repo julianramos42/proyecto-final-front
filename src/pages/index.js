@@ -10,7 +10,7 @@ import OneProduct from './OneProduct/OneProduct'
 import AdminLayout from '../layouts/AdminLayout'
 import AdminStores from "./AdminStores/AdminStores";
 import AdminUsers from "./AdminUsers/AdminUsers";
-// import { Dashboard } from "@mui/icons-material";
+import AdminProducts from './AdminProducts/AdminProducts'
 
 import { createBrowserRouter } from "react-router-dom";
 
@@ -35,6 +35,7 @@ export const router = createBrowserRouter([
             // { path: '/admin', element: <Dashboard/> }, 
             { path: '/admin/shops', element: <AdminStores/> },
             { path: '/admin/users', element: <AdminUsers/> },
+            { path: '/admin/products', element: <AdminProducts/> },
         ]
     }
 ])
