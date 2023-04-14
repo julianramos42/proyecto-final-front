@@ -90,7 +90,7 @@ export default function OneProduct() {
       <div className='product-Container'>
         <div className='product-Img'>
           <Anchor to={`/shop/${shopId}`} className='backToShops'>
-            {/* <ArrowLeft /> */}
+            <ArrowLeft />
             <p>Back to Products</p>
           </Anchor>
           <img src={product.photo} alt={product?.name} />

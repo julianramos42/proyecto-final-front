@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./navbarstores.css";
 import { Link as Anchor } from "react-router-dom";
 import {
+  Home,
   Store,
   Stores,
   Profile,
@@ -81,9 +82,9 @@ export default function NavBarStores() {
           <ArrowLeft />
         </div>
         <div className="anchorsContainer">
-        <span className="buttonEffect">
+          <span className="buttonEffect">
             <Anchor to='/' className="buttonAnchor">
-              {/* <Home /> */}
+              <Home />
               Home
             </Anchor>
           </span>
@@ -93,24 +94,33 @@ export default function NavBarStores() {
               Shops
             </Anchor>
           </span>
-          <span className="buttonEffect">
+          {
+            token ? <span className="buttonEffect">
             <Anchor to='/myshop' className="buttonAnchor">
               <Stores />
               My Shop
             </Anchor>
           </span>
-          <span className="buttonEffect">
+          : <></>
+          }
+          {
+            token ? <span className="buttonEffect">
             <Anchor to='/profile' className="buttonAnchor">
               <Profile />
               Profile
             </Anchor>
           </span>
-          <span className="buttonEffect">
-            <Anchor className="buttonAnchor" to="/favourites">
-              <Favourite />
-              Favourites
-            </Anchor>
-          </span>
+          : <></>
+          }
+          {
+            token ? <span className="buttonEffect">
+              <Anchor className="buttonAnchor" to="/favourites">
+                <Favourite />
+                Favourites
+              </Anchor>
+            </span>
+              : <></>
+          }
           {
             token ? <></> :
               <span className="buttonEffect">
