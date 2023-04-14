@@ -5,7 +5,7 @@
   flex-direction: column;
   background: #d7d7d7;
   width: 90%;
-  min-height: 50%;
+  min-height: 90%;
   overflow: scroll;
   overflow-x: hidden;
   border-radius: 16px;
@@ -31,18 +31,39 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #495464;
-  height: 2rem;
+  background: #ffffff;
+  height: 2.5rem;
   font-weight: 400;
-  width: 13rem;
+  width: 11rem;
   border-radius: 6px;
-  color: white;
-  margin-top: 1.5rem;
+  color: #3e4755;
   cursor: pointer;
 }
 
 .buttonClearAll:hover {
-  background: #3e4755;
-  
+  background: #e7e7e7;
 }
 
+.alignCardsFavourites {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.containerCardsStores {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #d7d7d7;
+  padding-top: 1rem;
+  width: 90%;
+  height: 100%;
+  min-height: 90%;
+  overflow-y: scroll;
+  border-radius: 16px;
+}

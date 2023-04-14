@@ -1,17 +1,16 @@
 import { createReducer } from "@reduxjs/toolkit";
 import actions from "./actions";
-
-const { captureShop } = actions;
+const { captureCategories } = actions;
 
 const initialState = {
-  shop: [],
+  category: "",
 };
 
 const reducer = createReducer(initialState, (builder) =>
-  builder.addCase(captureShop.fulfilled, (state, action) => {
-    const newState = {
+  builder.addCase(captureCategories, (state, action) => {
+    let newState = {
       ...state,
-      shop: action.payload.shop,
+      category: action.payload.category.split(","),
     };
     return newState;
   })

@@ -75,7 +75,6 @@ export default function Modal({ onClose }) {
       toast.success(res.data.message);
       onClose(true);
       setReload(true);
-
     } catch (error) {
       if (error.code === "ERR_NETWORK") {
         toast.error("Network Error");
@@ -103,46 +102,56 @@ export default function Modal({ onClose }) {
         <div>
           Are you sure you want to delete your shop?
           <div>
-            <button className="my-button" onClick={() => reject()}>Cancel</button>
-            <button className="my-button-delete" onClick={() => resolve()}>Delete</button>
+            <button className="my-button" onClick={() => reject()}>
+              Cancel
+            </button>
+            <button className="my-button-delete" onClick={() => resolve()}>
+              Delete
+            </button>
           </div>
         </div>,
         {
-          position: 'top-center',
-          icon: '🗑️',
+          position: "top-center",
+          icon: "🗑️",
           style: {
-            borderRadius: '10px',
-            background: '#333',
-            color: '#fff',
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
             height: "100px",
           },
         }
       );
       setConfirmationToast(toastId);
     });
-  
-    toast.promise(promise, {
-      pending: 'Deleting shop...',
-      error: 'Error deleting shop...',
-      position: 'top-center',
-      icon: '🗑️',
-      style: {
-        borderRadius: '10px',
-        background: '#333',
-        color: '#fff',
-        height: "100px",
-      },
-    }).then(() => {
-      handleDeleteShop();
-      toast.dismiss(confirmationToast);
-    }).catch(() => {
-      toast.dismiss(confirmationToast);
-      setConfirmationToast(null);
-    });
+
+    toast
+      .promise(promise, {
+        pending: "Deleting shop...",
+        error: "Error deleting shop...",
+        position: "top-center",
+        icon: "🗑️",
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+          height: "100px",
+        },
+      })
+      .then(() => {
+        handleDeleteShop();
+        toast.dismiss(confirmationToast);
+      })
+      .catch(() => {
+        toast.dismiss(confirmationToast);
+        setConfirmationToast(null);
+      });
   }
   async function handleDeleteShop() {
     try {
-      const response = await axios.delete("http://localhost:8080/shop/delete", headers);
+      const response = await axios.delete(
+        "http://localhost:8080/shop/delete",
+        headers
+      );
       toast.success(response.data.message, { duration: null });
       toast.dismiss(confirmationToast); // Cerrar el alerta
       setConfirmationToast(null); // Limpiar la variable de estado
@@ -204,7 +213,13 @@ export default function Modal({ onClose }) {
               <button onClick={handleUpdateShop}>Save Changes</button>
             </div>
             <div className="buttonsContainerModal">
-              <button type="submit" id="deletebtn" onClick={handleDeleteShopAlert}>Delete shop</button>
+              <button
+                type="submit"
+                id="deletebtn"
+                onClick={handleDeleteShopAlert}
+              >
+                Delete shop
+              </button>
             </div>
           </form>
         </div>

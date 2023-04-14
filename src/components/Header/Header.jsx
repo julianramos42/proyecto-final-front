@@ -23,13 +23,6 @@ export default function Header() {
         <Anchor to="/" className="containerLogo">
           <img src={Logo} alt="" />
         </Anchor>
-        {hideSearch ? null : (
-          <div className="inputContainer">
-            <Search />
-            <input type="search" placeholder="Search for something here..." />
-          </div>
-        )}
-
         {token ? (
           <Anchor to="/profile" className="profileAnchor">
             <div className="profileContainer">
