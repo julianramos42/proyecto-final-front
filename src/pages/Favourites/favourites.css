@@ -47,7 +47,7 @@
 .alignCardsFavourites {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   flex-wrap: wrap;
   gap: 2rem;
   padding: 1rem;

@@ -1,6 +1,6 @@
 .myStoreBanner {
   width: 95%;
-  height: 30%;
+  height: 25%;
 }
 
 .containerBannerMyStore img {
@@ -11,8 +11,8 @@
 }
 
 .profileImageMyStore {
-  width: 13rem;
-  height: 13rem;
+  width: 12rem;
+  height: 12rem;
   position: relative;
   display: flex;
   justify-content: center;
@@ -89,6 +89,7 @@
 }
 .title-cate{
   height: 100%;
+  padding: 5px;
   width: 280px;
   display: flex;
   flex-direction: column;
@@ -116,7 +117,7 @@
   justify-content: space-between;
   align-items: center;
   width: 95%;
-  height: 5rem;
+  height: 3rem;
 }
 
 .containerInfoMyStore {
@@ -188,6 +189,7 @@
 
   .buttonsContainer {
     justify-content: flex-end;
+    margin-top: 70px;
   }
 
   .buttonEditBanner {
@@ -247,6 +249,7 @@
   border-radius: 6px;
   outline: none;
   border: none;
+  height: 37px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -365,6 +368,28 @@
   width: 100%;
 }
 
+.tokenClass{
+  width: 100%;
+}
+.contTokenInpBtn{
+  display: flex;
+  width: 100%;
+  gap: 5px;
+}
+.inputToken{
+  width: 70%;
+}
+.buttonToken{
+  width: 30%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(238, 238, 238);
+}
+.buttonToken:hover{
+  background-color: rgb(218, 218, 218);
+}
+
 
 @media (min-width: 320px) and (max-width: 1024px) {
   .viewNewShopIMG {
@@ -396,6 +421,57 @@
   justify-content: space-between;
   align-items: flex-end;
   width: 95%;
-  height: 8rem;
+  height: 7rem;
 }
+}
+
+@media (min-width: 320px) and (max-width: 775px) {
+  .headerViewContentMyStore{
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+  }
+  .title-cate{
+    top: -15px;
+    position: absolute;
+  }
+  .create-category{
+    top: 20px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .create-category input{
+    width: 60%;
+  }
+}
+@media (min-width: 742px) and (max-width: 775px) {
+  .headerViewContentMyStore{
+    display: flex;
+    flex-direction: row;
+    height: 250px;
+  }
+}
+@media (min-width: 481px) and (max-width: 610px) {
+  .buttonsContainer {
+    justify-content: flex-end;
+  }
+  .infoMyStore{
+    height: 80px;
+  }
+}
+@media (min-width: 320px) and (max-width: 625px) {
+  .myStoreBanner {
+    height: 22%;
+  }
+  .containerBannerMyStore {
+    height: 12rem;
+  }
+  .containerBannerMyStore img {
+    height: 100%;
+  }
+  .buttonToken{
+    font-size: .5rem;
+  }
 }
