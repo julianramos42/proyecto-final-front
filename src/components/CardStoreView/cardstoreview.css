@@ -68,7 +68,7 @@
   width: 20%;
   border-radius: 4px;
   height: 1.5rem;
-  background: #495464;
+  background: #161616;
   position: absolute;
   bottom: 8px;
   right: 8px;
@@ -78,7 +78,7 @@
 }
 
 .viewButton:hover {
-  background: #3d4653;
+  background: #363636;
   text-shadow: 0px 0px 1px white;
 }
 

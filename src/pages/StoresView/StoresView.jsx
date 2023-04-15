@@ -77,6 +77,8 @@ export default function StoresView() {
     getFavourites();
   }, []);
 
+  console.log(shopFavourites)
+
   return (
     <>
       <NavBarStores />
