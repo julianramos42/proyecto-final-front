@@ -144,6 +144,7 @@ export default function Profile() {
               <input
                 type="text"
                 placeholder={mail}
+                className="mailDisabled"
                 onChange={(event) =>
                   setData({ ...data, email: event.target.value })
                 }

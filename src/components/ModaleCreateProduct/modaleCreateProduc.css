@@ -1,69 +1,79 @@
 .modalContainer2 {
-    background: #00000091;
-    position: fixed;
-    height: 100vh;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -ms-flex-line-pack: center;
-    align-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 16px;
-    z-index: 10;
-  }
-.contentModal2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 40rem;
-    height: 95%;
-    background: rgb(211, 211, 211);
-    border-radius: 6px;
-    position: relative;
+  background: #00000091;
+  position: fixed;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  z-index: 10;
+}
+.contentModal2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 40rem;
+  height: 95%;
+  background: rgb(211, 211, 211);
+  border-radius: 6px;
+  position: relative;
 }
 .contentModal2 h3 {
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    font-size: 1.8rem;
-    color: #ffffff;
-    width: 100%;
-    height: 3.2rem;
-    background: #495464;
-    border-radius: 6px 6px 0px 0px;
-  }
-  
-  .containerMyShop2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    flex-direction: column;
-    height: 70%;
-    width: 20rem;
-  }
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-size: 1.8rem;
+  color: #ffffff;
+  width: 100%;
+  height: 3.2rem;
+  background: #161616;
+  border-radius: 6px 6px 0px 0px;
+}
 
-  .textAreaModal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background: white;
-    height: 9.5rem;
-    border-radius: 6px;
-    resize: none;
-    outline: none;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
+.containerMyShop2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+  height: 70%;
+  width: 20rem;
+}
+
+.textAreaModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: none;
+  padding: .4rem;
+  background: white;
+  height: 9.5rem;
+  border-radius: 6px;
+  resize: none;
+  outline: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.selecCategory select {
+  width: 100%;
+  height: 2rem;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+}
