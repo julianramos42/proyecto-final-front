@@ -25,8 +25,8 @@ export default function Profile() {
   });
 
   const s3 = new AWS.S3({
-    accessKeyId: "AKIAQTTFIUBXPWRHED55",
-    secretAccessKey: "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",
+    accessKeyId: "AKIAQTTFIUBXM7BF4IE3",
+    secretAccessKey: "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",
     region: "sa-east-1",
   });
 
@@ -96,7 +96,7 @@ export default function Profile() {
               <p>i</p>
             </span>
             <p>
-              <RandomText/>
+              <RandomText />
             </p>
           </div>
           <span className="containerImageRounded">

@@ -16,8 +16,8 @@ export default function Modal({ onClose }) {
   const [confirmationToast, setConfirmationToast] = useState(null);
 
   const s3 = new AWS.S3({
-    accessKeyId: "AKIAQTTFIUBXPWRHED55",
-    secretAccessKey: "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",
+    accessKeyId: "AKIAQTTFIUBXM7BF4IE3",
+    secretAccessKey: "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",
     region: "sa-east-1",
   });
 
@@ -36,6 +36,7 @@ export default function Modal({ onClose }) {
       console.log(error);
     }
   }
+
   async function handleUpdateShop(e) {
     e.preventDefault();
     const url = "http://localhost:8080/shop/update";
@@ -47,30 +48,34 @@ export default function Modal({ onClose }) {
       photo: "" || shop.photo,
       banner: "" || shop.banner,
       description: shop.description,
-      token: shop.token
+      token: shop.token,
     };
 
-    try {
-      if (selectedFile && selectedBanner) {
-        const file = selectedFile;
-        const fileName = `${file.name}`;
-        const params = {
-          Bucket: "lancedatabaseimages",
-          Key: fileName,
-          Body: file,
-        };
-        const responseS3 = await s3.upload(params).promise();
-        data.photo = responseS3.Location;
 
-        const banner = selectedBanner;
-        const bannerName = `${banner.name}`;
-        const bannerParams = {
-          Bucket: "lancedatabaseimages",
-          Key: bannerName,
-          Body: banner,
-        };
-        const bannerResponseS3 = await s3.upload(bannerParams).promise();
-        data.banner = bannerResponseS3.Location;
+    try {
+      if (selectedFile || selectedBanner) {
+        if (selectedFile) {
+          const file = selectedFile;
+          const fileName = `${file.name}`;
+          const params = {
+            Bucket: "lancedatabaseimages",
+            Key: fileName,
+            Body: file,
+          };
+          const responseS3 = await s3.upload(params).promise();
+          data.photo = responseS3.Location;
+        }
+        if (selectedBanner) {
+          const banner = selectedBanner;
+          const bannerName = `${banner.name}`;
+          const bannerParams = {
+            Bucket: "lancedatabaseimages",
+            Key: bannerName,
+            Body: banner,
+          };
+          const bannerResponseS3 = await s3.upload(bannerParams).promise();
+          data.banner = bannerResponseS3.Location;
+        }
       }
       const res = await axios.put(url, data, headers);
       toast.success(res.data.message);

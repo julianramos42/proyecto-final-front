@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background: #e4e4e4;
+  background: #EFEFEF;
   flex-direction: column;
   position: absolute;
   right: 0;
@@ -25,14 +25,14 @@
   align-items: center;
   padding: 1.5rem;
   height: 4rem;
-  background: #495464;
+  background: #161616;
   border-radius: 12px;
   width: 90%;
 }
 
 .containerCategories select {
   color: #ffffff;
-  background-color: #495464;
+  background-color: #161616;
   border: 1px solid #ffffff;
   padding: 5px;
   border-radius: 4px;
@@ -61,7 +61,7 @@ select::-webkit-scrollbar-thumb:hover {
 .containerCategories option {
   font-size: 16px;
   color: #ffffff;
-  background-color: #495464;
+  background-color: #161616;
 }
 
 .deleteIcon {

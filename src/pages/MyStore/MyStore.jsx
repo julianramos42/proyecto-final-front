@@ -10,7 +10,7 @@ import axios from "axios";
 import AWS from "aws-sdk";
 import toast, { Toaster } from "react-hot-toast";
 import Modal from "../../components/ModalMyStore/ModalMyStore";
-import ModalCreateProduct from "../../components/ModaleCreateProduct/ModaleCreateProduct"
+import ModalCreateProduct from "../../components/ModaleCreateProduct/ModaleCreateProduct";
 import CardProductMyShop from "../../components/CardProductMyShop/CardProductMyShop";
 
 export default function MyStore() {
@@ -28,12 +28,12 @@ export default function MyStore() {
   const [open, setOpen] = useState(!true);
   const [isClosed, setIsClosed] = useState(false);
   const [product, setProduct] = useState([]);
-  const [categories, setCategories] = useState([])
-  const inputCategory = useRef()
+  const [categories, setCategories] = useState([]);
+  const inputCategory = useRef();
 
   const s3 = new AWS.S3({
-    accessKeyId: "AKIAQTTFIUBXPWRHED55",
-    secretAccessKey: "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",
+    accessKeyId: "AKIAQTTFIUBXM7BF4IE3",
+    secretAccessKey: "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",
     region: "sa-east-1",
   });
 
@@ -77,40 +77,39 @@ export default function MyStore() {
       console.log(error);
     }
   }
-  
-  
+
   useEffect(() => {
     getMyProducts(shop);
   }, [shop, reload]);
-  
+
   async function getMyProducts(shop) {
-    setReload(false)
+    setReload(false);
     const token = localStorage.getItem("token");
     const headers = { headers: { Authorization: `Bearer ${token}` } };
 
     try {
-      if (shop._id){
+      if (shop._id) {
         const url = `http://localhost:8080/shop/${shop._id}/products`;
         const response = await axios.get(url, headers);
-      setProduct(response.data.products);
+        setProduct(response.data.products);
       }
     } catch (error) {
       console.log(error);
     }
   }
-  
-  async function createCategory(){
-    const url = "http://localhost:8080/categories/create"
+
+  async function createCategory() {
+    const url = "http://localhost:8080/categories/create";
     const data = {
-      category_name: inputCategory.current?.value
-    }
-    try{
-      const response = await axios.post( url, data, headers)
-      setCategories(response.data)
-      toast.success(response.data.message)
-    }
-    catch(error){
-      toast.error(error.data.message)
+      category_name: inputCategory.current?.value,
+    };
+    try {
+      const response = await axios.post(url, data, headers);
+      setCategories(response.data);
+      toast.success(response.data.message);
+      inputCategory.current.value = "";
+    } catch (error) {
+      toast.error(error.data.message);
     }
   }
   async function handleNewShop(e) {
@@ -140,7 +139,7 @@ export default function MyStore() {
         data.photo = responseS3.Location;
 
         const banner = selectedBanner;
-        const bannerName = `{banner.name}`;
+        const bannerName = `${banner.name}`;
         const bannerParams = {
           Bucket: "lancedatabaseimages",
           Key: bannerName,
@@ -152,7 +151,9 @@ export default function MyStore() {
       const res = await axios.post(url, data, headers);
       localStorage.setItem("user", JSON.stringify({ ...user, seller: true }));
       toast.success(res.data.message);
-      setReload(true);
+      setTimeout(() => {
+        setReload(!reload);
+      }, 1000);
     } catch (error) {
       if (error.code === "ERR_NETWORK") {
         toast.error("Network Error");
@@ -172,7 +173,6 @@ export default function MyStore() {
   function handleFileBanner(event) {
     setSelectedBanner(event.target.files[0]);
   }
-
 
   return (
     <>
@@ -201,23 +201,28 @@ export default function MyStore() {
                 <div className="buttonEditStore" onClick={openSettings}>
                   Add product
                 </div>
-                {open && <ModalCreateProduct key={isClosed} onClose={closeModal2} />}
-                
+                {open && (
+                  <ModalCreateProduct key={isClosed} onClose={closeModal2} />
+                )}
               </span>
             </div>
             <div className="viewContentMyStore">
               <div className="headerViewContentMyStore">
                 <div className="title-cate">
-                    <p className="title-shop">{shop.name}</p>
-                    <p className="cate-shop">{shop.category}</p>
+                  <p className="title-shop">{shop.name}</p>
+                  <p className="cate-shop">{shop.category}</p>
                 </div>
                 <div className="create-category">
-                  <input ref={inputCategory} type="text" placeholder="Create category for your products!"/>
+                  <input
+                    ref={inputCategory}
+                    type="text"
+                    placeholder="Create category for your products!"
+                  />
                   <button onClick={createCategory}>Create</button>
                 </div>
               </div>
               <div className="cont-cards-products">
-              {product.map((product) => (
+                {product.map((product) => (
                   <CardProductMyShop
                     key={product._id}
                     product={product}
@@ -226,7 +231,7 @@ export default function MyStore() {
                   />
                 ))}
               </div>
-              
+
               <div className="containerCardsMyStore"></div>
             </div>
           </>

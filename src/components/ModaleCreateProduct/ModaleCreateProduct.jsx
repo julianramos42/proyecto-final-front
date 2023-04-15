@@ -9,11 +9,11 @@ export default function Modal({ onClose }) {
   const [reload, setReload] = useState();
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [shop, setShop] = useState({});
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([]);
 
   const s3 = new AWS.S3({
-    accessKeyId: "AKIAQTTFIUBXPWRHED55",
-    secretAccessKey: "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",
+    accessKeyId: "AKIAQTTFIUBXM7BF4IE3",
+    secretAccessKey: "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",
     region: "sa-east-1",
   });
 
@@ -33,7 +33,7 @@ export default function Modal({ onClose }) {
       console.log(error);
     }
   }
-  
+
   async function createProduct(e) {
     const token = localStorage.getItem("token");
     const headers = { headers: { Authorization: `Bearer ${token}` } };
@@ -45,7 +45,7 @@ export default function Modal({ onClose }) {
       price: formInfo.current[2].value,
       stock: formInfo.current[3].value,
       photo: formInfo.current[4].value,
-      description: formInfo.current[5].value
+      description: formInfo.current[5].value,
     };
     try {
       if (selectedPhoto) {
@@ -63,9 +63,8 @@ export default function Modal({ onClose }) {
       toast.success(res.data.message);
       onClose(true);
       setReload(true);
-
     } catch (error) {
-      console.log(error)
+      toast.error(error.data.message);
     }
   }
 
@@ -73,55 +72,53 @@ export default function Modal({ onClose }) {
     setSelectedPhoto(event.target.files[0]);
   }
 
-  async function getCategories(){
-    let url = `http://localhost:8080/categories/${shop._id}`
-    try{
-        if(shop._id){
-          await axios.get(url)
-          .then(res => setCategories(res.data.categories))
-        }
-    }catch(err){
-        console.log(err)
+  async function getCategories() {
+    let url = `http://localhost:8080/categories/${shop._id}`;
+    try {
+      if (shop._id) {
+        await axios.get(url).then((res) => setCategories(res.data.categories));
+      }
+    } catch (err) {
+      console.log(err);
     }
   }
 
-  useEffect( () => {
-    getCategories()
-  },[shop._id])
- 
-    return (
-      <div className="modalContainer2">
-        <div className="contentModal2">
-          <h3>Create your product</h3>
-          <div className="containerMyShop">
-            <form className="containerMyShop2" ref={formInfo}>
-              <span>
-                <label>Name</label>
-                <input type="text"/>
-              </span>
-              <span>
-                <label>Category</label>
-                <select name="" id="">
-                  {categories.map( (category,i) =>{
-                   let card = <option key={i} value={category.category_name}>{category.category_name}</option>
-                     return card
-                     })
-                  }
-                </select>
-              </span>
-              <span>
-                <label>Price</label>
-                <input
-                  type="number"
-                />
-              </span>
-              <span>
-                <label>Stock</label>
-                <input
-                  type="number"
-                />
-              </span>
-              <span>
+  useEffect(() => {
+    getCategories();
+  }, [shop._id]);
+
+  return (
+    <div className="modalContainer2">
+      <div className="contentModal2">
+        <h3>Create your product</h3>
+        <div className="containerMyShop">
+          <form className="containerMyShop2" ref={formInfo}>
+            <span>
+              <label>Name</label>
+              <input type="text" />
+            </span>
+            <span>
+              <label>Category</label>
+              <select name="" id="">
+                {categories.map((category, i) => {
+                  let card = (
+                    <option key={i} value={category.category_name}>
+                      {category.category_name}
+                    </option>
+                  );
+                  return card;
+                })}
+              </select>
+            </span>
+            <span>
+              <label>Price</label>
+              <input type="number" />
+            </span>
+            <span>
+              <label>Stock</label>
+              <input type="number" />
+            </span>
+            <span>
               <label>Select photo</label>
               <input
                 type="file"
@@ -138,18 +135,23 @@ export default function Modal({ onClose }) {
               </label>
             </span>
             <span>
-                <label>Description</label>
-                <textarea className="textAreaModal" name="" id="" cols="30" rows="10"></textarea>
-              </span>
-  
-              <div className="buttonsContainerModal">
-                <button onClick={onClose}>Cancel</button>
-                <button onClick={createProduct}>Create</button>
-              </div>
-            </form>
-          </div>
+              <label>Description</label>
+              <textarea
+                className="textAreaModal"
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+              ></textarea>
+            </span>
+
+            <div className="buttonsContainerModal">
+              <button onClick={onClose}>Cancel</button>
+              <button onClick={createProduct}>Create</button>
+            </div>
+          </form>
         </div>
       </div>
-    );
-  }
-  
+    </div>
+  );
+}
