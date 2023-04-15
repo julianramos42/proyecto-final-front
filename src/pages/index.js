@@ -12,6 +12,8 @@ import AdminStores from "./AdminStores/AdminStores";
 import AdminUsers from "./AdminUsers/AdminUsers";
 import AdminProducts from './AdminProducts/AdminProducts'
 
+import Verify from "./Verify/Verify";
+
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -26,13 +28,13 @@ export const router = createBrowserRouter([
             { path: "/favourites", element: <Favourites /> },
             { path: '/shop/:shopId', element: <OneStore/> },
             { path: '/shop/:shopId/product/:productId', element: <OneProduct/> },
+            { path: '/verify/:verify_code', element: <Verify/> },
         ]
     },
     {
         path: '/',
         element: <AdminLayout/>,
         children: [
-            // { path: '/admin', element: <Dashboard/> }, 
             { path: '/admin/shops', element: <AdminStores/> },
             { path: '/admin/users', element: <AdminUsers/> },
             { path: '/admin/products', element: <AdminProducts/> },

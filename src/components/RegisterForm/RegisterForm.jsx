@@ -42,9 +42,10 @@ export default function RegisterForm() {
         try {
             await axios.post(url, data).then(res => {
                 toast.success(res.data.message)
+                toast.success('Please check out your email and verify yourself')
                 setTimeout(() => {
                     dispatch(renderModal({ state: 'login' }))
-                }, 1500)
+                }, 2500)
             })
         } catch (error) {
             if (error.code === "ERR_NETWORK") {

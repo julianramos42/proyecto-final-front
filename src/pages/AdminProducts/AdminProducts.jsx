@@ -5,6 +5,7 @@ import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
 import { Link as Anchor } from 'react-router-dom'
 import { useRef, useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function AdminProducts() {
   let search = useRef()
@@ -88,50 +89,62 @@ export default function AdminProducts() {
     setReload(!reload)
   }
 
+  const user = JSON.parse(localStorage.getItem("user"));
+  let navigate = useNavigate()
+  useEffect(() => {
+    if (!user.admin) {
+      navigate('/')
+    }
+  }, [])
+
   return (
-    <div className='admin-view'>
-      <div className='admin-content'>
-        <div className='filter-container'>
-          <h3>Products ({cantProducts})</h3>
-          <div className='admin-search'>
-            <label htmlFor='search'><img src={loupe} alt='loupe' /></label>
-            <input type='text' ref={search} id='search' placeholder='Search products by name...' onChange={getProducts} />
-          </div>
-        </div>
-        <div className='adminItem-container'>
-          <div className='container-title'>
-            <p className='admin-propTitle'>NAME</p>
-            <p className='admin-propTitle stock'>STOCK</p>
-            <p className='admin-propTitle shop'>SHOP</p>
-          </div>
-        </div>
-        <div className='items-container'>
-          {
-            products.length ?
-              products.map((product, i) => {
-                let card = <div className='adminItem-container' key={i}>
-                  <div className='container-title'>
-                    <p className='admin-prop'>{product.name}</p>
-                    <p className='admin-prop stock'>{product.stock}</p>
-                    {
-                      shops.map((shop, i) => {
-                        if (shop._id == product.store_id) {
-                          return <Anchor to={'/shop/' + shop._id} className='admin-propName shop' key={i}>{shop.name}</Anchor>
+    <>
+      {
+        user.admin ? <div className='admin-view'>
+          <div className='admin-content'>
+            <div className='filter-container'>
+              <h3>Products ({cantProducts})</h3>
+              <div className='admin-search'>
+                <label htmlFor='search'><img src={loupe} alt='loupe' /></label>
+                <input type='text' ref={search} id='search' placeholder='Search products by name...' onChange={getProducts} />
+              </div>
+            </div>
+            <div className='adminItem-container'>
+              <div className='container-title'>
+                <p className='admin-propTitle'>NAME</p>
+                <p className='admin-propTitle stock'>STOCK</p>
+                <p className='admin-propTitle shop'>SHOP</p>
+              </div>
+            </div>
+            <div className='items-container'>
+              {
+                products.length ?
+                  products.map((product, i) => {
+                    let card = <div className='adminItem-container' key={i}>
+                      <div className='container-title'>
+                        <p className='admin-prop'>{product.name}</p>
+                        <p className='admin-prop stock'>{product.stock}</p>
+                        {
+                          shops.map((shop, i) => {
+                            if (shop._id == product.store_id) {
+                              return <Anchor to={'/shop/' + shop._id} className='admin-propName shop' key={i}>{shop.name}</Anchor>
+                            }
+                          })
                         }
-                      })
-                    }
-                  </div>
-                  <div className='admin-btns'>
-                    <p className='admin-delete' id={product._id} onClick={handleDeleteProductAlert}>Delete</p>
-                  </div>
-                </div>
-                return card
-              })
-              : <></>
-          }
-        </div>
-      </div>
-      <Toaster position='top-right' />
-    </div>
+                      </div>
+                      <div className='admin-btns'>
+                        <p className='admin-delete' id={product._id} onClick={handleDeleteProductAlert}>Delete</p>
+                      </div>
+                    </div>
+                    return card
+                  })
+                  : <></>
+              }
+            </div>
+          </div>
+          <Toaster position='top-right' />
+        </div> : <></>
+      }
+    </>
   )
 }

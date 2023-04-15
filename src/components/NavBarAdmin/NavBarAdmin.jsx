@@ -12,9 +12,11 @@ import {
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 export default function NavBarAdmin() {
     const [isNavOpen, setIsNavOpen] = useState(false);
+    const navigate = useNavigate();
 
     function toggleNav() {
         setIsNavOpen(!isNavOpen);
@@ -38,6 +40,7 @@ export default function NavBarAdmin() {
             toast.success('The session was closed successfully!')
             setTimeout(() => {
                 setIsNavOpen(!isNavOpen)
+                navigate("/")
             }, 1000)
         } catch (error) {
             toast.error("You're already signed out or not signed in")

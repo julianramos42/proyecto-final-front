@@ -62,8 +62,10 @@ export default function ShopModal() {
 
     async function getProducts() {
         try {
-            let url = `http://localhost:8080/shop/${shopId}/cart`
-            await axios.get(url, headers).then(res => setProducts(res.data.products))
+            if(token){
+                let url = `http://localhost:8080/shop/${shopId}/cart`
+                await axios.get(url, headers).then(res => setProducts(res.data.products))
+            }
         } catch (err) {
             console.log(err)
         }
