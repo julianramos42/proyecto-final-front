@@ -49,27 +49,31 @@ export default function OneProduct() {
 
   async function handleCart() {
     try {
-      if (quantity !== 0) {
-        let url = `http://localhost:8080/shop/${shopId}/createcartproduct`
-        let token = localStorage.getItem('token')
-        let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-        let data = {
-          title: product.name,
-          unit_price: product.price,
-          photo: product.photo,
-          quantity: product.stock,
-          maxStock: maxStock,
-          category: product.category,
-          description: product.description,
+      let url = `http://localhost:8080/shop/${shopId}/createcartproduct`
+      let token = localStorage.getItem('token')
+      let headers = { headers: { 'Authorization': `Bearer ${token}` } }
+      if (token) {
+        if (quantity !== 0) {
+          let data = {
+            title: product.name,
+            unit_price: product.price,
+            photo: product.photo,
+            quantity: product.stock,
+            maxStock: maxStock,
+            category: product.category,
+            description: product.description,
+          }
+          data.quantity = quantity
+          axios.post(url, data, headers).then(res => {
+            toast.success(res.data.message)
+            setQuantity(0)
+            setMaxStock(product.stock)
+          })
+        } else {
+          toast.error('The stock cannot be 0')
         }
-        data.quantity = quantity
-        axios.post(url, data, headers).then(res => {
-          toast.success(res.data.message)
-          setQuantity(0)
-          setMaxStock(product.stock)
-        })
       } else {
-        toast.error('The stock cannot be 0')
+        toast.error('You need to Login')
       }
     } catch (error) {
       if (error.code === "ERR_NETWORK") {
@@ -113,7 +117,7 @@ export default function OneProduct() {
             {maxStock ? <p className='stockText'>Only {product.stock} items in stock</p> : <p className='noStockText'>No Stock</p>}
             <p className='description-title'>Description</p>
             <p className='description-text'>{product.description}</p>
-            { maxStock ? <button className='addToCart' onClick={handleCart}>ADD TO CART</button> : <></> }
+            {maxStock ? <button className='addToCart' onClick={handleCart}>ADD TO CART</button> : <></>}
           </div>
         </div>
       </div>

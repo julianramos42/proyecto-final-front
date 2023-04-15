@@ -38,8 +38,10 @@ export default function StoresView() {
     const headers = { headers: { Authorization: `Bearer ${token}` } };
     const url = `http://localhost:8080/favourites/`;
     try {
-      const response = await axios.get(url, headers);
-      setShopFavourites(response.data.favourites);
+      if(token){
+        const response = await axios.get(url, headers);
+        setShopFavourites(response.data.favourites);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -48,8 +50,10 @@ export default function StoresView() {
   async function addFavourite(id) {
     const url = `http://localhost:8080/favourites/${id}`;
     try {
-      const response = await axios.post(url, "", headers);
-      getFavourites();
+      if(token){
+        const response = await axios.post(url, "", headers);
+        getFavourites();
+      }
     } catch (error) {
       console.log(error);
     }

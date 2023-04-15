@@ -18,7 +18,7 @@ export default function HeaderShop() {
     let shopId = useParams().shopId
 
     let banner = {
-        'background': `rgba(0, 0, 0, 0.5) url(${shop.banner})`,
+        'background': `rgba(0, 0, 0, 0.8) url(${shop.banner})`,
     }
 
     let shopUrl = `http://localhost:8080/shop/${shopId}`

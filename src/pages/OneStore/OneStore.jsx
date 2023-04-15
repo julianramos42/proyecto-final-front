@@ -28,26 +28,23 @@ export default function OneStore() {
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
     useEffect(() => {
-        let template = 0
-        cartProducts.forEach(cartProduct => {
-            template += cartProduct.unit_price
-        })
-        setCartPrice(template)
-    }, [])
-
-    useEffect(() => {
         if (status === 'approved' && cartProducts.length) {
             toast.success(`Thanks for buying from us ${user.name}`) // esto tiene que ser un modal
-            handlePayment()
+            let template = 0
+            cartProducts.forEach(cartProduct => {
+                template += cartProduct.unit_price
+            })
+            setCartPrice(template)
+            handlePayment(template)
         }
     }, [cartProducts])
 
-    async function handlePayment() {
+    async function handlePayment(price) {
         try {
             let url = `http://localhost:8080/payment/${shopId}`
             let data = {
                 "payment_id": payment_id,
-                "totalValue": cartPrice,
+                "totalValue": price,
                 "products": cartProducts
             }
             await axios.post(url, data, headers).then(res => {
@@ -128,10 +125,12 @@ export default function OneStore() {
 
     async function getCartProducts() {
         try {
-            let url = `http://localhost:8080/shop/${shopId}/cart`
-            await axios.get(url, headers).then(res => {
-                setCartProducts(res.data.products)
-            })
+            if (token) {
+                let url = `http://localhost:8080/shop/${shopId}/cart`
+                await axios.get(url, headers).then(res => {
+                    setCartProducts(res.data.products)
+                })
+            }
         } catch (err) {
             console.log(err)
         }
@@ -155,28 +154,28 @@ export default function OneStore() {
 
     useEffect(() => {
         getProducts()
-    }, [sort,category])
+    }, [sort, category])
 
-    function handleOptionChange(e){
+    function handleOptionChange(e) {
         setCategory(e.target.value)
     }
 
-    function handleCategoryChange(e){
+    function handleCategoryChange(e) {
         setCategory(e.target.textContent)
     }
 
-    async function getCategories(){
+    async function getCategories() {
         let url = `http://localhost:8080/categories/${shopId}`
-        try{
+        try {
             await axios.get(url).then(res => setCategories(res.data.categories))
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
     }
 
-    useEffect( () => {
+    useEffect(() => {
         getCategories()
-    },[])
+    }, [])
 
     return (
         <>
@@ -207,15 +206,15 @@ export default function OneStore() {
                         <select onChange={handleOptionChange}>
                             <option value="">All</option>
                             {
-                                categories.map( (category,i) =>{
+                                categories.map((category, i) => {
                                     let card = <option key={i} value={category.category_name}>{category.category_name}</option>
                                     return card
                                 })
                             }
                         </select>
-                        <h4 onClick={() => {setCategory('')}}>All Categories</h4>
+                        <h4 onClick={() => { setCategory('') }}>All Categories</h4>
                         {
-                            categories.map( (category,i) => {
+                            categories.map((category, i) => {
                                 let card = <h4 key={i} onClick={handleCategoryChange}>{category.category_name}</h4>
                                 return card
                             })

@@ -180,6 +180,10 @@
 }
 
 @media (max-width: 767px){
+    .categorySelect{
+        display: none;
+    }
+
     .admin-view .admin-content .adminItem-container .category{
         display: none;
     }
