@@ -139,7 +139,7 @@ export default function Profile() {
                 }
               />
             </span>
-            <span className="inputContainerProfile">
+            <span className="inputContainerProfileEmail">
               <label>Email</label>
               <input
                 type="text"
@@ -153,7 +153,6 @@ export default function Profile() {
             </span>
 
             <span className="containerButtonsProfile">
-              <div className="buttonProfile">Cancel</div>
               <div className="buttonProfile" onClick={editProfile}>
                 Save
               </div>

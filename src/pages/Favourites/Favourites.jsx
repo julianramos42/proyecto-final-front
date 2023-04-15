@@ -120,9 +120,6 @@ export default function StoresView() {
           <div className="buttonClearAll" onClick={deleteAllFavourite}>
             Clear all favourites
           </div>
-          <span className="deleteIcon">
-            <Delete />
-          </span>
         </div>
         <div className="containerCardsStoresFavourites">
           <div className="alignCardsFavourites">
