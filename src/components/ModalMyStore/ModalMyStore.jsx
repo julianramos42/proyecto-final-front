@@ -51,7 +51,6 @@ export default function Modal({ onClose }) {
       token: shop.token,
     };
 
-
     try {
       if (selectedFile || selectedBanner) {
         if (selectedFile) {
@@ -106,8 +105,8 @@ export default function Modal({ onClose }) {
     const promise = new Promise(async (resolve, reject) => {
       const toastId = toast(
         <div>
-          Are you sure you want to delete your shop?
-          <div>
+          🗑️ Accept to delete your store?
+          <div className="toastButtons">
             <button className="my-button" onClick={() => reject()}>
               Cancel
             </button>
@@ -118,11 +117,13 @@ export default function Modal({ onClose }) {
         </div>,
         {
           position: "top-center",
-          icon: "🗑️",
           style: {
             borderRadius: "10px",
-            background: "#333",
-            color: "#fff",
+            display: "flex",
+            justifyContent: "center",
+            width: "20rem",
+            background: "#fffff",
+            color: "black",
             height: "100px",
           },
         }

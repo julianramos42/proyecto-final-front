@@ -71,10 +71,12 @@ export default function MyStore() {
     const token = localStorage.getItem("token");
     const headers = { headers: { Authorization: `Bearer ${token}` } };
     try {
-      const url = "http://localhost:8080/shop/me";
-      const response = await axios.get(url, headers);
-      setShop(response.data.shop);
-      setReload(true);
+      if(user.seller){
+        const url = "http://localhost:8080/shop/me";
+        const response = await axios.get(url, headers);
+        setShop(response.data.shop);
+        setReload(true);
+      }
     } catch (error) {
       console.log(error);
     }

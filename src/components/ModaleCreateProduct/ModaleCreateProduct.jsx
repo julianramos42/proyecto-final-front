@@ -97,7 +97,7 @@ export default function Modal({ onClose }) {
               <label>Name</label>
               <input type="text" />
             </span>
-            <span>
+            <span className="selecCategory">
               <label>Category</label>
               <select className="selectCate" name="" id="">
                 {categories.map((category, i) => {

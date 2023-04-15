@@ -34,7 +34,7 @@
 }
 
 .buttonEffect:hover {
-  background: #495464;
+  background: #161616;
   border-radius: 12px;
 }
 
@@ -111,6 +111,10 @@
   border-radius: 10px 0 0 10px;
 }
 
+.arrowContainer > svg:hover {
+  background-color: #161616;
+}
+
 .arrowContainer {
   display: flex;
   justify-content: center;
@@ -139,6 +143,10 @@
   background-color: #989998;
   color: #f4f4f2;
   border-radius: 0 10px 10px 0;
+}
+
+.arrowContainerLeft > svg:hover {
+  background-color: #161616;
 }
 
 .arrowContainer.active {
