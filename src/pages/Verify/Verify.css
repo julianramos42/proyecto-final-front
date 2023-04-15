@@ -1,0 +1,48 @@
+.bodyVerify{
+    background: rgba(0,0,0,0.7) url('../../images/img-home.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:bottom;
+    background-blend-mode: darken;
+    height: 100vh;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+}
+
+.infoVerify{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.cont-verify{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    text-align: center;
+}
+
+.cont-verify>h1{
+    color: #EFEFEF;
+}
+
+.cont-verify>a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 9px;
+    width: 180px;
+    color: black;
+    font-weight: 600;
+    background-color: #d7d7d7;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.cont-verify>a:hover {
+    background: #b6b5b5;
+}

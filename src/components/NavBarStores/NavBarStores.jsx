@@ -17,11 +17,13 @@ import { useDispatch } from "react-redux";
 import modalActions from '../../store/ModalForm/actions.js'
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from 'react-router-dom'
 
 const { renderModal } = modalActions
 
 export default function NavBarStores() {
   const dispatch = useDispatch()
+  const navigate = useNavigate();
 
   const [isNavOpen, setIsNavOpen] = useState(true);
 
@@ -61,6 +63,7 @@ export default function NavBarStores() {
       toast.success('The session was closed successfully!')
       setTimeout(() => {
         setIsNavOpen(!isNavOpen)
+        navigate("/shops")
       }, 1000)
     } catch (error) {
       toast.error("You're already signed out or not signed in")
