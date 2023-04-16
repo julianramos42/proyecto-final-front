@@ -163,4 +163,25 @@
     .CardProduct{
       width: 300px;
     }
+    .cont-2-input{
+      flex-direction: column;
+    }
+    .stock{
+      align-items: center;
+      width: 100%;
+    }
+    .price{
+      width: 100%;
+    }
+    .contInputProduct{
+      gap: 7px;
+    }
+    .input-edit-product{
+      font-size: .6rem;
+    }
+    .img-product-card{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
   }

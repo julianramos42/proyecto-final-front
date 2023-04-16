@@ -99,10 +99,10 @@ export default function Modal({ onClose }) {
             </span>
             <span className="selecCategory">
               <label>Category</label>
-              <select name="" id="">
+              <select className="selectCate" name="" id="">
                 {categories.map((category, i) => {
                   let card = (
-                    <option key={i} value={category.category_name}>
+                    <option className="optionCate" key={i} value={category.category_name}>
                       {category.category_name}
                     </option>
                   );

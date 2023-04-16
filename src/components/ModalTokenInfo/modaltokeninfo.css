@@ -1,0 +1,96 @@
+.modalContainer {
+  background: #000000b2;
+  position: fixed;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  z-index: 10;
+}
+
+.modalT {
+  background-color: rgb(226, 226, 226);
+  border-radius: 10px;
+  padding: 10px;
+  width: 50%;
+}
+.mercadopago {
+  cursor: pointer;
+  text-decoration: none;
+  background: #161616;
+  color: white;
+  width: 18rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+}
+
+.mercadopago:hover {
+  background: #272727;
+}
+.videoToken {
+  width: 100%;
+}
+.conttokenX {
+  display: flex;
+  justify-content: space-between;
+}
+.modal-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.close-btn {
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+  background: #161616;
+  color: white;
+  font-size: 900;
+  border-radius: 3px;
+}
+.close-btn:hover {
+  background: #333333;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .modalT {
+    width: 300px;
+    height: 500px;
+  }
+  .mercadopago {
+    width: 17rem;
+    height: 2rem;
+    font-size: 0.65rem;
+  }
+}
+@media (min-width: 481px) and (max-width: 1024px) {
+  .modalT {
+    width: 450px;
+    height: 500px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1724px) {
+  .modalT {
+    width: 1020px;
+    height: 500px;
+    left: -550px;
+  }
+}

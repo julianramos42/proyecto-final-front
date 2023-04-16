@@ -11,6 +11,7 @@ import AWS from "aws-sdk";
 import toast, { Toaster } from "react-hot-toast";
 import Modal from "../../components/ModalMyStore/ModalMyStore";
 import ModalCreateProduct from "../../components/ModaleCreateProduct/ModaleCreateProduct";
+import ModalTokenInfo from "../../components/ModalTokenInfo/ModalTokenInfo";
 import CardProductMyShop from "../../components/CardProductMyShop/CardProductMyShop";
 
 export default function MyStore() {
@@ -30,6 +31,7 @@ export default function MyStore() {
   const [product, setProduct] = useState([]);
   const [categories, setCategories] = useState([]);
   const inputCategory = useRef();
+  const [showModal, setShowModal] = useState(false);
 
   const s3 = new AWS.S3({
     accessKeyId: "AKIAQTTFIUBXM7BF4IE3",
@@ -176,6 +178,10 @@ export default function MyStore() {
     setSelectedBanner(event.target.files[0]);
   }
 
+  function showInfoToken(){
+    setShowModal(true);
+  }
+
   return (
     <>
       <NavBarStores />
@@ -266,10 +272,14 @@ export default function MyStore() {
                   <label>City</label>
                   <input type="text" name="city" required />
                 </span>
-                <span>
+                <span className="tokenClass">
                   <label>Token</label>
-                  <input type="text" name="token" required />
+                  <div className="contTokenInpBtn">
+                    <input className="inputToken" type="text" name="token" required />
+                    <button className="buttonToken" type="button" onClick={showInfoToken}>How to get this token?</button>
+                  </div>
                 </span>
+                <ModalTokenInfo showModal={showModal} setShowModal={setShowModal}/>
                 <span>
                   <label>Upload Logo</label>
                   <input

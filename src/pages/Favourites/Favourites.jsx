@@ -64,7 +64,7 @@ export default function StoresView() {
       <div className="containerContent">
         {modalState === "register" ? <Auth /> : <></>}
         {modalState === "login" ? <Auth /> : <></>}
-        <div className="containerCategories">
+        <div className="containerCategoriesFav">
           <div className="inputContainer">
             <Search />
             <input
@@ -120,9 +120,6 @@ export default function StoresView() {
           <div className="buttonClearAll" onClick={deleteAllFavourite}>
             Clear all favourites
           </div>
-          <span className="deleteIcon">
-            <Delete />
-          </span>
         </div>
         <div className="containerCardsStoresFavourites">
           <div className="alignCardsFavourites">
