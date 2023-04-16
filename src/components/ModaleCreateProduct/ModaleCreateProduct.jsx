@@ -64,7 +64,15 @@ export default function Modal({ onClose }) {
       onClose(true);
       setReload(true);
     } catch (error) {
-      toast.error(error.data.message);
+      if (error.code === "ERR_NETWORK") {
+        toast.error("Network Error");
+      } else {
+        if (typeof error.response.data.message === "string") {
+          toast.error(error.response.data.message);
+        } else {
+          error.response.data.message.forEach((err) => toast.error(err));
+        }
+      }
     }
   }
 

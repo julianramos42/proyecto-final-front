@@ -13,6 +13,7 @@ import Modal from "../../components/ModalMyStore/ModalMyStore";
 import ModalCreateProduct from "../../components/ModaleCreateProduct/ModaleCreateProduct";
 import ModalTokenInfo from "../../components/ModalTokenInfo/ModalTokenInfo";
 import CardProductMyShop from "../../components/CardProductMyShop/CardProductMyShop";
+import { useNavigate } from "react-router-dom";
 
 export default function MyStore() {
   let modalState = useSelector((store) => store.modalFormReducer.state);
@@ -49,7 +50,7 @@ export default function MyStore() {
 
   useEffect(() => {
     getMyShop();
-  }, []);
+  }, [reload]);
 
   useEffect(() => {
     if (isClosed) {
@@ -67,15 +68,15 @@ export default function MyStore() {
     setIsOpen(false);
     setIsClosed(true);
   }
+
   async function getMyShop() {
     const token = localStorage.getItem("token");
     const headers = { headers: { Authorization: `Bearer ${token}` } };
     try {
-      if(user.seller){
+      if (user.seller) {
         const url = "http://localhost:8080/shop/me";
         const response = await axios.get(url, headers);
         setShop(response.data.shop);
-        setReload(true);
       }
     } catch (error) {
       console.log(error);
@@ -84,7 +85,7 @@ export default function MyStore() {
 
   useEffect(() => {
     getMyProducts(shop);
-  }, [shop, reload]);
+  }, [shop]);
 
   async function getMyProducts(shop) {
     setReload(false);
@@ -178,8 +179,13 @@ export default function MyStore() {
     setSelectedBanner(event.target.files[0]);
   }
 
-  function showInfoToken(){
+  function showInfoToken() {
     setShowModal(true);
+  }
+
+  let navigate = useNavigate()
+  function handleCustomer(){
+    navigate(`/shop/${shop._id}`)
   }
 
   return (
@@ -201,6 +207,9 @@ export default function MyStore() {
             </div>
             <div className="infoMyStore">
               <span className="buttonsContainer">
+                <div className="buttonCustomer" onClick={handleCustomer}>
+                  Look as a customer
+                </div>
                 <div className="buttonEditStore" onClick={openModal}>
                   Edit Shop
                 </div>
@@ -279,7 +288,7 @@ export default function MyStore() {
                     <button className="buttonToken" type="button" onClick={showInfoToken}>How to get this token?</button>
                   </div>
                 </span>
-                <ModalTokenInfo showModal={showModal} setShowModal={setShowModal}/>
+                <ModalTokenInfo showModal={showModal} setShowModal={setShowModal} />
                 <span>
                   <label>Upload Logo</label>
                   <input
