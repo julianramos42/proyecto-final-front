@@ -1,0 +1,186 @@
+/** *     MODAL     * **/
+.modalContainer {
+  background: #000000b2;
+  position: fixed;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  z-index: 10;
+}
+
+.contentModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 35rem;
+  height: 68%;
+  background: rgb(211, 211, 211);
+  border-radius: 6px;
+  position: relative;
+}
+
+.contentModal h3 {
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-size: 1.8rem;
+  color: #ffffff;
+  width: 100%;
+  height: 3.2rem;
+  background: #161616;
+  border-radius: 6px 6px 0px 0px;
+}
+
+.containerMyShop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-direction: column;
+  height: 80%;
+  width: 20rem;
+}
+
+.containerMyShop span {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+}
+
+.containerMyShop span label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  font-weight: 500;
+}
+
+.containerMyShop span input {
+  padding: 0.5rem;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.uploadInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: white;
+  height: 2.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.uploadInput:hover {
+  background: rgb(231, 231, 231);
+}
+
+.toastButtons {
+  margin-top: .5rem;
+}
+
+.my-button {
+  background: gray !important;
+}
+
+.my-button:hover {
+  background: rgb(94, 94, 94) !important;
+}
+
+.my-button-delete {
+  background: #3caa1e !important;
+}
+
+.my-button-delete:hover {
+  background: #34921a !important;
+}
+
+.deleteButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  background: #ff6565;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  height: 2.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.deleteButton:hover {
+  background: #748296;
+}
+
+.buttonsContainerModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5rem;
+  gap: 1rem;
+}
+#deletebtn {
+  background-color: #161616;
+  color: white;
+}
+#deletebtn:hover {
+  background-color: #2e2e2e;
+  cursor: pointer;
+}
+
+.buttonsContainerModal button {
+  width: 10rem;
+  cursor: pointer;
+  background: white;
+  font-weight: 500;
+  font-size: 1rem;
+  border: 1px solid rgba(128, 128, 128, 0.459);
+  border-radius: 6px;
+  height: 2.5rem;
+}
+.buttonsContainerModal button:hover {
+  background: rgb(231, 231, 231);
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .containerMyShop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+    height: 70%;
+    width: 16rem;
+  }
+}

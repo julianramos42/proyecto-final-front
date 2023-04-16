@@ -1,0 +1,141 @@
+.containerCardsStoresFavourites {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #d7d7d7;
+  width: 90%;
+  min-height: 90%;
+  overflow: scroll;
+  overflow-x: hidden;
+  border-radius: 16px;
+}
+
+.containerCardsStoresFavourites::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  background-color: #f5f5f5;
+}
+
+.containerCardsStoresFavourites::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 1px solid #f5f5f5;
+  background-color: #c4c4c4;
+}
+
+.containerCardsStoresFavourites::-webkit-scrollbar-thumb:hover {
+  background-color: #a0a0a0;
+}
+
+.buttonClearAll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  height: 2.5rem;
+  font-weight: 400;
+  width: 11rem;
+  border-radius: 6px;
+  color: #3e4755;
+  cursor: pointer;
+}
+
+.buttonClearAll:hover {
+  background: #e7e7e7;
+}
+
+.alignCardsFavourites {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.containerCardsStores {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #d7d7d7;
+  padding-top: 1rem;
+  width: 90%;
+  height: 100%;
+  min-height: 90%;
+  overflow-y: scroll;
+  border-radius: 16px;
+}
+
+.containerCategoriesFav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 7px;
+  height: 4rem;
+  background: #161616;
+  border-radius: 12px;
+  width: 90%;
+}
+
+.containerCategoriesFav select {
+  color: #ffffff;
+  background-color: #161616;
+  border: 1px solid #ffffff;
+  padding: 5px;
+  border-radius: 4px;
+  width: 10rem;
+  height: 2.5rem;
+  outline: none;
+  cursor: pointer;
+}
+
+select::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  background-color: #f5f5f5;
+}
+
+select::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 1px solid #f5f5f5;
+  background-color: #c4c4c4;
+}
+
+select::-webkit-scrollbar-thumb:hover {
+  background-color: #a0a0a0;
+}
+
+.containerCategories option {
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #161616;
+}
+
+@media (min-width: 320px) and (max-width: 661px) {
+  .containerCategoriesFav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    gap: 7px;
+    height: 8rem;
+    width: 90%;
+  }
+
+  .containerCategoriesFav select {
+    width: 7rem;
+  }
+
+  .buttonClearAll {
+    width: 5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .buttonClearAll {
+    display: none;
+  }
+}

@@ -10,7 +10,7 @@ import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
 import modalActions from '../../store/ModalForm/actions.js'
 import { useDispatch } from 'react-redux'
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import close from '../../images/Union.png'
 
 const { renderModal } = modalActions
 
@@ -42,9 +42,10 @@ export default function RegisterForm() {
         try {
             await axios.post(url, data).then(res => {
                 toast.success(res.data.message)
+                toast.success('Please check out your email and verify yourself')
                 setTimeout(() => {
                     dispatch(renderModal({ state: 'login' }))
-                }, 1500)
+                }, 2500)
             })
         } catch (error) {
             if (error.code === "ERR_NETWORK") {
@@ -73,7 +74,7 @@ export default function RegisterForm() {
                 <img src={register} alt='register-img' />
             </div>
             <div className='register-text'>
-                <CloseRoundedIcon className='register-x' onClick={closeModal} />
+                <img src={close} className='register-x' onClick={closeModal}/>
                 <h2>Register</h2>
                 <RegisterFieldsets />
                 <SignBtn text='Sign Up' />

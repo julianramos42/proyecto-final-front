@@ -34,7 +34,7 @@
 }
 
 .buttonEffect:hover {
-  background: #495464;
+  background: #161616;
   border-radius: 12px;
 }
 
@@ -48,7 +48,6 @@
   text-decoration: none;
   color: #989998;
   font-weight: 550;
-  font-size: 1.2rem;
   gap: 1rem;
   width: 100%;
 }
@@ -74,7 +73,7 @@
   justify-content: flex-start;
   align-items: center;
   border-radius: 12px;
-  background: #495464;
+  background: #161616;
   height: 2.2rem;
   padding: 1rem;
   text-decoration: none;
@@ -112,6 +111,10 @@
   border-radius: 10px 0 0 10px;
 }
 
+.arrowContainer > svg:hover {
+  background-color: #161616;
+}
+
 .arrowContainer {
   display: flex;
   justify-content: center;
@@ -136,10 +139,14 @@
 }
 
 .arrowContainerLeft > svg {
-  font-size: 3.5vh;
+  font-size: 4vh;
   background-color: #989998;
   color: #f4f4f2;
   border-radius: 0 10px 10px 0;
+}
+
+.arrowContainerLeft > svg:hover {
+  background-color: #161616;
 }
 
 .arrowContainer.active {

@@ -1,22 +1,104 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./storesview.css";
 import NavBarStores from "../../components/NavBarStores/NavBarStores";
 import CardStoreView from "../../components/CardStoreView/CardStoreView";
-import { Delete } from "../../components/Icons/Icons";
-import { useSelector } from 'react-redux'
-import Auth from '../../components/Auth/Auth'
+import { Delete, Search } from "../../components/Icons/Icons";
+import Auth from "../../components/Auth/Auth";
+import { useDispatch, useSelector } from "react-redux";
+import actions from "../../store/Shops/actions";
+import inputActions from "../../store/InputText/actions";
+import categoriesActions from "../../store/CaptureCategories/actions";
+import axios from "axios";
+
+const { captureShop } = actions;
 
 export default function StoresView() {
-  let modalState = useSelector(store => store.modalFormReducer.state)
-  
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [shopFavourites, setShopFavourites] = useState([]);
+  const token = localStorage.getItem("token");
+  const headers = { headers: { Authorization: `Bearer ${token}` } };
+
+  const text = useRef("");
+  const modalState = useSelector((store) => store.modalFormReducer.state);
+  const shopsData = useSelector((store) => store.shopsReducer.shop);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      captureShop({
+        captureCategories: selectedCategory,
+        inputText: searchTerm,
+      })
+    );
+  }, [selectedCategory, searchTerm]);
+
+  async function getFavourites() {
+    const token = localStorage.getItem("token");
+    const headers = { headers: { Authorization: `Bearer ${token}` } };
+    const url = `http://localhost:8080/favourites/`;
+    try {
+      if(token){
+        const response = await axios.get(url, headers);
+        setShopFavourites(response.data.favourites);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function addFavourite(id) {
+    const url = `http://localhost:8080/favourites/${id}`;
+    try {
+      if(token){
+        const response = await axios.post(url, "", headers);
+        getFavourites();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function deleteFavourite(id) {
+    const url = `http://localhost:8080/favourites/${id}`;
+    try {
+      await axios.delete(url, headers);
+      const newFilter = shopFavourites.filter(
+        (favourite) => favourite.store_id._id !== id
+      );
+
+      setShopFavourites(newFilter);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getFavourites();
+  }, []);
+
+  console.log(shopFavourites)
+
   return (
     <>
       <NavBarStores />
       <div className="containerContent">
-        {modalState === 'register' ? <Auth /> : <></>}
-        {modalState === 'login' ? <Auth /> : <></>}
+        {modalState === "register" || modalState === "login" ? <Auth /> : null}
         <div className="containerCategories">
-          <select>
+          <div className="inputContainer">
+            <Search />
+            <input
+              type="search"
+              ref={text}
+              placeholder="Search for something here..."
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+          <select
+            name="category"
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+            <option value="">All Categories</option>
             <option value="Clothing and Accessories">
               Clothing and Accessories
             </option>
@@ -55,28 +137,20 @@ export default function StoresView() {
             </option>
             <option value="Other">Other</option>
           </select>
-          <span className="deleteIcon">
-            <Delete />
-          </span>
         </div>
         <div className="containerCardsStores">
           <div className="alignCards">
-            <CardStoreView />
-            <CardStoreView />
-            <CardStoreView />
-            <CardStoreView />
-            <CardStoreView />
-            <CardStoreView />
-            <CardStoreView />
-            <CardStoreView />
-            <CardStoreView />
-            <CardStoreView />
-            <CardStoreView />
-            <CardStoreView />
-            <CardStoreView />
-            <CardStoreView />
-            <CardStoreView />
-            <CardStoreView />
+            {shopsData?.map((shop, i) => (
+              <CardStoreView
+                key={i}
+                data={shop}
+                deleteFavourite={deleteFavourite}
+                addFavourite={addFavourite}
+                isFavourite={shopFavourites.some(
+                  (favourite) => favourite.store_id._id == shop._id
+                )}
+              />
+            ))}
           </div>
         </div>
       </div>

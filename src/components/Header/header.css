@@ -31,11 +31,14 @@
   align-items: center;
   width: 15%;
   cursor: pointer;
+  position: relative;
 }
 
 .containerLogo img {
   object-fit: cover;
-  width: 8rem;
+  width: 10rem;
+  position: absolute;
+  left: 0;
 }
 
 .containerLogoInput {
@@ -94,6 +97,9 @@ input[type="search"]::-webkit-search-results-decoration {
 .profileImage:hover {
   filter: brightness(70%);
 }
+.profileAnchor {
+  text-decoration: none;
+}
 
 /* ========= || Header Styles || ========= */
 
@@ -105,7 +111,6 @@ input[type="search"]::-webkit-search-results-decoration {
   .inputContainer input {
     width: 50%;
   }
-
 
   .containerLogo {
     width: 100%;
