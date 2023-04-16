@@ -64,7 +64,7 @@ export default function StoresView() {
       <div className="containerContent">
         {modalState === "register" ? <Auth /> : <></>}
         {modalState === "login" ? <Auth /> : <></>}
-        <div className="containerCategories">
+        <div className="containerCategoriesFav">
           <div className="inputContainer">
             <Search />
             <input
