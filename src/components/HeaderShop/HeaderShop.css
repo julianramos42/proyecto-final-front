@@ -39,6 +39,7 @@
 
 .topShop .navShop .anchorsShop .active{
     font-weight: bold;
+    font-size: 2rem;
 }
 
 .topShop .navShop .bagShop{

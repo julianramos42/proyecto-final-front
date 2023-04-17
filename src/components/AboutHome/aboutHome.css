@@ -1,7 +1,7 @@
 .AboutHome{
     width: 100%;
     min-height: 100vh;
-    background-color: #495464;
+    background-color: #161616;
     display: flex;
 }
 .cont-title{
@@ -87,8 +87,8 @@
     }
     .text_about{
         font-weight: 600;
-        font-size: 25px;
+        font-size: 19px;
+        margin-top: 25px;
         line-height: 30px;
     }
-    
 }
