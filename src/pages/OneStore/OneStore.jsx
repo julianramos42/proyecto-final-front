@@ -9,6 +9,7 @@ import HeaderShop from "../../components/HeaderShop/HeaderShop";
 import { ArrowLeft } from "../../components/Icons/Icons";
 import { useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import wpp from "../../images/wpp.png"
 
 export default function OneStore() {
   let params = new URLSearchParams(window.location.search);
@@ -174,6 +175,8 @@ export default function OneStore() {
     getCategories();
   }, []);
 
+  const phone = shop.phone
+  
   return (
     <>
       <HeaderShop />
@@ -250,6 +253,7 @@ export default function OneStore() {
             })}
           </div>
         </div>
+        <Anchor to={`https://api.whatsapp.com/send?phone=${phone}`} target="_blank" className="btnWpp"><img src={wpp} /></Anchor>
       </div>
       <Toaster position="top-right" />
     </>
