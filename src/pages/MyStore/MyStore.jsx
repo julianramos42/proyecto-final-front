@@ -131,10 +131,6 @@ export default function MyStore() {
       description: formInfo.current?.description?.value || "",
     };
 
-    console.log(selectedBanner);
-    console.log(selectedFile);
-    console.log(data);
-
     try {
       if (selectedFile && selectedBanner) {
         const file = selectedFile;
