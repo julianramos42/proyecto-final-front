@@ -88,7 +88,7 @@ export default function OneStore() {
                 let url = `https://lance-app.onrender.com/shop/${shopId}/cart/deleteall`
                 await axios.delete(url, headers).then(res => {
                     setTimeout(() => {
-                        window.location = `http://localhost:3000/shop/${shopId}`
+                        window.location = `https://lance-app.vercel.app/shop/${shopId}`
                     }, 6000)
                 })
             }
