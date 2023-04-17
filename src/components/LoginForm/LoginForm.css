@@ -49,7 +49,17 @@
 
 .auth-modal .login-form .login-text .link{
     text-decoration: none;
-    background: linear-gradient(153.39deg, #BBBFCA -13.9%, #495464 58.69%);
+    background: linear-gradient(153.39deg, #BBBFCA -13.9%, #161616 58.69%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+}
+.auth-modal .login-form .login-text .link:hover{
+    text-decoration: none;
+    background: linear-gradient(153.39deg, #BBBFCA -13.9%, #464646 58.69%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

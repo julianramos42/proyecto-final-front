@@ -446,6 +446,16 @@
   }
 }
 
+@media (min-width: 603px) and (max-width: 815px) {
+  .infoMyStore {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 95%;
+    height: 7rem;
+  }
+}
+
 @media (min-width: 320px) and (max-width: 775px) {
   .headerViewContentMyStore {
     display: flex;
@@ -494,5 +504,15 @@
   }
   .buttonToken {
     font-size: 0.5rem;
+  }
+  .buttonEditStore {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 1rem;
+  }
+  .buttonCustomer {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: .5rem;
   }
 }

@@ -102,7 +102,7 @@
 }
 
 .toastButtons {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .my-button {
@@ -182,5 +182,18 @@
     flex-direction: column;
     height: 70%;
     width: 16rem;
+  }
+}
+
+@media screen and (width: 1366px) and (height: 665px) {
+  .containerMyShop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-direction: column;
+    height: 80%;
+    width: 20rem;
+    margin-top: 1.5rem;
   }
 }

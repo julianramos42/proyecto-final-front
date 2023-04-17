@@ -25,13 +25,36 @@
   color: rgb(255, 255, 255);
 }
 
+.color_1:hover {
+  background: #3a3a3a;
+}
+
 .color_2 {
   background: #ffffff;
+  color: #161616;
+}
+.color_2:hover {
+  background: #e2e2e2;
   color: #161616;
 }
 
 @media (max-width: 424px) {
   .btnAnchor {
     width: 80%;
+  }
+}
+
+@media screen and (width: 346px) and (height: 647px) {
+  .btnAnchor {
+    width: 80%;
+    margin-bottom: 5rem;
+  }
+
+  .color_2{ 
+    margin-top: 9rem;
+  }
+  .nav-user img {
+    width: 90px;
+    height: 90px;
   }
 }
