@@ -20,7 +20,7 @@ export default function HeaderShop() {
     background: `rgba(0, 0, 0, 0.7) url(${shop.banner})`,
   };
 
-  let shopUrl = `http://localhost:8080/shop/${shopId}`;
+  let shopUrl = `https://lance-app.onrender.com/shop/${shopId}`;
   async function getShop() {
     try {
       await axios.get(shopUrl).then((res) => setShop(res.data.shop));

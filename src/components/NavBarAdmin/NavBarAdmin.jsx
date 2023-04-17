@@ -22,7 +22,7 @@ export default function NavBarAdmin() {
         setIsNavOpen(!isNavOpen);
     }
 
-    let url = 'http://localhost:8080/auth/signout'
+    let url = 'https://lance-app.onrender.com/auth/signout'
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
