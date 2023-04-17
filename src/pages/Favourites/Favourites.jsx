@@ -35,7 +35,7 @@ export default function StoresView() {
 
   async function deleteAllFavourite(e) {
     const favouritesCards = captureFavourites;
-    const url = `http://localhost:8080/favourites/`;
+    const url = `https://lance-app.onrender.com/favourites/`;
     try {
       await axios.delete(url, headers, favouritesCards);
       dispatch(actions.captureFavourites());

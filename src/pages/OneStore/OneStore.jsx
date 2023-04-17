@@ -41,7 +41,7 @@ export default function OneStore() {
 
     async function handlePayment(price) {
         try {
-            let url = `http://localhost:8080/payment/${shopId}`
+            let url = `https://lance-app.onrender.com/payment/${shopId}`
             let data = {
                 "payment_id": payment_id,
                 "totalValue": price,
@@ -61,7 +61,7 @@ export default function OneStore() {
                 cartProducts.forEach(cartProduct => {
                     products.forEach(product => {
                         if (product.name == cartProduct.title) {
-                            let url = `http://localhost:8080/product/update/${product._id}`
+                            let url = `https://lance-app.onrender.com/product/update/${product._id}`
                             let data = {
                                 name: product.name,
                                 price: product.price,
@@ -85,7 +85,7 @@ export default function OneStore() {
     async function deleteAll() {
         try {
             if (status === 'approved' && cartProducts.length) {
-                let url = `http://localhost:8080/shop/${shopId}/cart/deleteall`
+                let url = `https://lance-app.onrender.com/shop/${shopId}/cart/deleteall`
                 await axios.delete(url, headers).then(res => {
                     setTimeout(() => {
                         window.location = `http://localhost:3000/shop/${shopId}`
@@ -115,7 +115,7 @@ export default function OneStore() {
     }
 
     async function getProducts() {
-        let productsUrl = `http://localhost:8080/shop/${shopId}/products?name=${search.current.value}&category=${category}&sort=${sort}`
+        let productsUrl = `https://lance-app.onrender.com/shop/${shopId}/products?name=${search.current.value}&category=${category}&sort=${sort}`
         try {
             await axios.get(productsUrl).then(res => setProducts(res.data.products))
         } catch (err) {
@@ -126,7 +126,7 @@ export default function OneStore() {
     async function getCartProducts() {
         try {
             if (token) {
-                let url = `http://localhost:8080/shop/${shopId}/cart`
+                let url = `https://lance-app.onrender.com/shop/${shopId}/cart`
                 await axios.get(url, headers).then(res => {
                     setCartProducts(res.data.products)
                 })
@@ -137,7 +137,7 @@ export default function OneStore() {
     }
 
 
-    let shopUrl = `http://localhost:8080/shop/${shopId}`
+    let shopUrl = `https://lance-app.onrender.com/shop/${shopId}`
     async function getShop() {
         try {
             await axios.get(shopUrl).then(res => setShop(res.data.shop))
@@ -165,7 +165,7 @@ export default function OneStore() {
     }
 
     async function getCategories() {
-        let url = `http://localhost:8080/categories/${shopId}`
+        let url = `https://lance-app.onrender.com/categories/${shopId}`
         try {
             await axios.get(url).then(res => setCategories(res.data.categories))
         } catch (err) {

@@ -7,7 +7,7 @@ let captureFavourites = createAsyncThunk("captureShop", async () => {
     const headers = { headers: { Authorization: `Bearer ${token}` } };
 
     let response = await axios.get(
-      "http://localhost:8080/favourites/",
+      "https://lance-app.onrender.com/favourites/",
       headers
     );
 
