@@ -63,7 +63,7 @@ export default function NavBarStores() {
       toast.success('The session was closed successfully!')
       setTimeout(() => {
         setIsNavOpen(!isNavOpen)
-        navigate("/shops")
+        navigate("/")
       }, 1000)
     } catch (error) {
       toast.error("You're already signed out or not signed in")

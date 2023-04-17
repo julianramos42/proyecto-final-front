@@ -35,8 +35,8 @@ export default function MyStore() {
   const [showModal, setShowModal] = useState(false);
 
   const s3 = new AWS.S3({
-    accessKeyId: "AKIAQTTFIUBXM7BF4IE3",
-    secretAccessKey: "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",
+    accessKeyId: process.env.REACT_APP_ACCESS_KEY_ID,
+    secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY,
     region: "sa-east-1",
   });
 
@@ -131,12 +131,16 @@ export default function MyStore() {
       description: formInfo.current?.description?.value || "",
     };
 
+    console.log(selectedBanner);
+    console.log(selectedFile);
+    console.log(data);
+
     try {
       if (selectedFile && selectedBanner) {
         const file = selectedFile;
         const fileName = `${file.name}`;
         const params = {
-          Bucket: "lancedatabaseimages",
+          Bucket: "lanceapp",
           Key: fileName,
           Body: file,
         };
@@ -146,7 +150,7 @@ export default function MyStore() {
         const banner = selectedBanner;
         const bannerName = `${banner.name}`;
         const bannerParams = {
-          Bucket: "lancedatabaseimages",
+          Bucket: "lanceapp",
           Key: bannerName,
           Body: banner,
         };
@@ -183,9 +187,9 @@ export default function MyStore() {
     setShowModal(true);
   }
 
-  let navigate = useNavigate()
-  function handleCustomer(){
-    navigate(`/shop/${shop._id}`)
+  let navigate = useNavigate();
+  function handleCustomer() {
+    navigate(`/shop/${shop._id}`);
   }
 
   return (
@@ -284,11 +288,25 @@ export default function MyStore() {
                 <span className="tokenClass">
                   <label>Token</label>
                   <div className="contTokenInpBtn">
-                    <input className="inputToken" type="text" name="token" required />
-                    <button className="buttonToken" type="button" onClick={showInfoToken}>How to get this token?</button>
+                    <input
+                      className="inputToken"
+                      type="text"
+                      name="token"
+                      required
+                    />
+                    <button
+                      className="buttonToken"
+                      type="button"
+                      onClick={showInfoToken}
+                    >
+                      How to get this token?
+                    </button>
                   </div>
                 </span>
-                <ModalTokenInfo showModal={showModal} setShowModal={setShowModal} />
+                <ModalTokenInfo
+                  showModal={showModal}
+                  setShowModal={setShowModal}
+                />
                 <span>
                   <label>Upload Logo</label>
                   <input

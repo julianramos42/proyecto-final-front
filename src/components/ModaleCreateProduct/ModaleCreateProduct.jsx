@@ -12,8 +12,8 @@ export default function Modal({ onClose }) {
   const [categories, setCategories] = useState([]);
 
   const s3 = new AWS.S3({
-    accessKeyId: "AKIAQTTFIUBXM7BF4IE3",
-    secretAccessKey: "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",
+    accessKeyId: process.env.REACT_APP_ACCESS_KEY_ID,
+    secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY,
     region: "sa-east-1",
   });
 
@@ -52,7 +52,7 @@ export default function Modal({ onClose }) {
         const photo = selectedPhoto;
         const photoName = `${photo.name}`;
         const params = {
-          Bucket: "lancedatabaseimages",
+          Bucket: "lanceapp",
           Key: photoName,
           Body: photo,
         };
@@ -110,7 +110,11 @@ export default function Modal({ onClose }) {
               <select className="selectCate" name="" id="">
                 {categories.map((category, i) => {
                   let card = (
-                    <option className="optionCate" key={i} value={category.category_name}>
+                    <option
+                      className="optionCate"
+                      key={i}
+                      value={category.category_name}
+                    >
                       {category.category_name}
                     </option>
                   );
