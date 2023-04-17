@@ -124,7 +124,7 @@ export default function Modal({ onClose }) {
             </span>
             <span>
               <label>Price</label>
-              <input type="number" />
+              <input type="number"  placeholder='Ej:5000'/>
             </span>
             <span>
               <label>Stock</label>
