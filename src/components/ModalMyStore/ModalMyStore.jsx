@@ -49,6 +49,7 @@ export default function Modal({ onClose }) {
       banner: "" || shop.banner,
       description: shop.description,
       token: shop.token,
+      phone: shop.phone
     };
 
     try {
