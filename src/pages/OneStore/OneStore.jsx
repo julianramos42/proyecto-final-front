@@ -32,7 +32,7 @@ export default function OneStore() {
             toast.success(`Thanks for buying from us ${user.name}`) // esto tiene que ser un modal
             let template = 0
             cartProducts.forEach(cartProduct => {
-                template += cartProduct.unit_price
+                template += cartProduct.unit_price*cartProduct.quantity
             })
             setCartPrice(template)
             handlePayment(template)
