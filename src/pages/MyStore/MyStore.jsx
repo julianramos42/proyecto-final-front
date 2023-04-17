@@ -128,12 +128,9 @@ export default function MyStore() {
       token: formInfo.current?.token?.value || "",
       photo: "",
       banner: "",
+      phone: formInfo.current?.phone?.value,
       description: formInfo.current?.description?.value || "",
     };
-
-    console.log(selectedBanner);
-    console.log(selectedFile);
-    console.log(data);
 
     try {
       if (selectedFile && selectedBanner) {
@@ -284,6 +281,16 @@ export default function MyStore() {
                 <span>
                   <label>City</label>
                   <input type="text" name="city" required />
+                </span>
+                <span>
+                  <label>Phone</label>
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="Ej: 3584834852"
+                    onChange={(e) => e.target.value}
+                    required
+                  />
                 </span>
                 <span className="tokenClass">
                   <label>Token</label>

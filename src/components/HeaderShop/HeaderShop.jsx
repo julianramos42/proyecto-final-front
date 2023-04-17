@@ -9,6 +9,8 @@ import ShopModal from "../../components/ShopModal/ShopModal";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
+
+
 const { renderModal } = ShopModalActions;
 
 export default function HeaderShop() {
