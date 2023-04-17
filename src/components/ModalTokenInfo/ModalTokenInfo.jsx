@@ -29,9 +29,9 @@ export default function ModalTokenInfo(props) {
                 height="415"
                 src="https://www.youtube.com/embed/hJLElbwxnRg"
                 title="Mercado Pago Key"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                allowFullScreen
               ></iframe>
                 <Anchor
                   to="https://www.mercadopago.com.ar/developers/es/docs"

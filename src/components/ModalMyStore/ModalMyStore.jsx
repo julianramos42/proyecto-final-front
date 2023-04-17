@@ -16,8 +16,8 @@ export default function Modal({ onClose }) {
   const [confirmationToast, setConfirmationToast] = useState(null);
 
   const s3 = new AWS.S3({
-    accessKeyId: "AKIAQTTFIUBXM7BF4IE3",
-    secretAccessKey: "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",
+    accessKeyId: process.env.REACT_APP_ACCESS_KEY_ID,
+    secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY,
     region: "sa-east-1",
   });
 
@@ -57,7 +57,7 @@ export default function Modal({ onClose }) {
           const file = selectedFile;
           const fileName = `${file.name}`;
           const params = {
-            Bucket: "lancedatabaseimages",
+            Bucket: "lanceapp",
             Key: fileName,
             Body: file,
           };
@@ -68,7 +68,7 @@ export default function Modal({ onClose }) {
           const banner = selectedBanner;
           const bannerName = `${banner.name}`;
           const bannerParams = {
-            Bucket: "lancedatabaseimages",
+            Bucket: "lanceapp",
             Key: bannerName,
             Body: banner,
           };

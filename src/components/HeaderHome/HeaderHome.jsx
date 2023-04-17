@@ -185,9 +185,9 @@ export default function HeaderHome() {
           >
             Contact
           </Anchor>
-          <Anchor className="btn_nav" to="/admin/shops">
+          {user.admin ? <Anchor className="btn_nav" to="/admin/shops">
             Admin
-          </Anchor>
+          </Anchor> : <></>}
         </div>
         <div className="cont_BtnSing">
           {token ? <></> : <BtnSign name="Login" onClick={handleSignIn} />}
@@ -236,32 +236,37 @@ export default function HeaderHome() {
                 Stores
               </Anchor>
             </div>
-            <div className="nav-btn">
-              <Admin />
-              <Anchor className="a-btn" to="/admin/shops">
-                Admin
-              </Anchor>
-            </div>
-            {token ? (
-              <></>
-            ) : (
-              <div className="nav-btn">
-                <Anchor className="a-btn" onClick={handleSignUpModal}>
-                  <PersonAddAltRoundedIcon />
-                  Register
+            {
+              user.admin ? <div className="nav-btn">
+                <Anchor className="a-btn" to="/admin/shops">
+                <Admin />
+                  Admin
                 </Anchor>
-              </div>
-            )}
-            {token ? (
-              <></>
-            ) : (
-              <div className="nav-btn">
-                <Anchor className="a-btn" onClick={handleSignInModal}>
-                  <PersonRoundedIcon />
-                  Login
-                </Anchor>
-              </div>
-            )}
+              </div> : <></>
+            }
+            {
+              token ?
+                <></>
+                :
+                <div className="nav-btn">
+                  <Anchor className="a-btn" onClick={handleSignUpModal}>
+                    <PersonAddAltRoundedIcon />
+                    Register
+                  </Anchor>
+                </div>
+
+            }
+            {
+              token ?
+                <></>
+                :
+                <div className="nav-btn">
+                  <Anchor className="a-btn" onClick={handleSignInModal}>
+                    <PersonRoundedIcon />
+                    Login
+                  </Anchor>
+                </div>
+            }
           </div>
           <div className="cont_footNav">
             <div className="nav-btn">
@@ -270,16 +275,17 @@ export default function HeaderHome() {
                 Help
               </Anchor>
             </div>
-            {token ? (
-              <div className="nav-btn">
-                <Anchor className="a-btn" onClick={handleSignOutModal}>
-                  <ExitToAppRoundedIcon />
-                  Logout
-                </Anchor>
-              </div>
-            ) : (
-              <></>
-            )}
+            {
+              token ?
+                <div className="nav-btn">
+                  <Anchor className="a-btn" onClick={handleSignOutModal}>
+                    <ExitToAppRoundedIcon />
+                    Logout
+                  </Anchor>
+                </div>
+                :
+                <></>
+            }
           </div>
         </div>
       </div>

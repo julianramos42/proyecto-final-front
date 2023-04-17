@@ -177,6 +177,23 @@
   background: #383838;
 }
 
+.buttonCustomer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  color: white;
+  background: #161616;
+  width: 11rem;
+  height: 2rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.buttonCustomer:hover {
+  background: #383838;
+}
+
 .buttonsContainer {
   display: flex;
   justify-content: flex-end;
