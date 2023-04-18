@@ -287,7 +287,7 @@ export default function MyStore() {
                   <input
                     type="text"
                     name="phone"
-                    placeholder="Ej: 3584834852"
+                    placeholder="Ej: 543584834852"
                     onChange={(e) => e.target.value}
                     required
                   />
